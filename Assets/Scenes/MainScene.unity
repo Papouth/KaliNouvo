@@ -703,10 +703,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d3104d0ea9a8f4994d68bb6a8a3ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plaques:
-  - {fileID: 1593570538}
-  - {fileID: 147231030}
-  - {fileID: 1223734157}
+  generateur: []
+  cameraDoor: {fileID: 0}
+  timingTransition: 8
 --- !u!1 &75805446 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7438899248674094903, guid: ba9fcb8ce940c0f4f97bffe69b7225aa,
@@ -1117,12 +1116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3636d3e0f4b0f44b95bc30ebb786f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0
-  rb: {fileID: 0}
   playerInteractorDistance: {fileID: 0}
-  cube: {fileID: 4685609807112040223, guid: 6e24c86fbf4cd074c87bad4478a373b1, type: 3}
-  spawnPos: {fileID: 941654030}
-  topCube: {fileID: 795044798}
   dialogues:
     npcName: 
     npcNameImage: {fileID: 0}
@@ -1188,12 +1182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3636d3e0f4b0f44b95bc30ebb786f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0
-  rb: {fileID: 0}
   playerInteractorDistance: {fileID: 0}
-  cube: {fileID: 5574854370575994575, guid: d5058d445039b764f8898f3e8c96c24e, type: 3}
-  spawnPos: {fileID: 388577223}
-  topCube: {fileID: 2106312695}
   dialogues:
     npcName: 
     npcNameImage: {fileID: 0}
@@ -1304,12 +1293,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 1865253946}
+      objectReference: {fileID: 0}
     - target: {fileID: 717258714201837783, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 1865253946}
+      objectReference: {fileID: 0}
     - target: {fileID: 717258714208610850, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1388,7 +1377,7 @@ PrefabInstance:
     - target: {fileID: 717258715682608598, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8135319
+      value: -1.4864678
       objectReference: {fileID: 0}
     - target: {fileID: 717258715682608598, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
@@ -1398,22 +1387,22 @@ PrefabInstance:
     - target: {fileID: 717258715682608598, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.00000003818224
+      value: -0.000000038182243
       objectReference: {fileID: 0}
     - target: {fileID: 717258715682608598, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000000011004567
+      value: -0.00000001100457
       objectReference: {fileID: 0}
     - target: {fileID: 717258715682608598, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9608875
+      value: 0.96088755
       objectReference: {fileID: 0}
     - target: {fileID: 717258715682608598, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.27693903
+      value: -0.276939
       objectReference: {fileID: 0}
     - target: {fileID: 717258715791264468, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
@@ -2225,9 +2214,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 990df2fed332a6f4e88870caef0c307a, type: 2}
-  m_sharedMaterial: {fileID: -7519461175901292832, guid: 990df2fed332a6f4e88870caef0c307a,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2481,12 +2469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3636d3e0f4b0f44b95bc30ebb786f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0
-  rb: {fileID: 0}
   playerInteractorDistance: {fileID: 0}
-  cube: {fileID: 7459339983721684244, guid: 59da2e9d81744b64eb8afcd022a4b7ad, type: 3}
-  spawnPos: {fileID: 597180650}
-  topCube: {fileID: 453884904}
   dialogues:
     npcName: 
     npcNameImage: {fileID: 0}
@@ -4741,6 +4724,37 @@ Transform:
   m_Father: {fileID: 1912643504}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1256589530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1256589531}
+  m_Layer: 0
+  m_Name: ezgfezafrearf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1256589531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256589530}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.030746, y: 19.894203, z: -93.85498}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1268336248 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7438899249620273000, guid: ba9fcb8ce940c0f4f97bffe69b7225aa,
@@ -5290,12 +5304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3636d3e0f4b0f44b95bc30ebb786f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0
-  rb: {fileID: 0}
   playerInteractorDistance: {fileID: 0}
-  cube: {fileID: 7544750868876853655, guid: 0c53ed91f59143440a48bce2cb0b7913, type: 3}
-  spawnPos: {fileID: 2116973178}
-  topCube: {fileID: 1802992264}
   dialogues:
     npcName: 
     npcNameImage: {fileID: 0}
@@ -5663,8 +5672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1feddfe2f8ea4c40b085747d2d9b113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0
-  rb: {fileID: 0}
   playerInteractorDistance: {fileID: 0}
   isDestroyable: 0
 --- !u!65 &1782941907
@@ -5972,12 +5979,6 @@ PrefabInstance:
       objectReference: {fileID: 911379049}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9ab10c458166441821c0e6b953420b, type: 3}
---- !u!4 &1865253946 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2483335804890649975, guid: 2a9ab10c458166441821c0e6b953420b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1865253945}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1867297366
 GameObject:
   m_ObjectHideFlags: 0
@@ -6468,7 +6469,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedDisplay: 0.05
   playerInput: {fileID: 1018284096}
-  UIInstance: {fileID: 2023211967}
 --- !u!4 &2023211966
 Transform:
   m_ObjectHideFlags: 0
@@ -6510,6 +6510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e8378302f8a5341ba22a8def2b0c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  havePass: 0
 --- !u!1 &2024158894 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7438899249272781321, guid: ba9fcb8ce940c0f4f97bffe69b7225aa,
@@ -6562,12 +6563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3636d3e0f4b0f44b95bc30ebb786f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0
-  rb: {fileID: 0}
   playerInteractorDistance: {fileID: 0}
-  cube: {fileID: 7851100072269075750, guid: b5407df4dbd1f204d87b6acdd11df1c1, type: 3}
-  spawnPos: {fileID: 1659143573}
-  topCube: {fileID: 1127279636}
   dialogues:
     npcName: 
     npcNameImage: {fileID: 0}
