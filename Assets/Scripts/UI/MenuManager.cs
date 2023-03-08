@@ -180,7 +180,24 @@ public class MenuManager : MonoBehaviour
 
         EnableMenu(null, docMainMenu);
         Time.timeScale = 1;
-        SceneManager.LoadScene(sceneIntro, LoadSceneMode.Additive);
+
+        //Temporaire
+        PlayerTemporel playerTempo;
+        playerTempo = FindObjectOfType<PlayerTemporel>();
+        playerTempo.GetComponent<CharacterController>().enabled = true;
+
+
+        playerTempo.ChangeStringName("Tutoriel_01_Passe", "Tutoriel_01_Present");
+
+        SceneManager.LoadScene(playerTempo.present, LoadSceneMode.Additive);
+
+        SceneManager.LoadScene(playerTempo.past, LoadSceneMode.Additive);
+
+        playerTempo.ChangeSceneToLoad("Tutoriel_01_Passe", "Tutoriel_01_Present");
+
+
+        
+        //SceneManager.LoadScene(sceneIntro, LoadSceneMode.Additive);
     }
 
     /// <summary>
