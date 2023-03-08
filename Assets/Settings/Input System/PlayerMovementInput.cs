@@ -134,6 +134,24 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseX"",
+                    ""type"": ""Value"",
+                    ""id"": ""89a802f4-4150-4e81-9d5d-19cb580fddd6"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MouseY"",
+                    ""type"": ""Value"",
+                    ""id"": ""cf171498-1149-465f-8c83-757c2113038c"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -312,6 +330,28 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8cb8651c-2acc-458b-8138-d0fdbc55fd8d"",
+                    ""path"": ""<Mouse>/position/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseX"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e6e4bc5-eba7-4a85-b9f2-ff76df10e7b8"",
+                    ""path"": ""<Mouse>/position/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -332,6 +372,8 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
         m_PlayerMap_Select = m_PlayerMap.FindAction("Select", throwIfNotFound: true);
         m_PlayerMap_MousePosition = m_PlayerMap.FindAction("MousePosition", throwIfNotFound: true);
         m_PlayerMap_Menu = m_PlayerMap.FindAction("Menu", throwIfNotFound: true);
+        m_PlayerMap_MouseX = m_PlayerMap.FindAction("MouseX", throwIfNotFound: true);
+        m_PlayerMap_MouseY = m_PlayerMap.FindAction("MouseY", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -403,6 +445,8 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMap_Select;
     private readonly InputAction m_PlayerMap_MousePosition;
     private readonly InputAction m_PlayerMap_Menu;
+    private readonly InputAction m_PlayerMap_MouseX;
+    private readonly InputAction m_PlayerMap_MouseY;
     public struct PlayerMapActions
     {
         private @PlayerMovementInput m_Wrapper;
@@ -419,6 +463,8 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
         public InputAction @Select => m_Wrapper.m_PlayerMap_Select;
         public InputAction @MousePosition => m_Wrapper.m_PlayerMap_MousePosition;
         public InputAction @Menu => m_Wrapper.m_PlayerMap_Menu;
+        public InputAction @MouseX => m_Wrapper.m_PlayerMap_MouseX;
+        public InputAction @MouseY => m_Wrapper.m_PlayerMap_MouseY;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -464,6 +510,12 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
                 @Menu.started -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnMenu;
                 @Menu.performed -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnMenu;
                 @Menu.canceled -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnMenu;
+                @MouseX.started -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnMouseX;
+                @MouseX.performed -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnMouseX;
+                @MouseX.canceled -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnMouseX;
+                @MouseY.started -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnMouseY;
+                @MouseY.performed -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnMouseY;
+                @MouseY.canceled -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnMouseY;
             }
             m_Wrapper.m_PlayerMapActionsCallbackInterface = instance;
             if (instance != null)
@@ -504,6 +556,12 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
                 @Menu.started += instance.OnMenu;
                 @Menu.performed += instance.OnMenu;
                 @Menu.canceled += instance.OnMenu;
+                @MouseX.started += instance.OnMouseX;
+                @MouseX.performed += instance.OnMouseX;
+                @MouseX.canceled += instance.OnMouseX;
+                @MouseY.started += instance.OnMouseY;
+                @MouseY.performed += instance.OnMouseY;
+                @MouseY.canceled += instance.OnMouseY;
             }
         }
     }
@@ -522,5 +580,7 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
         void OnSelect(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
+        void OnMouseX(InputAction.CallbackContext context);
+        void OnMouseY(InputAction.CallbackContext context);
     }
 }
