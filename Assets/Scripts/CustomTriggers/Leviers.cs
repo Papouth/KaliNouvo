@@ -9,11 +9,11 @@ public class Leviers : CustomsTriggers
     public UnityEvent leverEvent;
     private bool boolCheck;
 
-    [Header("Si c'est une porte à ouvrir")] 
+    [Header("Si c'est une porte ï¿½ ouvrir")] 
     [SerializeField] private Animation theDoorAnim;
     [SerializeField] private GameObject doorToDestroy;
 
-    [Header("Si c'est une plateforme à activer")]
+    [Header("Si c'est une plateforme ï¿½ activer")]
     [Tooltip("Le script de la plateforme que l'on souhaite activer")]
     [SerializeField] private Plateforme plateformeScript;
 
@@ -21,9 +21,9 @@ public class Leviers : CustomsTriggers
     private Animator animLever;
 
 
-    private void Start()
+    public override void Start()
     {
-        //animLever = GetComponent<Animator>();
+        animLever = GetComponent<Animator>();
         //if (plateformeScript != null) plateformeScript = GetComponent<Plateforme>();
     }
 

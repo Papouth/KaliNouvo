@@ -11,6 +11,7 @@ public class Door : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera cameraDoor;
     private Vector3 target;
     private bool isFinish;
+    private bool canUnlock;
     [SerializeField] private float timingTransition = 8;
     private float timer;
 
@@ -33,7 +34,9 @@ public class Door : MonoBehaviour
 
     public void Update()
     {
-        if (CanUnlockDoor() && isFinish == false)
+        CanUnlockDoor();
+
+        if (isFinish == false && canUnlock == true)
         {
             UnlockDoor();
         }
@@ -68,18 +71,32 @@ public class Door : MonoBehaviour
     /// Debloque la porte si les generateurs sont actifs
     /// </summary>
     /// <returns></returns>
-    private bool CanUnlockDoor()
+    private void CanUnlockDoor()
     {
-        for (int i = 0; i < generateur.Length; i++)
+        if (generateur.Length > 0)
         {
-            if (generateur[i].valid == false)
+            for (int i = 0; i < generateur.Length; i++)
             {
-                return false;
+                if (generateur[i].valid == false)
+                {
+                    Debug.Log("Here1");
+                    canUnlock = false;
+                    return;
+                }
             }
         }
+        else { canUnlock = false; Debug.Log("Here2"); return; }
 
-        return true;
+        Debug.Log("Here3");
+        canUnlock = true;
     }
+
+    public void UnlockDoorLever()
+    {
+        canUnlock = true;
+    }
+
+
 
     #endregion
 }
