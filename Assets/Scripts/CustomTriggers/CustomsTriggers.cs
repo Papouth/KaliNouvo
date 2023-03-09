@@ -16,10 +16,10 @@ public abstract class CustomsTriggers : MonoBehaviour, IInteractable
     [HideInInspector] public PlayerInteractorDistance playerInteractorDistance;
 
 
-    public virtual void Awake()
+    public virtual void Start()
     {
         PlayerInteractor player = PlayerInteractor.playerInteractorInstance;
-
+        Debug.Log(player);
         playerInteractorDistance = player.gameObject.GetComponent<PlayerInteractorDistance>();
 
         rb = GetComponent<Rigidbody>();

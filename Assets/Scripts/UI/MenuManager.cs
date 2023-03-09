@@ -120,13 +120,13 @@ public class MenuManager : MonoBehaviour
 
 
         //Audio part :
-        Slider sliderMasterVolume  = rootSettingsMenu.Q<Slider>("MasterVolume");
+        Slider sliderMasterVolume = rootSettingsMenu.Q<Slider>("MasterVolume");
         audioManager.allSlider[0] = sliderMasterVolume;
         Slider sliderMusicVolume = rootSettingsMenu.Q<Slider>("MusicVolume");
         audioManager.allSlider[1] = sliderMusicVolume;
         Slider sliderDialogueVolume = rootSettingsMenu.Q<Slider>("DialogueVolume");
         audioManager.allSlider[2] = sliderDialogueVolume;
-        Slider sliderSFXVolume =  rootSettingsMenu.Q<Slider>("SFXVolume");
+        Slider sliderSFXVolume = rootSettingsMenu.Q<Slider>("SFXVolume");
         audioManager.allSlider[3] = sliderSFXVolume;
 
 
@@ -164,7 +164,7 @@ public class MenuManager : MonoBehaviour
 
         resumeButton.clickable.clicked += () => { EnableMenu(null, docPlayMenu); Time.timeScale = 1; activeMenuGame = true; };
         optionButton.clickable.clicked += () => { EnableMenu(docSettingsMenu, docPlayMenu); };
-        leaveButton.clickable.clicked += () => { EnableMenu(docMainMenu, docPlayMenu); };
+        leaveButton.clickable.clicked += () => { EnableMenu(docMainMenu, docPlayMenu); BackMenuToMenu(); };
 
         Debug.Log("Play Menu Set");
     }
@@ -183,8 +183,16 @@ public class MenuManager : MonoBehaviour
 
         SceneManager.LoadScene(sceneIntro, LoadSceneMode.Additive);
 
-        
-        SceneManager.UnloadSceneAsync(mainMenuScene);
+
+    }
+
+
+    private void BackMenuToMenu()
+    {
+        PlayerTemporel player = playerInput.GetComponent<PlayerTemporel>();
+
+        SceneManager.UnloadSceneAsync(player.present);
+        SceneManager.UnloadSceneAsync(player.past);
     }
 
     /// <summary>

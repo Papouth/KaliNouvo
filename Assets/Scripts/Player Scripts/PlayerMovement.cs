@@ -225,6 +225,13 @@ public class PlayerMovement : MonoBehaviour
                 coyoteTime = coyoteTimer;
             }
         }
+        else
+        {
+            if (ySpeed <= -50)
+            {
+                ySpeed = -50;
+            }
+        }
 
         // En état de climb
         if (playerNewClimbSystem.isClimbing && !climbingSecurityTimer)
@@ -262,7 +269,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void ClimbSecurityChecker()
-    {    
+    {
         climbingSecurityTimer = true;
     }
 
