@@ -79,15 +79,13 @@ public class Door : MonoBehaviour
             {
                 if (generateur[i].valid == false)
                 {
-                    Debug.Log("Here1");
                     canUnlock = false;
                     return;
                 }
             }
         }
-        else { canUnlock = false; Debug.Log("Here2"); return; }
+        else { canUnlock = false;  return; }
 
-        Debug.Log("Here3");
         canUnlock = true;
     }
 
