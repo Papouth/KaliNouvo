@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
+    #region Variables
     public static GameManager GM;
     public bool havePass;
 
+    public CinemachineBrain cB;
 
+    public CinemachineSmoothPath _currentPath;
+    #endregion
+
+    #region Built In Methods
     private void Awake()
     {
         if (GM != null)
@@ -21,4 +28,5 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
     }
+    #endregion
 }

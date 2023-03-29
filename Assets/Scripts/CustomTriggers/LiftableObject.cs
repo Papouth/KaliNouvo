@@ -6,10 +6,10 @@ public class LiftableObject : CustomsTriggers
 {
     private PastToPresent pTp;
 
-    public override void Awake()
+    public override void Start()
     {
         pTp = GetComponent<PastToPresent>();
-        base.Awake();
+        base.Start();
     }
 
     public override void Interact()

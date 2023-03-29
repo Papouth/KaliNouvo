@@ -16,21 +16,17 @@ public class Npc : CustomsTriggers
 
 
     #region Built In Methods
-    public override void Awake()
+    public override void Start()
     {
-        if(DialogueManager.InstanceDialogue)
-        manager = DialogueManager.InstanceDialogue;
+        if (DialogueManager.InstanceDialogue)
+            manager = DialogueManager.InstanceDialogue;
         else Debug.LogError("Pas de dialogue manager ?");
-        
+
         //topCube.SetActive(false);
 
         if (PlayerInteractor.playerInteractorInstance.GetComponent<PlayerInteractorDistance>() != null)
             playerInteractorDistance = PlayerInteractor.playerInteractorInstance.GetComponent<PlayerInteractorDistance>();
 
-    }
-
-    private void Start()
-    {
         player = FindObjectOfType<PlayerMovement>().transform;
     }
     #endregion
@@ -59,7 +55,7 @@ public class Npc : CustomsTriggers
         base.OnTriggerEnter(other);
         if (other.CompareTag("Player"))
         {
-            // Peut être remplacer par un point d'interrogation par exemple
+            // Peut ï¿½tre remplacer par un point d'interrogation par exemple
             //topCube.SetActive(true);
 
             LookAtPlayer();
@@ -76,7 +72,7 @@ public class Npc : CustomsTriggers
     {
         if (other.CompareTag("Player"))
         {
-            // Peut être remplacer par un point d'interrogation par exemple
+            // Peut ï¿½tre remplacer par un point d'interrogation par exemple
             //topCube.SetActive(false);
 
             manager.EndDialogue();

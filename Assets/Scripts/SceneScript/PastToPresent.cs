@@ -10,17 +10,17 @@ public class PastToPresent : MonoBehaviour
     [HideInInspector]
     public bool canLift;
 
-    [Tooltip("Le prefab du passé")]
+    [Tooltip("Le prefab du passï¿½")]
     public GameObject pastPrefab;
 
-    [Tooltip("Le prefab du présent")]
+    [Tooltip("Le prefab du prï¿½sent")]
     public GameObject presentPrefab;
 
 
     [Header("Scenes Infos")]
     [SerializeField] private bool isPresent;
     private bool prefabState;
-    [Tooltip("La scène dans laquelle la caisse se trouve")]
+    [Tooltip("La scï¿½ne dans laquelle la caisse se trouve")]
     public string actualScene;
     private Scene scene;
     private bool alreadyCheck;
@@ -38,7 +38,7 @@ public class PastToPresent : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if (rb == null) rb = GetComponentInChildren<Rigidbody>();
 
-        // On commence dans le présent
+        // On commence dans le prï¿½sent
         isPresent = true;
     }
 
@@ -74,16 +74,18 @@ public class PastToPresent : MonoBehaviour
 
 
     /// <summary>
-    /// Détermine la temporalité dans laquelle le joueur se trouve actuellement
+    /// Dï¿½termine la temporalitï¿½ dans laquelle le joueur se trouve actuellement
     /// </summary>
     private void SceneFinder()
     {
-        // sceneState == false -> on est dans le présent
-        // sceneState == true -> on est dans le passé
+        // sceneState == false -> on est dans le prï¿½sent
+        // sceneState == true -> on est dans le passï¿½
+
+        if(playerTemporel == null) return;
 
         if (!playerTemporel.sceneState)
         {
-            //Debug.Log("On est dans le présent");
+            //Debug.Log("On est dans le prï¿½sent");
             isPresent = true;
 
 
@@ -97,7 +99,7 @@ public class PastToPresent : MonoBehaviour
         }
         else if (playerTemporel.sceneState)
         {
-            //Debug.Log("On est dans le passé");
+            //Debug.Log("On est dans le passï¿½");
             isPresent = false;
 
 
@@ -113,7 +115,7 @@ public class PastToPresent : MonoBehaviour
 
 
     /// <summary>
-    /// Le joueur peut pousser l'objet dans le passé
+    /// Le joueur peut pousser l'objet dans le passï¿½
     /// </summary>
     private void PushOnOff()
     {
@@ -122,7 +124,7 @@ public class PastToPresent : MonoBehaviour
     }
 
     /// <summary>
-    /// Le joueur ne peux pas porter l'objet dans le présent
+    /// Le joueur ne peux pas porter l'objet dans le prï¿½sent
     /// </summary>
     private void LiftOnOff()
     {

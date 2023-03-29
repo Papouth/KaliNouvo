@@ -23,7 +23,6 @@ public class PlayerInteractor : MonoBehaviour
     private void Awake()
     {
         playerInteractorInstance = this;
-        
         playerInput = GetComponent<PlayerInput>();
     }
 

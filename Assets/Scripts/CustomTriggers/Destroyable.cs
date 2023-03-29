@@ -12,7 +12,7 @@ public class Destroyable : CustomsTriggers
     private Animator anim;
     private bool playerCheck;
 
-    public override void Awake()
+    public override void Start()
     {
         if (gameObject.CompareTag("Destroyable")) isDestroyable = true;
     }
