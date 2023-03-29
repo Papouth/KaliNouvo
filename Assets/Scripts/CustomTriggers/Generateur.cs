@@ -8,17 +8,18 @@ public class Generateur : CustomsTriggers
 
     [HideInInspector] public bool valid;
 
-    [SerializeField] private MeshRenderer meshIndicateur;
-    [SerializeField] private Material materialToReplace;
+    [SerializeField] private MeshRenderer _indicator;
+    [SerializeField] private Material _indicatorMaterial;
+
 
     #endregion
 
     #region Built in methods
     private void Start()
     {
-        if (meshIndicateur == null) Debug.LogError("NO MESH INDICATEUR");
+
     }
-    
+
     #endregion
 
     #region Customs Methods
@@ -26,10 +27,12 @@ public class Generateur : CustomsTriggers
     public override void Interact()
     {
         valid = true;
+        Debug.Log("Here");
 
-        Material[] materials = meshIndicateur.materials;
-        materials[1] = materialToReplace;
-        meshIndicateur.materials = materials; //A modifier selon modèle
+        if (!_indicator) return;
+
+        _indicator.materials = new Material[2] { _indicator.materials[1], _indicatorMaterial };
+
     }
 
     #endregion
