@@ -34,9 +34,12 @@ public class RespawnSystem : MonoBehaviour
     /// Check if it's grounded
     /// </summary>
     /// <returns></returns>
-    public bool CheckGrounded()
+    public virtual bool CheckGrounded()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, 2f, respawnObject))
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, Vector3.down, out hit,  2f, respawnObject))
         {
             return true;
         }
