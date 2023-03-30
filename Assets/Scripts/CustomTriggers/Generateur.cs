@@ -11,13 +11,14 @@ public class Generateur : CustomsTriggers
     [SerializeField] private MeshRenderer _indicator;
     [SerializeField] private Material _indicatorMaterial;
 
+    private Animator _animator;
 
     #endregion
 
     #region Built in methods
-    private void Start()
+    private void Awake()
     {
-
+        _animator = GetComponent<Animator>();
     }
 
     #endregion
@@ -32,6 +33,8 @@ public class Generateur : CustomsTriggers
         if (!_indicator) return;
 
         _indicator.materials = new Material[2] { _indicator.materials[1], _indicatorMaterial };
+
+        _animator.SetBool("Enable", valid);
 
     }
 

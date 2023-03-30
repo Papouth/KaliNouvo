@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public CinemachineBrain cB;
 
     public CinemachineSmoothPath _currentPath;
+
+    public GameObject player;
     #endregion
 
     #region Built In Methods
