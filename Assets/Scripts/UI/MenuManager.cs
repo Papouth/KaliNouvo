@@ -191,6 +191,8 @@ public class MenuManager : MonoBehaviour
     {
         PlayerTemporel player = playerInput.GetComponent<PlayerTemporel>();
 
+        player.GetComponent<CharacterController>().enabled = false;
+
         SceneManager.UnloadSceneAsync(player.present);
         SceneManager.UnloadSceneAsync(player.past);
     }

@@ -15,7 +15,7 @@ public class Leviers : CustomsTriggers
 
     [Header("Si c'est une plateforme � activer")]
     [Tooltip("Le script de la plateforme que l'on souhaite activer")]
-    [SerializeField] private Plateforme plateformeScript;
+    [SerializeField] private Plateforme plateformeScript;   
 
 
     private Animator animLever;
