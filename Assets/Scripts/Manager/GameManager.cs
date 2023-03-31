@@ -9,7 +9,11 @@ public class GameManager : MonoBehaviour
     public static GameManager GM;
     public bool havePass;
 
-    public CinemachineBrain cB;    
+    public CinemachineBrain cB;
+
+    public CinemachineSmoothPath _currentPath;
+
+    public GameObject player;
     #endregion
 
     #region Built In Methods

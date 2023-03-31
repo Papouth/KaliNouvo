@@ -833,7 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f52f3088146d74d87a30dab1decb46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 5
   climbSpeedReducer: 6
   climbJumpBuffer: 1.1
   directionInput: {x: 0, y: 0, z: 0}
@@ -853,7 +853,8 @@ MonoBehaviour:
   raycastLenghtCheck: 1
   jumpForce: 5
   coyoteTimer: 0.1
-  crouchSpeed: 0.3
+  crouchWalkSpeed: 3
+  crouchSpeedHeight: 0.3
   standHeight: 1.5
   crouchHeight: 1.1
   raycastCanStandUp:
@@ -867,6 +868,7 @@ MonoBehaviour:
     m_Bits: 375
   rangeMaxStandUp: 0.8
   centerZ: 0.08
+  inCrouch: 0
   climbJumpTimer: 1.1
   climbUpAnimation: 2.2
   climbingSecurityTimer: 0
@@ -955,7 +957,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1.5
   m_Radius: 0.25
-  m_SlopeLimit: 45
+  m_SlopeLimit: 60
   m_StepOffset: 0.4
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
@@ -1111,7 +1113,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8233528653410943343}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 778d2963db426ee4cbd509dac6b78778, type: 3}
   m_Name: 

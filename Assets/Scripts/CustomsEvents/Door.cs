@@ -53,6 +53,9 @@ public class Door : MonoBehaviour
     {
         cameraDoor.m_Priority = 100;
 
+        GameManager.GM.player.GetComponent<PlayerMovement>().cc.enabled = false;
+
+
         if (Vector3.Distance(Camera.main.transform.position, target) <= .1f)
         {
             doorAnimator.SetBool("IsValid", true);
@@ -64,6 +67,7 @@ public class Door : MonoBehaviour
         {
             cameraDoor.Priority = -100;
             isFinish = true;
+            GameManager.GM.player.GetComponent<PlayerMovement>().cc.enabled = true;
         }
     }
 
@@ -84,7 +88,7 @@ public class Door : MonoBehaviour
                 }
             }
         }
-        else { canUnlock = false;  return; }
+        else { canUnlock = false; return; }
 
         canUnlock = true;
     }
