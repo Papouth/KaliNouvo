@@ -18,8 +18,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private UIDocument docSettingsMenu;
     private VisualElement rootSettingsMenu;
-
     public AudioManager audioManager;
+
 
     [Header("Credits Menu")]
     [SerializeField]
@@ -113,6 +113,9 @@ public class MenuManager : MonoBehaviour
         Debug.Log("Menu Set");
     }
 
+
+    #region Settings Menu
+
     /// <summary>
     /// Set the option menu for button and activate input
     /// </summary>
@@ -120,29 +123,28 @@ public class MenuManager : MonoBehaviour
     {
         if (rootSettingsMenu == null) Debug.LogError("Can't set the settings menu, null ref");
 
-        Button settingsButton = rootSettingsMenu.Q<Button>("Settings");
         Button audioButton = rootSettingsMenu.Q<Button>("Audio");
-        Button videoButton = rootSettingsMenu.Q<Button>("Video");
         Button manetteButton = rootSettingsMenu.Q<Button>("Manette");
         Button clavierButton = rootSettingsMenu.Q<Button>("Clavier");
         Button exitButton = rootSettingsMenu.Q<Button>("Leave");
 
-        VisualElement settingVisual = rootSettingsMenu.Q<VisualElement>("GameSetting");
         VisualElement audioVisual = rootSettingsMenu.Q<VisualElement>("AudioSetting");
-        VisualElement videoVisual = rootSettingsMenu.Q<VisualElement>("VideoSetting");
         VisualElement manetteVisual = rootSettingsMenu.Q<VisualElement>("ManetteSetting");
         VisualElement clavierSetting = rootSettingsMenu.Q<VisualElement>("ClavierSetting");
 
-        currentVisualElement = settingVisual;
-
-        settingsButton.clickable.clicked += () => { EnableVisualElement(settingVisual); };
         audioButton.clickable.clicked += () => { EnableVisualElement(audioVisual); };
-        videoButton.clickable.clicked += () => { EnableVisualElement(videoVisual); };
         manetteButton.clickable.clicked += () => { EnableVisualElement(manetteVisual); };
         clavierButton.clickable.clicked += () => { EnableVisualElement(clavierSetting); };
         exitButton.clickable.clicked += () => { EnableMenu(lastMenuCheck, docSettingsMenu); };
 
+        SetClavierSettings();
+        SetAudioSettings();
+      
+        Debug.Log("Option menu Set");
+    }
 
+    private void SetAudioSettings()
+    {
         //Audio part :
         Slider sliderMasterVolume = rootSettingsMenu.Q<Slider>("MasterVolume");
         audioManager.allSlider[0] = sliderMasterVolume;
@@ -159,11 +161,16 @@ public class MenuManager : MonoBehaviour
         sliderDialogueVolume.RegisterValueChangedCallback(audioManager.SetDialogueVolume);
         sliderSFXVolume.RegisterValueChangedCallback(audioManager.SetEffectLevel);
 
-
         audioManager.LoadAllLevel();
-
-        Debug.Log("Option menu Set");
     }
+
+    private void SetClavierSettings()
+    {
+
+    }
+
+    #endregion
+
 
     /// <summary>
     /// Set the settings menu for button and activate input
