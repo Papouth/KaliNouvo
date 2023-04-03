@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public PlayerInput playerInput;
 
-    private InputRebind[] actionToRemap;
+    public InputRebind[] actionMap;
     private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
 
     #endregion
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         textField.value = "Input";
 
-        rebindingOperation = actionToRemap[index].actionReference.action.PerformInteractiveRebinding()
+        rebindingOperation = actionMap[index].actionReference.action.PerformInteractiveRebinding()
             .WithControlsExcluding("Mouse")
             .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation => RebindComplete(textField));
@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     }
 }
 
+[System.Serializable]
 public class InputRebind
 {
     public InputActionReference actionReference;
