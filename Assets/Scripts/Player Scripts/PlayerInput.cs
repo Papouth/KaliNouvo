@@ -95,14 +95,15 @@ public class PlayerInput : MonoBehaviour
 
     public void OnJump()
     {
-        // Récupération de l'input
-        canJump = true;
+
+        if (!crouching)
+            // Récupération de l'input
+            canJump = true;
     }
 
     public void OnCrouch()
     {
-        if (crouching == true) crouching = false;
-        else crouching = true;
+        crouching = !crouching;
     }
 
     public void OnInteract()

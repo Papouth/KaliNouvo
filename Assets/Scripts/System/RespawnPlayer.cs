@@ -5,18 +5,26 @@ using UnityEngine;
 public class RespawnPlayer : RespawnSystem
 {
     private CharacterController cc;
-
+    private PlayerMovement player;
 
     #region Customs Methods
     public override void Start()
     {
         base.Start();
         cc = GetComponent<CharacterController>();
+        player = GetComponent<PlayerMovement>();
     }
 
     public override void Update()
     {
         base.Update();
+    }
+
+    public override bool CheckGrounded()
+    {
+        if (base.CheckGrounded() && player.inCrouch == false) return true;
+        else return false;
+
     }
 
     /// <summary>
