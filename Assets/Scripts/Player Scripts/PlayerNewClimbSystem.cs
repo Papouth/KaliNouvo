@@ -14,6 +14,13 @@ public class PlayerNewClimbSystem : MonoBehaviour
     [Header("Climb Hand Sphere")]
     [SerializeField] private Transform leftPos;
     [SerializeField] private Transform rightPos;
+
+    [Tooltip("L'endroit où la main va être en contact avec le mur")]
+    [SerializeField] private Transform snapLeftPos;
+
+    [Tooltip("L'endroit où la main va être en contact avec le mur")]
+    [SerializeField] private Transform snapRightPos;
+
     [SerializeField] private float radiusHand;
     private Collider[] colliderHand = new Collider[1];
     private int leftCount;
@@ -66,6 +73,42 @@ public class PlayerNewClimbSystem : MonoBehaviour
         if (frozen && !haveClimbed)
         {
             transform.position = new Vector3(transform.position.x, freezePos.y, transform.position.z);
+
+            /*
+            // Rectification de la distance avec les mains
+            RaycastHit hitLeft;
+            RaycastHit hitRight;
+
+            if (Physics.Raycast(snapLeftPos.position, Vector3.forward, out hitLeft, 5f, climbLayer))
+            {
+                Debug.Log("Distance Gauche : " + Vector3.Distance(snapLeftPos.position, hitLeft.point));
+
+                Debug.DrawRay(snapLeftPos.position, hitLeft.point, Color.cyan);
+
+                if (Vector3.Distance(snapLeftPos.position, hitLeft.point) >= 0.05f)
+                {
+
+                    snapLeftPos.position = hitLeft.point;
+                }
+            }
+            if (Physics.Raycast(snapRightPos.position, Vector3.forward, out hitRight, 5f, climbLayer))
+            {
+                Debug.Log("Distance Droite : " + Vector3.Distance(snapRightPos.position, hitRight.point));
+
+                Debug.DrawRay(snapRightPos.position, hitRight.point, Color.cyan);
+
+                if (Vector3.Distance(snapRightPos.position, hitRight.point) >= 0.05f)
+                {
+
+                    snapRightPos.position = hitRight.point;
+                }
+            }
+            */
+
+
+            //snapLeftPos.position = colliderHand[0].ClosestPoint(Vector3.up);
+
+            //snapRightPos.position = colliderHand[0].ClosestPoint(Vector3.forward);
         }
     }
     #endregion
@@ -106,6 +149,8 @@ public class PlayerNewClimbSystem : MonoBehaviour
         {
             playerTransform.position = transform.position;
             freezePos.y = playerTransform.position.y;
+
+            
 
             frozen = true;
 
