@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerOsmose : MonoBehaviour
 {
-    private PlayerInput playerInput;
+    private PlayerInputManager playerInput;
     public bool stateOsmose;
 
     private PlayerInteractor playerInteractor;
@@ -18,7 +18,7 @@ public class PlayerOsmose : MonoBehaviour
 
     private void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInputManager>();
         playerInteractor = GetComponent<PlayerInteractor>();
         playerInteractorDistance = GetComponent<PlayerInteractorDistance>();
     }

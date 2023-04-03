@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager Instance;
+
 
     [Header("Main Menu")]
     [SerializeField]
@@ -32,14 +34,31 @@ public class MenuManager : MonoBehaviour
 
     private VisualElement currentVisualElement;
     private UIDocument lastMenuCheck;
-    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private PlayerInputManager playerInput;
     private bool activeMenuGame;
+
+    [Header("Tutoriel")]
+    [SerializeField]
+    private UIDocument docTutoMenu;
+    private VisualElement rootTutoMenu;
+    public Label tutoText;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
     private void Awake()
     {
+        if (Instance != null)
+        {
+            GameObject.Destroy(Instance);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+        DontDestroyOnLoad(this);
+
         if (docMainMenu) rootMainMenu = docMainMenu.rootVisualElement;
         else Debug.LogError("NO MAIN MENU REFERENCE");
 
@@ -52,15 +71,20 @@ public class MenuManager : MonoBehaviour
         if (docPlayMenu) rootPlayMenu = docPlayMenu.rootVisualElement;
         else Debug.LogError("NO Play MENU REFERENCE !");
 
+        if (docTutoMenu) rootTutoMenu = docTutoMenu.rootVisualElement;
+        else Debug.LogError("NO TUTO MENU REFERENCE");
+
         SetMainMenu();
         SetOptionsMenu();
         SetCreditMenu();
         SetPlayMenu();
+        SetTutoMenu();
 
         docMainMenu.rootVisualElement.style.display = DisplayStyle.Flex;
         docSettingsMenu.rootVisualElement.style.display = DisplayStyle.None;
         docCreditMenu.rootVisualElement.style.display = DisplayStyle.None;
         docPlayMenu.rootVisualElement.style.display = DisplayStyle.None;
+        docTutoMenu.rootVisualElement.style.display = DisplayStyle.None;
     }
 
     private void Update()
@@ -131,6 +155,9 @@ public class MenuManager : MonoBehaviour
 
 
         sliderMasterVolume.RegisterValueChangedCallback(audioManager.SetMasterLevel);
+        sliderMusicVolume.RegisterValueChangedCallback(audioManager.SetMusiqueLevel);
+        sliderDialogueVolume.RegisterValueChangedCallback(audioManager.SetDialogueVolume);
+        sliderSFXVolume.RegisterValueChangedCallback(audioManager.SetEffectLevel);
 
 
         audioManager.LoadAllLevel();
@@ -169,6 +196,11 @@ public class MenuManager : MonoBehaviour
         Debug.Log("Play Menu Set");
     }
 
+    private void SetTutoMenu()
+    {
+        tutoText = rootTutoMenu.Q<Label>("TutoText");
+    }
+
     #region MainMenuVoid
 
     /// <summary>
@@ -180,6 +212,8 @@ public class MenuManager : MonoBehaviour
 
         EnableMenu(null, docMainMenu);
         Time.timeScale = 1;
+
+        MusicManager.Instance.ChangeMusic(1);
 
         SceneManager.LoadScene(sceneIntro, LoadSceneMode.Additive);
 

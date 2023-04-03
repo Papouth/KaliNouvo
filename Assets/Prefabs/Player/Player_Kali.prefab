@@ -777,7 +777,7 @@ GameObject:
   - component: {fileID: 8721376823822195669}
   - component: {fileID: 8721376823822195688}
   - component: {fileID: 8721376823822195671}
-  - component: {fileID: 8721376823822195670}
+  - component: {fileID: 4444244832395046200}
   - component: {fileID: 8721376823822195690}
   - component: {fileID: 8721376823822195689}
   - component: {fileID: 3452188162795946415}
@@ -790,6 +790,7 @@ GameObject:
   - component: {fileID: 9163656343194889140}
   - component: {fileID: 7413617986049430768}
   - component: {fileID: 3285395951064303844}
+  - component: {fileID: 4709994029848905152}
   m_Layer: 3
   m_Name: Player_Kali
   m_TagString: Player
@@ -874,6 +875,7 @@ MonoBehaviour:
   climbingSecurityTimer: 0
   timeBeforeClimbJump: 0
   cam: {fileID: 0}
+  cc: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &8721376823822195671
 MonoBehaviour:
@@ -901,7 +903,7 @@ MonoBehaviour:
   - {fileID: 0}
   playerInput: {fileID: 0}
   hands: {fileID: 1423044935026070009}
---- !u!114 &8721376823822195670
+--- !u!114 &4444244832395046200
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -910,7 +912,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8233528653410943343}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0952cb3747b35348bbc0e041f8806a2, type: 3}
+  m_Script: {fileID: 11500000, guid: a4de38af11776ff4abd29c2e3625d9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8721376823822195690
@@ -1052,6 +1054,7 @@ MonoBehaviour:
   past: Tutoriel_01_Passe
   present: Tutoriel_01_Present
   sceneState: 0
+  timingAnimTemp: 0
 --- !u!114 &760919441237352756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1150,6 +1153,14 @@ MonoBehaviour:
     m_Bits: 65
   respawnPoint: {fileID: 0}
   timeUpdate: 3
+--- !u!81 &4709994029848905152
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8233528653410943343}
+  m_Enabled: 1
 --- !u!1001 &7536804466871756011
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,14 +16,14 @@ public class PlayerInteractor : MonoBehaviour
     public Collider[] colliders = new Collider[5];
     public IInteractable interactable;
 
-    [HideInInspector] public PlayerInput playerInput;
+    [HideInInspector] public PlayerInputManager playerInput;
     public GameObject hands;
 
 
     private void Awake()
     {
         playerInteractorInstance = this;
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInputManager>();
     }
 
     public virtual void Update()

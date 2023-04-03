@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
     public float speedDisplay;
 
-    public PlayerInput playerInput;
+    public PlayerInputManager playerInput;
 
 
     void Awake()
