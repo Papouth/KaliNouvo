@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
         DropDown();
 
-        if (OnSteepSlope()) SteepSlopeMovement();
+        //if (OnSteepSlope()) SteepSlopeMovement();
 
         Crouching();
 

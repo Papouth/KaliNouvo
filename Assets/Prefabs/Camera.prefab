@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434226030211622524}
-  m_LocalRotation: {x: 0.22064419, y: 0.45830378, z: -0.11858106, w: 0.85276747}
+  m_LocalRotation: {x: 0.20708647, y: 0.46012738, z: -0.11129467, w: 0.85616094}
   m_LocalPosition: {x: -30.988747, y: -8.532677, z: 8.015543}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717258714201837779}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 319d2fe34a804e245819465c9505ea59, type: 3}
   m_Name: 
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717258714201837779}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
   m_Name: 
@@ -823,7 +823,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717258715682608595}
-  m_LocalRotation: {x: 0.22064419, y: 0.45830378, z: -0.11858106, w: 0.85276747}
+  m_LocalRotation: {x: 0.20708647, y: 0.46012738, z: -0.11129467, w: 0.85616094}
   m_LocalPosition: {x: -30.988747, y: -8.532677, z: 8.015543}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -996,6 +996,7 @@ Transform:
   - {fileID: 717258715682608598}
   - {fileID: 717258714201837777}
   - {fileID: 8280619534975745403}
+  - {fileID: 4465220837402839111}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1162,8 +1163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418e42c7d0405cc48a7b83f63ea53bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Path: {fileID: 0}
-  m_PathPosition: -0.07391265
+  m_Path: {fileID: 3689888302690934704}
+  m_PathPosition: -0.17343384
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 1
@@ -1175,6 +1176,69 @@ MonoBehaviour:
   m_RollDamping: 8.3
   m_AutoDolly:
     m_Enabled: 1
-    m_PositionOffset: -0.2
-    m_SearchRadius: 1
-    m_SearchResolution: 5
+    m_PositionOffset: -0.3
+    m_SearchRadius: 5
+    m_SearchResolution: 10
+--- !u!1 &7209918920105213917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4465220837402839111}
+  - component: {fileID: 3689888302690934704}
+  m_Layer: 0
+  m_Name: DollyTrack2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4465220837402839111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209918920105213917}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.784504, y: -1.568572, z: 9.595543}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 717258715791264468}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3689888302690934704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209918920105213917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a200b19ca1a9685429ed7e043c28e904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Resolution: 20
+  m_Appearance:
+    pathColor: {r: 0.16356993, g: 1, b: 0, a: 1}
+    inactivePathColor: {r: 0, g: 0.20977783, b: 1, a: 1}
+    width: 1.08
+  m_Looped: 0
+  m_Waypoints:
+  - position: {x: -13.204243, y: -6.964105, z: -1.58}
+    roll: 0
+  - position: {x: 5.8652287, y: -5.630917, z: 2.1376104}
+    roll: 0
+  - position: {x: 10.720806, y: -4.9241, z: -17.868097}
+    roll: 0
+  - position: {x: 13.755562, y: -1.1517897, z: -35.63197}
+    roll: 0
+  - position: {x: 14.611675, y: 2.6205206, z: -47.692696}
+    roll: 0
+  - position: {x: 14.65414, y: 3.533319, z: -59.2816}
+    roll: 0
