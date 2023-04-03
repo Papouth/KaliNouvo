@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     public CinemachineSmoothPath _currentPath;
 
     public GameObject player;
+    public PlayerInput playerInput;
     #endregion
 
     #region Built In Methods
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this);
+
+        playerInput = player.GetComponent<PlayerInput>();
     }
     #endregion
 }

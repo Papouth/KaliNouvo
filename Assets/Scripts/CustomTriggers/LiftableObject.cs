@@ -23,7 +23,7 @@ public class LiftableObject : CustomsTriggers
     }
     
     
-    public void GoToHand(GameObject hands, PlayerInput playerInput)
+    public void GoToHand(GameObject hands, PlayerInputManager playerInput)
     {
         //Debug.Log("gotohand");
 

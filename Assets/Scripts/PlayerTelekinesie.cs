@@ -11,14 +11,14 @@ public class PlayerTelekinesie : MonoBehaviour
 
 
     [Header("Player Component")]
-    private PlayerInput playerInput;
+    private PlayerInputManager playerInput;
 
     #endregion
 
 
     private void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInputManager>();
     }
 
     private void Update()
@@ -46,7 +46,7 @@ public class PlayerTelekinesie : MonoBehaviour
         {
             telekinesyOn = false;
             playerInput.CanTelekinesy = false;
-            PlayerInput.telekinesyKeyOn = false;
+            PlayerInputManager.telekinesyKeyOn = false;
         }
     }
 }
