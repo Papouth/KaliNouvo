@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,11 @@ public class GameManager : MonoBehaviour
     public CinemachineSmoothPath _currentPath;
 
     public GameObject player;
+    public PlayerInput playerInput;
+
+    private InputRebind[] actionToRemap;
+    private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
+
     #endregion
 
     #region Built In Methods
@@ -29,6 +36,34 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this);
+
+        playerInput = player.GetComponent<PlayerInput>();
     }
+
     #endregion
+
+
+    public void StartRebinding(int index, TextField textField)
+    {
+        textField.value = "Input";
+
+        rebindingOperation = actionToRemap[index].actionReference.action.PerformInteractiveRebinding()
+            .WithControlsExcluding("Mouse")
+            .OnMatchWaitForAnother(0.1f)
+            .OnComplete(operation => RebindComplete(textField));
+    }
+
+    public void RebindComplete(TextField textField)
+    {
+        rebindingOperation.Dispose();
+        textField.value = rebindingOperation.ToString();
+    }
+}
+
+public class InputRebind
+{
+    public InputActionReference actionReference;
+    public string nameAction;
+
+
 }

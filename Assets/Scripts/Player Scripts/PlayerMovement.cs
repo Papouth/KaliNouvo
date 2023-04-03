@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Component")]
     public Camera cam;
     public CharacterController cc;
-    private PlayerInput playerInput;
+    private PlayerInputManager playerInput;
     public Animator animator;
     private PlayerNewClimbSystem playerNewClimbSystem;
     #endregion
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         cc = GetComponent<CharacterController>();
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInputManager>();
         animator = GetComponent<Animator>();
         playerNewClimbSystem = GetComponent<PlayerNewClimbSystem>();
 

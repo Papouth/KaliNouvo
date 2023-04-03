@@ -13,19 +13,26 @@ public class PlayerTemporel : MonoBehaviour
     public string present;
     public bool sceneState;
 
+    public float timingAnimTemp = 0;
+    private bool inStateChangeTempo = false;
 
     [Header("Player Component")]
-    private PlayerInput playerInput;
+    private PlayerInputManager playerInput;
     private PlayerInteractor playerInteractor;
     private PlayerStats playerStats;
+    private Animator animator;
+    private CharacterController cc;
+
     #endregion
 
     #region Built In Methods
     private void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInputManager>();
         playerInteractor = GetComponent<PlayerInteractor>();
         playerStats = GetComponent<PlayerStats>();
+        animator = GetComponent<Animator>();
+        cc = GetComponent<CharacterController>();
 
         if (past == null || present == null) return;
 
@@ -76,30 +83,44 @@ public class PlayerTemporel : MonoBehaviour
     /// </summary>
     private void ChangeTempo()
     {
-        if (playerInput.ChangeTempo && playerInteractor.hands.transform.childCount == 0 && playerStats.haveTempo)
+        if (playerInput.ChangeTempo && playerInteractor.hands.transform.childCount == 0 && playerStats.haveTempo && !inStateChangeTempo)
         {
-            // On change de temporalit�
-            LoadingScene();
-
-            sceneState = !sceneState;
-
-            // Une fois changé de tempo on inverse les scènes
-            if (sceneState)
-            {
-                // On est dans le passé
-                scenesToLoad = present;
-                scenesToUnload = past;
-            }
-            else if (!sceneState)
-            {
-                // On est dans le présent
-                scenesToLoad = past;
-                scenesToUnload = present;
-            }
-
-            playerInput.ChangeTempo = false;
+            StartCoroutine(TimingTempo());
         }
-        else if (playerInput.ChangeTempo && !playerStats.haveTempo) playerInput.ChangeTempo = false;
+        else if (playerInput.ChangeTempo && !playerStats.haveTempo || inStateChangeTempo) playerInput.ChangeTempo = false;
+    }
+
+    private IEnumerator TimingTempo()
+    {
+        inStateChangeTempo = true;
+        cc.enabled = false;
+        animator.SetBool("Tempo", true);
+
+        yield return new WaitForSeconds(timingAnimTemp);
+
+        // On change de temporalit�
+        LoadingScene();
+
+        sceneState = !sceneState;
+
+        // Une fois changé de tempo on inverse les scènes
+        if (sceneState)
+        {
+            // On est dans le passé
+            scenesToLoad = present;
+            scenesToUnload = past;
+        }
+        else if (!sceneState)
+        {
+            // On est dans le présent
+            scenesToLoad = past;
+            scenesToUnload = present;
+        }
+
+        playerInput.ChangeTempo = false;
+        inStateChangeTempo = false;
+        cc.enabled = true;
+        animator.SetBool("Tempo", false);
     }
 
     /// <summary>
