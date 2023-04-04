@@ -136,7 +136,6 @@ public class PlayerMovement : MonoBehaviour
             movement = directionInput.normalized * (moveSpeed / climbSpeedReducer * Time.deltaTime);
             movement = transform.TransformDirection(movement);
 
-
             // Redirection du joueur face au mur
             RaycastHit hit;
 
@@ -145,14 +144,6 @@ public class PlayerMovement : MonoBehaviour
                 // On rotate le joueur correctement vers le mur
                 if (hit.normal == new Vector3(0f, 0f, 1f)) transform.rotation = Quaternion.Euler(0, 180, 0);
                 else transform.rotation = Quaternion.FromToRotation(-Vector3.forward, hit.normal);
-
-
-                //Debug.Log(hit.distance);
-                if (hit.distance > 0.25f)
-                {
-                    // Bug de jittering ici
-                    //movement.z = transform.forward.z + 0.0001f;
-                }
             }
         }
     }
@@ -412,6 +403,5 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Debug.DrawRay(transform.position + transform.TransformDirection(new Vector3(0f, 1f, 0f)), transform.forward, Color.red);
-
     }
 }
