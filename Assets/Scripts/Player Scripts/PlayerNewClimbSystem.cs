@@ -6,20 +6,21 @@ public class PlayerNewClimbSystem : MonoBehaviour
 {
     #region Variables
     [Header("IK")]
+    [SerializeField] private Transform leftHandTransform;
+    [SerializeField] private Transform rightHandTransform;
+
+    [SerializeField] private Vector3 offsetPosLeftHand;
+    [SerializeField] private Vector3 offsetRotLeftHand;
+    [SerializeField] private Vector3 offsetPosRightHand;
+    [SerializeField] private Vector3 offsetRotRightHand;
+
     public LayerMask climbLayer;
     [SerializeField] private bool leftHandIK;
     [SerializeField] private bool rightHandIK;
 
-
     [Header("Climb Hand Sphere")]
     [SerializeField] private Transform leftPos;
     [SerializeField] private Transform rightPos;
-
-    [Tooltip("L'endroit où la main va être en contact avec le mur")]
-    [SerializeField] private Transform snapLeftPos;
-
-    [Tooltip("L'endroit où la main va être en contact avec le mur")]
-    [SerializeField] private Transform snapRightPos;
 
     [SerializeField] private float radiusHand;
     private Collider[] colliderHand = new Collider[1];
@@ -113,6 +114,32 @@ public class PlayerNewClimbSystem : MonoBehaviour
     }
     #endregion
 
+    #region REAL IK
+    private void OnAnimatorIK(int layerIndex)
+    {
+        if (isClimbing)
+        {
+            leftHandTransform.position = leftPos.position + offsetPosLeftHand;
+            leftHandTransform.rotation = Quaternion.Euler(offsetRotLeftHand);
+
+            rightHandTransform.position = rightPos.position + offsetPosRightHand;
+            rightHandTransform.rotation = Quaternion.Euler(offsetRotRightHand);
+
+            // Left Hand
+            anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+            anim.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
+            anim.SetIKPosition(AvatarIKGoal.LeftHand, leftHandTransform.position);
+            anim.SetIKRotation(AvatarIKGoal.LeftHand, leftHandTransform.rotation);
+
+            // Right Hand
+            anim.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+            anim.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
+            anim.SetIKPosition(AvatarIKGoal.RightHand, rightHandTransform.position);
+            anim.SetIKRotation(AvatarIKGoal.RightHand, rightHandTransform.rotation);
+        }
+    }
+    #endregion
+
 
     #region IK Function Check
     private void HandClimbCheck()
@@ -149,8 +176,6 @@ public class PlayerNewClimbSystem : MonoBehaviour
         {
             playerTransform.position = transform.position;
             freezePos.y = playerTransform.position.y;
-
-            
 
             frozen = true;
 
