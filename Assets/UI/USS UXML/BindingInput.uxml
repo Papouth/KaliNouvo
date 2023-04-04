@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/USS%20UXML/StyleSheet.uss?fileID=7433441132597879392&amp;guid=84247b6fcebb78a4da80a7e8dd63af02&amp;type=3#StyleSheet" />
-    <ui:VisualElement style="flex-grow: 1;">
-        <ui:TextField picking-mode="Ignore" label="Input" value="Input" text="Input" class="FontLabel" style="font-size: 20px;" />
+    <ui:VisualElement name="root" style="flex-grow: 1;">
+        <ui:TextField picking-mode="Ignore" label="Text" text="A" max-length="-1" name="Input" class="FontLabel" />
     </ui:VisualElement>
 </ui:UXML>

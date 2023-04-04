@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -42,21 +43,38 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-
+    /// <summary>
+    /// Start the rebinding methods when player click on the text field
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="textField"></param>
     public void StartRebinding(int index, TextField textField)
     {
-        textField.value = "Input";
+        actionMap[index].actionReference.action.Disable();
 
         rebindingOperation = actionMap[index].actionReference.action.PerformInteractiveRebinding()
             .WithControlsExcluding("Mouse")
             .OnMatchWaitForAnother(0.1f)
-            .OnComplete(operation => RebindComplete(textField));
+            .OnComplete(operation => RebindComplete(index, textField))
+            .Start();
     }
 
-    public void RebindComplete(TextField textField)
+    /// <summary>
+    /// When rebind is complete
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="textField"></param>
+    public void RebindComplete(int index, TextField textField)
     {
         rebindingOperation.Dispose();
-        textField.value = rebindingOperation.ToString();
+
+        textField.SetValueWithoutNotify(InputControlPath.ToHumanReadableString(
+                actionMap[index].actionReference.action.bindings[0]
+                .effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice));
+
+        textField.Blur();
+
+        actionMap[index].actionReference.action.Enable();
     }
 }
 
