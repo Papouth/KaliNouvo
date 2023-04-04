@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class MenuManager : MonoBehaviour
     private UIDocument docSettingsMenu;
     private VisualElement rootSettingsMenu;
     public AudioManager audioManager;
+    public VisualTreeAsset docBinding;
 
 
     [Header("Credits Menu")]
@@ -139,7 +141,7 @@ public class MenuManager : MonoBehaviour
 
         SetClavierSettings();
         SetAudioSettings();
-      
+
         Debug.Log("Option menu Set");
     }
 
@@ -166,7 +168,35 @@ public class MenuManager : MonoBehaviour
 
     private void SetClavierSettings()
     {
+        ScrollView scrollView = rootSettingsMenu.Q<ScrollView>("BindList");
 
+        for (int i = 0; i < GameManager.GM.actionMap.Length; i++)
+        {
+            int j = i;
+            VisualElement visualToAdd = docBinding.CloneTree();
+            TextField textInput = visualToAdd.Q<TextField>("Input");
+
+            textInput.label = GameManager.GM.actionMap[i].nameAction;
+
+            textInput.RegisterCallback<MouseDownEvent>(evt =>
+            {
+                GameManager.GM.StartRebinding(j, textInput);
+                Debug.Log("Change");
+            });
+
+            /*textInput.RegisterValueChangedCallback(evt =>
+            {
+                GameManager.GM.StartRebinding(j, textInput);
+                Debug.Log("Change");
+            });*/
+
+
+            textInput.SetValueWithoutNotify(InputControlPath.ToHumanReadableString(
+                GameManager.GM.actionMap[j].actionReference.action.bindings[0]
+                .effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice));
+
+            scrollView.Add(visualToAdd);
+        }
     }
 
     #endregion
