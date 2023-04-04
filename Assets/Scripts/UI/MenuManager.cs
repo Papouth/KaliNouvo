@@ -82,11 +82,12 @@ public class MenuManager : MonoBehaviour
         SetPlayMenu();
         SetTutoMenu();
 
+
         docMainMenu.rootVisualElement.style.display = DisplayStyle.Flex;
         docSettingsMenu.rootVisualElement.style.display = DisplayStyle.None;
         docCreditMenu.rootVisualElement.style.display = DisplayStyle.None;
         docPlayMenu.rootVisualElement.style.display = DisplayStyle.None;
-        docTutoMenu.rootVisualElement.style.display = DisplayStyle.None;
+        tutoText.style.display = DisplayStyle.None;
     }
 
     private void Update()
@@ -141,6 +142,8 @@ public class MenuManager : MonoBehaviour
 
         SetClavierSettings();
         SetAudioSettings();
+
+        EnableVisualElement(audioVisual);
 
         Debug.Log("Option menu Set");
     }
@@ -236,6 +239,7 @@ public class MenuManager : MonoBehaviour
     private void SetTutoMenu()
     {
         tutoText = rootTutoMenu.Q<Label>("TutoText");
+
     }
 
     #region MainMenuVoid
