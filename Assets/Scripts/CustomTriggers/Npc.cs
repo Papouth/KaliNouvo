@@ -60,7 +60,7 @@ public class Npc : CustomsTriggers
 
             LookAtPlayer();
             manager.StartDialogue(dialogues);
-            GameManager.GM.isTalking = true;
+            GameManager.GM.canTP = true;
         }
     }
 
@@ -77,7 +77,7 @@ public class Npc : CustomsTriggers
             //topCube.SetActive(false);
 
             manager.EndDialogue();
-            GameManager.GM.isTalking = false;
+            GameManager.GM.canTP = false;
         }
     }
 }
