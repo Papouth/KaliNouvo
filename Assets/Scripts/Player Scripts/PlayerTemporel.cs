@@ -83,11 +83,11 @@ public class PlayerTemporel : MonoBehaviour
     /// </summary>
     private void ChangeTempo()
     {
-        if (playerInput.ChangeTempo && playerInteractor.hands.transform.childCount == 0 && playerStats.haveTempo && !inStateChangeTempo)
+        if (playerInput.ChangeTempo && playerInteractor.hands.transform.childCount == 0 && playerStats.haveTempo && !inStateChangeTempo && !GameManager.GM.isTalking)
         {
             StartCoroutine(TimingTempo());
         }
-        else if (playerInput.ChangeTempo && !playerStats.haveTempo || inStateChangeTempo) playerInput.ChangeTempo = false;
+        else if (playerInput.ChangeTempo && !playerStats.haveTempo || inStateChangeTempo || GameManager.GM.isTalking) playerInput.ChangeTempo = false;
     }
 
     private IEnumerator TimingTempo()
