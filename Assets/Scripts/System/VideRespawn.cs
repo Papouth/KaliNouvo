@@ -5,6 +5,7 @@ using UnityEngine;
 public class VideRespawn : MonoBehaviour
 {
     #region Built In methods
+    public Color colorGizmo;
 
     /// <summary>
     /// OnTriggerEnter is called when the Collider other enters the trigger.
@@ -18,5 +19,17 @@ public class VideRespawn : MonoBehaviour
         }
     }
 
+
+
+    private void OnDrawGizmos()
+    {
+        BoxCollider box = GetComponent<BoxCollider>();
+
+        if (box == null) return;
+
+        Gizmos.color = colorGizmo;
+
+        Gizmos.DrawCube(transform.position + box.center, box.size);
+    }
     #endregion
 }
