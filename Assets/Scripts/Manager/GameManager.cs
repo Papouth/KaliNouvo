@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     #region Variables
     public static GameManager GM;
     public bool havePass;
+    public bool isTalking;
 
     public CinemachineBrain cB;
 
