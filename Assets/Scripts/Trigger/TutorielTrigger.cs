@@ -17,6 +17,8 @@ public class TutorielTrigger : TriggerInScene
 
     public string endText;
 
+    private bool alreadyPast;
+
     public override void Awake()
     {
         menuManager = MenuManager.Instance;
@@ -25,7 +27,7 @@ public class TutorielTrigger : TriggerInScene
 
     public override void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 3) //Player
+        if (other.gameObject.layer == 3 && alreadyPast == false) //Player
         {
             DisplayTutoriel(true);
         }
@@ -52,11 +54,9 @@ public class TutorielTrigger : TriggerInScene
         }
 
 
-        menuManager.tutoText.text = textToDisplay + " " + endText;
+        menuManager.MajInfoText(textToDisplay + " " + endText);
+        menuManager.EnableInfoText(display);
 
-        if (display)
-            menuManager.tutoText.style.display = DisplayStyle.Flex;
-        else
-            menuManager.tutoText.style.display = DisplayStyle.None;
+        alreadyPast = true;
     }
 }
