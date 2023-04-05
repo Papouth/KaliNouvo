@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    /*
     public static UIManager UIInstance;
 
     public GameObject dialogueUI;
@@ -16,13 +17,13 @@ public class UIManager : MonoBehaviour
             UIInstance = this;
     }
 
-    public void MajTextDialogue(string sentences)
+    public void MajInfoText(string sentences)
     {
         dialogueText.text = sentences;
     }
 
-    public void EnableTextDialogue(bool enabled)
+    public void EnableInfoText(bool enabled)
     {
         dialogueUI.SetActive(enabled);
-    }
+    }*/
 }

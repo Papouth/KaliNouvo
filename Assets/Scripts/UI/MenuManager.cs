@@ -43,7 +43,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private UIDocument docTutoMenu;
     private VisualElement rootTutoMenu;
-    public Label tutoText;
+    public Label infoText;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -87,7 +87,7 @@ public class MenuManager : MonoBehaviour
         docSettingsMenu.rootVisualElement.style.display = DisplayStyle.None;
         docCreditMenu.rootVisualElement.style.display = DisplayStyle.None;
         docPlayMenu.rootVisualElement.style.display = DisplayStyle.None;
-        tutoText.style.display = DisplayStyle.None;
+        infoText.style.display = DisplayStyle.None;
     }
 
     private void Update()
@@ -238,9 +238,32 @@ public class MenuManager : MonoBehaviour
 
     private void SetTutoMenu()
     {
-        tutoText = rootTutoMenu.Q<Label>("TutoText");
+        infoText = rootTutoMenu.Q<Label>("TutoText");
 
     }
+
+
+    #region DialogueSet
+   
+    public void MajInfoText(string sentences)
+    {
+        infoText.text = sentences;
+    }
+
+    /// <summary>
+    /// Enable the tuto text
+    /// </summary>
+    /// <param name="enabled"></param>
+    public void EnableInfoText(bool enabled)
+    {
+        if (enabled)
+            infoText.style.display = DisplayStyle.Flex;
+        else
+            infoText.style.display = DisplayStyle.None;
+    }
+
+
+    #endregion
 
     #region MainMenuVoid
 
@@ -343,4 +366,7 @@ public class MenuManager : MonoBehaviour
             playerInput.CanMenu = false;
         }
     }
+
+
+
 }
