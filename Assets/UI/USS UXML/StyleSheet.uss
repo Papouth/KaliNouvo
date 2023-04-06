@@ -130,55 +130,118 @@ Other {
     height: 1080px;
 }
 
-Test {
+.MarginSettings {
+    padding-left: 93px;
+    padding-top: 154px;
 }
 
-#unity-checkmark {
+Checkmark {
+}
+
+.unity-toggle__checkmark {
     cursor: initial;
-    visibility: visible;
-    display: flex;
-    background-image: url('project://database/Assets/UI/Image/Case_non.png?fileID=2800000&guid=fd3221c55d7546e49a6fb37ca70bb7fc&type=3#Case_non');
-    background-color: rgba(0, 0, 0, 0);
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
-    -unity-background-image-tint-color: rgb(255, 255, 255);
+    flex-grow: 0;
+    border-left-width: 18px;
+    border-right-width: 18px;
+    border-top-width: 18px;
+    border-bottom-width: 18px;
+    background-image: url('project://database/Assets/UI/Image/Case_non.png?fileID=2800000&guid=fd3221c55d7546e49a6fb37ca70bb7fc&type=3#Case_non');
 }
 
-#unity-dragger {
+.unity-toggle__checkmark:hover {
+    cursor: initial;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    flex-grow: 0;
+    border-left-width: 18px;
+    border-right-width: 18px;
+    border-top-width: 18px;
+    border-bottom-width: 18px;
+}
+
+.unity-toggle__input:checked > .unity-toggle__checkmark {
+    max-width: none;
+    background-image: url('project://database/Assets/UI/Image/Case_oui.png?fileID=2800000&guid=95dd7a744a8fbba42ac883a7811fcfcd&type=3#Case_oui');
+}
+
+Slider {
+}
+
+.unity-base-slider__dragger {
+    background-image: url('project://database/Assets/UI/Image/Bouton_Slider.png?fileID=2800000&guid=67f06b1bddc6d054786ef5247c15a514&type=3#Bouton_Slider');
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
     border-left-color: rgba(255, 255, 255, 0);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
     border-right-color: rgba(255, 255, 255, 0);
     border-top-color: rgba(255, 255, 255, 0);
     border-bottom-color: rgba(255, 255, 255, 0);
-    background-image: url('project://database/Assets/UI/Image/Slider_Plein.png?fileID=2800000&guid=867f51d3328de3f47954af61c878fe92&type=3#Slider_Plein');
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    height: 34px;
-    top: 11px;
+    background-color: rgba(255, 255, 255, 0.56);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    flex-grow: 1;
+    display: flex;
+    min-height: 0;
+    min-width: 0;
+    max-width: 30px;
+    max-height: 30px;
+    width: 30px;
+    height: 30px;
 }
 
-#unity-tracker {
+.unity-base-slider__tracker {
     background-image: none;
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
     border-left-color: rgba(255, 255, 255, 0);
-    border-top-left-radius: 9px;
-    border-bottom-left-radius: 9px;
-    border-top-right-radius: 9px;
-    border-bottom-right-radius: 9px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
     border-right-color: rgba(255, 255, 255, 0);
     border-top-color: rgba(255, 255, 255, 0);
     border-bottom-color: rgba(255, 255, 255, 0);
-    background-color: rgba(255, 255, 255, 0.56);
+    background-color: rgba(255, 255, 255, 0.5);
     -unity-background-image-tint-color: rgb(255, 255, 255);
-    height: 13px;
+    height: 8px;
     flex-grow: 0;
-    top: 34px;
+    display: flex;
+}
+
+.unity-base-slider__tracker:hover {
+}
+
+.unity-base-slider__dragger-border {
+    visibility: hidden;
+}
+
+.unity-slider__input {
+    margin-left: 200px;
+    flex-grow: 1;
+}
+
+.unity-slider__label {
+    margin-right: 0;
+    padding-right: 0;
+    max-width: none;
+    flex-grow: 0;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 300px;
+    font-size: 30px;
 }
 
 #unity-low-button {
@@ -189,6 +252,7 @@ Test {
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
     -unity-background-image-tint-color: rgb(255, 255, 255);
+    display: flex;
 }
 
 #unity-high-button {
@@ -199,4 +263,57 @@ Test {
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
     -unity-background-image-tint-color: rgb(255, 255, 255);
+    display: flex;
+}
+
+.unity-toggle__input {
+    margin-left: 30px;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: none;
+}
+
+TextField {
+}
+
+.unity-base-field {
+    font-size: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: stretch;
+    flex-grow: 0;
+    margin-bottom: 10px;
+}
+
+.unity-base-field:hover {
+    font-size: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: stretch;
+    flex-grow: 0;
+    background-image: url('project://database/Assets/UI/Image/Bouton_Grand.png?fileID=2800000&guid=3020abc0a9765424e98cc17bedce91ce&type=3#Bouton_Grand');
+}
+
+.unity-base-text-field__input {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.unity-base-field__input {
+    border-left-width: 59px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    max-width: 400px;
+    margin-left: 100px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+BindingInput {
 }

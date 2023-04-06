@@ -6,14 +6,22 @@ public class PlayerNewClimbSystem : MonoBehaviour
 {
     #region Variables
     [Header("IK")]
+    [SerializeField] private Transform leftHandTransform;
+    [SerializeField] private Transform rightHandTransform;
+
+    [SerializeField] private Vector3 offsetPosLeftHand;
+    [SerializeField] private Vector3 offsetRotLeftHand;
+    [SerializeField] private Vector3 offsetPosRightHand;
+    [SerializeField] private Vector3 offsetRotRightHand;
+
     public LayerMask climbLayer;
     [SerializeField] private bool leftHandIK;
     [SerializeField] private bool rightHandIK;
 
-
     [Header("Climb Hand Sphere")]
     [SerializeField] private Transform leftPos;
     [SerializeField] private Transform rightPos;
+
     [SerializeField] private float radiusHand;
     private Collider[] colliderHand = new Collider[1];
     private int leftCount;
@@ -66,6 +74,68 @@ public class PlayerNewClimbSystem : MonoBehaviour
         if (frozen && !haveClimbed)
         {
             transform.position = new Vector3(transform.position.x, freezePos.y, transform.position.z);
+
+            /*
+            // Rectification de la distance avec les mains
+            RaycastHit hitLeft;
+            RaycastHit hitRight;
+
+            if (Physics.Raycast(snapLeftPos.position, Vector3.forward, out hitLeft, 5f, climbLayer))
+            {
+                Debug.Log("Distance Gauche : " + Vector3.Distance(snapLeftPos.position, hitLeft.point));
+
+                Debug.DrawRay(snapLeftPos.position, hitLeft.point, Color.cyan);
+
+                if (Vector3.Distance(snapLeftPos.position, hitLeft.point) >= 0.05f)
+                {
+
+                    snapLeftPos.position = hitLeft.point;
+                }
+            }
+            if (Physics.Raycast(snapRightPos.position, Vector3.forward, out hitRight, 5f, climbLayer))
+            {
+                Debug.Log("Distance Droite : " + Vector3.Distance(snapRightPos.position, hitRight.point));
+
+                Debug.DrawRay(snapRightPos.position, hitRight.point, Color.cyan);
+
+                if (Vector3.Distance(snapRightPos.position, hitRight.point) >= 0.05f)
+                {
+
+                    snapRightPos.position = hitRight.point;
+                }
+            }
+            */
+
+
+            //snapLeftPos.position = colliderHand[0].ClosestPoint(Vector3.up);
+
+            //snapRightPos.position = colliderHand[0].ClosestPoint(Vector3.forward);
+        }
+    }
+    #endregion
+
+    #region REAL IK
+    private void OnAnimatorIK(int layerIndex)
+    {
+        if (isClimbing)
+        {
+            leftHandTransform.position = leftPos.position + offsetPosLeftHand;
+            leftHandTransform.rotation = Quaternion.Euler(offsetRotLeftHand);
+
+            rightHandTransform.position = rightPos.position + offsetPosRightHand;
+            rightHandTransform.rotation = Quaternion.Euler(offsetRotRightHand);
+
+            // Left Hand
+            anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+            anim.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
+            anim.SetIKPosition(AvatarIKGoal.LeftHand, leftHandTransform.position);
+            anim.SetIKRotation(AvatarIKGoal.LeftHand, leftHandTransform.rotation);
+
+            // Right Hand
+            anim.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+            anim.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
+            anim.SetIKPosition(AvatarIKGoal.RightHand, rightHandTransform.position);
+            anim.SetIKRotation(AvatarIKGoal.RightHand, rightHandTransform.rotation);
         }
     }
     #endregion

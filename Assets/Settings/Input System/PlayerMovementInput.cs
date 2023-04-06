@@ -156,7 +156,7 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""Z,Q,S,D"",
                     ""id"": ""6ddd860b-6042-408d-bddf-42124ecf28dd"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",

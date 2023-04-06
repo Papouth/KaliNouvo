@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager Instance;
+
 
     [Header("Main Menu")]
     [SerializeField]
@@ -16,8 +19,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private UIDocument docSettingsMenu;
     private VisualElement rootSettingsMenu;
-
     public AudioManager audioManager;
+    public VisualTreeAsset docBinding;
+
 
     [Header("Credits Menu")]
     [SerializeField]
@@ -32,14 +36,31 @@ public class MenuManager : MonoBehaviour
 
     private VisualElement currentVisualElement;
     private UIDocument lastMenuCheck;
-    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private PlayerInputManager playerInput;
     private bool activeMenuGame;
+
+    [Header("Tutoriel")]
+    [SerializeField]
+    private UIDocument docTutoMenu;
+    private VisualElement rootTutoMenu;
+    public Label infoText;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
     private void Awake()
     {
+        if (Instance != null)
+        {
+            GameObject.Destroy(Instance);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+        DontDestroyOnLoad(this);
+
         if (docMainMenu) rootMainMenu = docMainMenu.rootVisualElement;
         else Debug.LogError("NO MAIN MENU REFERENCE");
 
@@ -52,15 +73,21 @@ public class MenuManager : MonoBehaviour
         if (docPlayMenu) rootPlayMenu = docPlayMenu.rootVisualElement;
         else Debug.LogError("NO Play MENU REFERENCE !");
 
+        if (docTutoMenu) rootTutoMenu = docTutoMenu.rootVisualElement;
+        else Debug.LogError("NO TUTO MENU REFERENCE");
+
         SetMainMenu();
         SetOptionsMenu();
         SetCreditMenu();
         SetPlayMenu();
+        SetTutoMenu();
+
 
         docMainMenu.rootVisualElement.style.display = DisplayStyle.Flex;
         docSettingsMenu.rootVisualElement.style.display = DisplayStyle.None;
         docCreditMenu.rootVisualElement.style.display = DisplayStyle.None;
         docPlayMenu.rootVisualElement.style.display = DisplayStyle.None;
+        infoText.style.display = DisplayStyle.None;
     }
 
     private void Update()
@@ -89,6 +116,9 @@ public class MenuManager : MonoBehaviour
         Debug.Log("Menu Set");
     }
 
+
+    #region Settings Menu
+
     /// <summary>
     /// Set the option menu for button and activate input
     /// </summary>
@@ -96,29 +126,30 @@ public class MenuManager : MonoBehaviour
     {
         if (rootSettingsMenu == null) Debug.LogError("Can't set the settings menu, null ref");
 
-        Button settingsButton = rootSettingsMenu.Q<Button>("Settings");
         Button audioButton = rootSettingsMenu.Q<Button>("Audio");
-        Button videoButton = rootSettingsMenu.Q<Button>("Video");
         Button manetteButton = rootSettingsMenu.Q<Button>("Manette");
         Button clavierButton = rootSettingsMenu.Q<Button>("Clavier");
         Button exitButton = rootSettingsMenu.Q<Button>("Leave");
 
-        VisualElement settingVisual = rootSettingsMenu.Q<VisualElement>("GameSetting");
         VisualElement audioVisual = rootSettingsMenu.Q<VisualElement>("AudioSetting");
-        VisualElement videoVisual = rootSettingsMenu.Q<VisualElement>("VideoSetting");
         VisualElement manetteVisual = rootSettingsMenu.Q<VisualElement>("ManetteSetting");
         VisualElement clavierSetting = rootSettingsMenu.Q<VisualElement>("ClavierSetting");
 
-        currentVisualElement = settingVisual;
-
-        settingsButton.clickable.clicked += () => { EnableVisualElement(settingVisual); };
         audioButton.clickable.clicked += () => { EnableVisualElement(audioVisual); };
-        videoButton.clickable.clicked += () => { EnableVisualElement(videoVisual); };
         manetteButton.clickable.clicked += () => { EnableVisualElement(manetteVisual); };
         clavierButton.clickable.clicked += () => { EnableVisualElement(clavierSetting); };
         exitButton.clickable.clicked += () => { EnableMenu(lastMenuCheck, docSettingsMenu); };
 
+        SetClavierSettings();
+        SetAudioSettings();
 
+        EnableVisualElement(audioVisual);
+
+        Debug.Log("Option menu Set");
+    }
+
+    private void SetAudioSettings()
+    {
         //Audio part :
         Slider sliderMasterVolume = rootSettingsMenu.Q<Slider>("MasterVolume");
         audioManager.allSlider[0] = sliderMasterVolume;
@@ -131,12 +162,48 @@ public class MenuManager : MonoBehaviour
 
 
         sliderMasterVolume.RegisterValueChangedCallback(audioManager.SetMasterLevel);
-
+        sliderMusicVolume.RegisterValueChangedCallback(audioManager.SetMusiqueLevel);
+        sliderDialogueVolume.RegisterValueChangedCallback(audioManager.SetDialogueVolume);
+        sliderSFXVolume.RegisterValueChangedCallback(audioManager.SetEffectLevel);
 
         audioManager.LoadAllLevel();
-
-        Debug.Log("Option menu Set");
     }
+
+    private void SetClavierSettings()
+    {
+        ScrollView scrollView = rootSettingsMenu.Q<ScrollView>("BindList");
+
+        for (int i = 0; i < GameManager.GM.actionMap.Length; i++)
+        {
+            int j = i;
+            VisualElement visualToAdd = docBinding.CloneTree();
+            TextField textInput = visualToAdd.Q<TextField>("Input");
+
+            textInput.label = GameManager.GM.actionMap[i].nameAction;
+
+            textInput.RegisterCallback<MouseDownEvent>(evt =>
+            {
+                GameManager.GM.StartRebinding(j, textInput);
+                Debug.Log("Change");
+            });
+
+            /*textInput.RegisterValueChangedCallback(evt =>
+            {
+                GameManager.GM.StartRebinding(j, textInput);
+                Debug.Log("Change");
+            });*/
+
+
+            textInput.SetValueWithoutNotify(InputControlPath.ToHumanReadableString(
+                GameManager.GM.actionMap[j].actionReference.action.bindings[0]
+                .effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice));
+
+            scrollView.Add(visualToAdd);
+        }
+    }
+
+    #endregion
+
 
     /// <summary>
     /// Set the settings menu for button and activate input
@@ -169,6 +236,35 @@ public class MenuManager : MonoBehaviour
         Debug.Log("Play Menu Set");
     }
 
+    private void SetTutoMenu()
+    {
+        infoText = rootTutoMenu.Q<Label>("TutoText");
+
+    }
+
+
+    #region DialogueSet
+   
+    public void MajInfoText(string sentences)
+    {
+        infoText.text = sentences;
+    }
+
+    /// <summary>
+    /// Enable the tuto text
+    /// </summary>
+    /// <param name="enabled"></param>
+    public void EnableInfoText(bool enabled)
+    {
+        if (enabled)
+            infoText.style.display = DisplayStyle.Flex;
+        else
+            infoText.style.display = DisplayStyle.None;
+    }
+
+
+    #endregion
+
     #region MainMenuVoid
 
     /// <summary>
@@ -180,6 +276,8 @@ public class MenuManager : MonoBehaviour
 
         EnableMenu(null, docMainMenu);
         Time.timeScale = 1;
+
+        MusicManager.Instance.ChangeMusic(1);
 
         SceneManager.LoadScene(sceneIntro, LoadSceneMode.Additive);
 
@@ -268,4 +366,7 @@ public class MenuManager : MonoBehaviour
             playerInput.CanMenu = false;
         }
     }
+
+
+
 }

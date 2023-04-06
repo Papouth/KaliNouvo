@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UIElements;
+using static UnityEngine.Rendering.DebugUI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -36,9 +37,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="slider"></param>
     public void SetMasterLevel(ChangeEvent<float> value)
     {
-        Debug.Log("Change value");
-
-        masterMixer.SetFloat("Master", Mathf.Log10(value.newValue) * 25 + 5);
+        masterMixer.SetFloat("Master", value.newValue);
 
         if (SaveManager.instanceSaveManager)
             SaveManager.instanceSaveManager.SaveAudioLevel(0, value.newValue);
@@ -49,12 +48,12 @@ public class AudioManager : MonoBehaviour
     /// Set the audio of the musique level
     /// </summary>
     /// <param name="slider"></param>
-    public void SetMusiqueLevel(Slider slider)
+    public void SetMusiqueLevel(ChangeEvent<float> value)
     {
-        masterMixer.SetFloat("MusicVolume", Mathf.Log10(slider.value) * 25 + 5);
+        masterMixer.SetFloat("MusicVolume", value.newValue);
 
         if (SaveManager.instanceSaveManager)
-            SaveManager.instanceSaveManager.SaveAudioLevel(1, slider.value);
+            SaveManager.instanceSaveManager.SaveAudioLevel(1, value.newValue);
 
     }
 
@@ -62,24 +61,24 @@ public class AudioManager : MonoBehaviour
     /// Set the audio of the ambiance level
     /// </summary>
     /// <param name="slider"></param>
-    public void SetDialogueVolume(Slider slider)
+    public void SetDialogueVolume(ChangeEvent<float> value)
     {
-        masterMixer.SetFloat("DialogueVolume", Mathf.Log10(slider.value) * 25 + 5);
+        masterMixer.SetFloat("DialogueVolume", value.newValue);
 
         if (SaveManager.instanceSaveManager)
-            SaveManager.instanceSaveManager.SaveAudioLevel(2, slider.value);
+            SaveManager.instanceSaveManager.SaveAudioLevel(2, value.newValue);
     }
 
     /// <summary>
     /// Set the audio of the effect level
     /// </summary>
     /// <param name="slider"></param>
-    public void SetEffectLevel(Slider slider)
+    public void SetEffectLevel(ChangeEvent<float> value)
     {
-        masterMixer.SetFloat("SFXVolume", Mathf.Log10(slider.value) * 25 + 5);
+        masterMixer.SetFloat("SFXVolume",value.newValue);
 
         if (SaveManager.instanceSaveManager)
-            SaveManager.instanceSaveManager.SaveAudioLevel(3, slider.value);
+            SaveManager.instanceSaveManager.SaveAudioLevel(3, value.newValue);
     }
 
 
@@ -90,9 +89,6 @@ public class AudioManager : MonoBehaviour
     public void LoadAllLevel()
     {
         if (!SaveManager.instanceSaveManager) return;
-
-
-
 
         for (int i = 0; i < allSlider.Length; i++)
         {

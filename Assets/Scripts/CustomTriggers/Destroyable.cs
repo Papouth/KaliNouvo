@@ -7,7 +7,7 @@ public class Destroyable : CustomsTriggers
     public bool isDestroyable;
 
     [Header("Player Component")]
-    private PlayerInput playerInput;
+    private PlayerInputManager playerInput;
     private PlayerStats playerStats;
     private Animator anim;
     private bool playerCheck;
@@ -33,7 +33,7 @@ public class Destroyable : CustomsTriggers
     {
         if (other.CompareTag("Player"))
         {
-            playerInput = other.GetComponent<PlayerInput>();
+            playerInput = other.GetComponent<PlayerInputManager>();
             playerStats = other.GetComponent<PlayerStats>();
             anim = other.GetComponent<Animator>();
         }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8280619534975745403}
   - component: {fileID: 2099893966850726321}
+  - component: {fileID: 29901464}
   m_Layer: 0
   m_Name: CM vcam2 Kali Dot
   m_TagString: Untagged
@@ -71,6 +72,19 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 4881109719952651450}
+--- !u!114 &29901464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434226030211622524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644524e9157484e4bace4d5e7f4c6c3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dollyToTrack: {fileID: 3689888302690934704}
 --- !u!1 &717258714201837779
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,7 +819,6 @@ GameObject:
   m_Component:
   - component: {fileID: 717258715682608598}
   - component: {fileID: 717258715682608593}
-  - component: {fileID: 717258715682608592}
   - component: {fileID: 717258715682608599}
   - component: {fileID: 717258715682608596}
   - component: {fileID: 4322939892412047763}
@@ -874,14 +887,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &717258715682608592
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717258715682608595}
-  m_Enabled: 1
 --- !u!114 &717258715682608599
 MonoBehaviour:
   m_ObjectHideFlags: 0

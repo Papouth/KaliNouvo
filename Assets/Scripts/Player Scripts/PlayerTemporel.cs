@@ -17,7 +17,7 @@ public class PlayerTemporel : MonoBehaviour
     private bool inStateChangeTempo = false;
 
     [Header("Player Component")]
-    private PlayerInput playerInput;
+    private PlayerInputManager playerInput;
     private PlayerInteractor playerInteractor;
     private PlayerStats playerStats;
     private Animator animator;
@@ -28,7 +28,7 @@ public class PlayerTemporel : MonoBehaviour
     #region Built In Methods
     private void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInputManager>();
         playerInteractor = GetComponent<PlayerInteractor>();
         playerStats = GetComponent<PlayerStats>();
         animator = GetComponent<Animator>();
@@ -83,11 +83,11 @@ public class PlayerTemporel : MonoBehaviour
     /// </summary>
     private void ChangeTempo()
     {
-        if (playerInput.ChangeTempo && playerInteractor.hands.transform.childCount == 0 && playerStats.haveTempo && !inStateChangeTempo)
+        if (playerInput.ChangeTempo && playerInteractor.hands.transform.childCount == 0 && playerStats.haveTempo && !inStateChangeTempo && !GameManager.GM.canTP)
         {
             StartCoroutine(TimingTempo());
         }
-        else if (playerInput.ChangeTempo && !playerStats.haveTempo || inStateChangeTempo) playerInput.ChangeTempo = false;
+        else if (playerInput.ChangeTempo && !playerStats.haveTempo || inStateChangeTempo || GameManager.GM.canTP) playerInput.ChangeTempo = false;
     }
 
     private IEnumerator TimingTempo()
