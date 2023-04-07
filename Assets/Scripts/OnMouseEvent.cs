@@ -58,7 +58,7 @@ public class OnMouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (PlayerInput.telekinesyKeyOn)
+        if (PlayerInputManager.telekinesyKeyOn)
         {
             onSelect = !onSelect;
 

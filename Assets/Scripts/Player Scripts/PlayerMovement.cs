@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Player Movement")]
     public float moveSpeed = 3f;
+    private float currentSpeed;
     public float climbSpeedReducer = 2.2f;
     [SerializeField] private float climbJumpBuffer;
     public Vector3 directionInput;
@@ -32,13 +33,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float coyoteTimer = .5f;
 
     [Header("Crouch")]
-    public float crouchSpeed = .3f;
+    public float crouchWalkSpeed = 3f;
+    public float crouchSpeedHeight = .3f;
     public float standHeight = 2.0f;
     public float crouchHeight = 1.0f;
     public RaycastCheck[] raycastCanStandUp;
     public LayerMask layersCanStandUp;
     public float rangeMaxStandUp = 1.05f;
     public float centerZ;
+    public bool inCrouch;
+    private float desiredHeight;
 
     [Header("Climb Parameters")]
     //public bool haveClimbed;
@@ -51,8 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Player Component")]
     public Camera cam;
-    private CharacterController cc;
-    private PlayerInput playerInput;
+    public CharacterController cc;
+    private PlayerInputManager playerInput;
     public Animator animator;
     private PlayerNewClimbSystem playerNewClimbSystem;
     #endregion
@@ -60,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         cc = GetComponent<CharacterController>();
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInputManager>();
         animator = GetComponent<Animator>();
         playerNewClimbSystem = GetComponent<PlayerNewClimbSystem>();
 
@@ -79,6 +83,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        currentSpeed = moveSpeed;
+    }
+
     private void Update()
     {
         Jump();
@@ -87,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
         DropDown();
 
-        if (OnSteepSlope()) SteepSlopeMovement();
+        //if (OnSteepSlope()) SteepSlopeMovement();
 
         Crouching();
 
@@ -119,14 +128,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (!playerNewClimbSystem.isClimbing)
         {
-            movement = directionInput.normalized * (moveSpeed * Time.deltaTime);
+            movement = directionInput.normalized * (currentSpeed * Time.deltaTime);
         }
         else
         {
             // On inverse les controles lors du climb et on viens réduire la vitesse de déplacement du joueur
             movement = directionInput.normalized * (moveSpeed / climbSpeedReducer * Time.deltaTime);
             movement = transform.TransformDirection(movement);
-
 
             // Redirection du joueur face au mur
             RaycastHit hit;
@@ -136,14 +144,6 @@ public class PlayerMovement : MonoBehaviour
                 // On rotate le joueur correctement vers le mur
                 if (hit.normal == new Vector3(0f, 0f, 1f)) transform.rotation = Quaternion.Euler(0, 180, 0);
                 else transform.rotation = Quaternion.FromToRotation(-Vector3.forward, hit.normal);
-
-
-                //Debug.Log(hit.distance);
-                if (hit.distance > 0.25f)
-                {
-                    // Bug de jittering ici
-                    //movement.z = transform.forward.z + 0.0001f;
-                }
             }
         }
     }
@@ -187,7 +187,7 @@ public class PlayerMovement : MonoBehaviour
     private void SteepSlopeMovement()
     {
         Vector3 slopeDirection = Vector3.up - slopeHit.normal * Vector3.Dot(Vector3.up, slopeHit.normal);
-        float slideSpeed = moveSpeed + Time.deltaTime;
+        float slideSpeed = currentSpeed + Time.deltaTime;
 
         movement = slopeDirection * -slideSpeed;
         movement.y = movement.y - slopeHit.point.y;
@@ -332,16 +332,23 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Crouching()
     {
-        float desiredHeight = playerInput.Crouching ? crouchHeight : standHeight;
+        if (!playerNewClimbSystem.isClimbing)
+        {
+            if (playerInput.Crouching)
+            {
+                desiredHeight = crouchHeight;
+                inCrouch = true;
+                currentSpeed = crouchWalkSpeed;
+            }
+            else if (!playerInput.Crouching && CanStandUp())
+            {
+                desiredHeight = standHeight;
+                inCrouch = false;
+                currentSpeed = moveSpeed;
+            }
+        }
 
-        if (playerInput.Crouching)
-            animator.SetBool("Crouch", true);
-
-        else if (!playerInput.Crouching)
-            animator.SetBool("Crouch", false);
-
-
-        if (cc.height != desiredHeight && CanStandUp() && !playerNewClimbSystem.isClimbing)
+        if (cc.height != desiredHeight)
         {
             AdjustHeight(desiredHeight);
         }
@@ -349,24 +356,15 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CanStandUp()
     {
-        if (cc.height == standHeight)
-        {
-            // Sinon on autorise a s'accroupir
-            return true;
-        }
-        else
-        {
-            // On check si le joueur est accroupis
-            int raycastGood = 0;
+        // On check si le joueur est accroupis
+        int raycastGood = 0;
 
+        foreach (RaycastCheck raycast in raycastCanStandUp)
+            if (raycast.RaycastTest()) raycastGood++;
 
-            foreach (RaycastCheck raycast in raycastCanStandUp)
-                if (raycast.RaycastTest()) raycastGood++;
+        if (raycastGood > 0) return false;
+        else return true;
 
-
-            if (raycastGood > 0) return false;
-            else return true;
-        }
     }
 
     /// <summary>
@@ -377,8 +375,8 @@ public class PlayerMovement : MonoBehaviour
     {
         float center = height / 2;
 
-        cc.height = Mathf.Lerp(cc.height, height, crouchSpeed);
-        cc.center = Vector3.Lerp(cc.center, new Vector3(0, center, centerZ), crouchSpeed);
+        cc.height = Mathf.Lerp(cc.height, height, crouchSpeedHeight);
+        cc.center = Vector3.Lerp(cc.center, new Vector3(0, center, centerZ), crouchSpeedHeight);
     }
     #endregion
 
@@ -386,6 +384,8 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetFloat("Movement", directionInput.magnitude);
         animator.SetFloat("ClimbMove", directionInput.x);
+
+        animator.SetBool("Crouch", inCrouch);
     }
 
     private void OnDrawGizmos()
@@ -403,6 +403,5 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Debug.DrawRay(transform.position + transform.TransformDirection(new Vector3(0f, 1f, 0f)), transform.forward, Color.red);
-
     }
 }

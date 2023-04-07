@@ -159,9 +159,9 @@ public class Plateforme : MonoBehaviour
     /// Attend qu'un levier soit activer.
     /// Fonction appeler par un levier
     /// </summary>
-    public void ActivateLevier()
+    public void ActivatePlateforme(bool enable)
     {
-        isEnable = true;
+        isEnable = enable;
     }
 
     #endregion

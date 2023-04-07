@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Events;
 
 public class Door : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Door : MonoBehaviour
     private bool canUnlock;
     [SerializeField] private float timingTransition = 8;
     private float timer;
+
+    public UnityEvent events;
 
     #endregion
 
@@ -53,6 +56,9 @@ public class Door : MonoBehaviour
     {
         cameraDoor.m_Priority = 100;
 
+        GameManager.GM.player.GetComponent<PlayerMovement>().cc.enabled = false;
+
+
         if (Vector3.Distance(Camera.main.transform.position, target) <= .1f)
         {
             doorAnimator.SetBool("IsValid", true);
@@ -64,6 +70,10 @@ public class Door : MonoBehaviour
         {
             cameraDoor.Priority = -100;
             isFinish = true;
+            GameManager.GM.player.GetComponent<PlayerMovement>().cc.enabled = true;
+
+            if (events.GetPersistentEventCount() > 0)
+                events.Invoke();
         }
     }
 
@@ -84,7 +94,7 @@ public class Door : MonoBehaviour
                 }
             }
         }
-        else { canUnlock = false;  return; }
+        else { canUnlock = false; return; }
 
         canUnlock = true;
     }
