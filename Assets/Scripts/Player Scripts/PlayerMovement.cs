@@ -179,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator CrossTimer()
     {
-        yield return new WaitForSeconds(1.05f);
+        yield return new WaitForSeconds(1.4f);//1.05
         cc.enabled = true;
         animator.applyRootMotion = false;
         animator.ResetTrigger("TrClimbCross");
