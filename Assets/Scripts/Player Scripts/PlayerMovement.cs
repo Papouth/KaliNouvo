@@ -96,6 +96,8 @@ public class PlayerMovement : MonoBehaviour
 
         DropDown();
 
+        ClimbCross();
+
         //if (OnSteepSlope()) SteepSlopeMovement();
 
         Crouching();
@@ -158,6 +160,29 @@ public class PlayerMovement : MonoBehaviour
         {
             playerNewClimbSystem.isClimbing = false;
         }
+    }
+
+    /// <summary>
+    /// Permet d'escalader en appuyant sur la touche avancer
+    /// </summary>
+    private void ClimbCross()
+    {
+        if (directionInput.z >= 0.1 && playerNewClimbSystem.isClimbing)
+        {
+            playerNewClimbSystem.isClimbing = false;
+            cc.enabled = false;
+            animator.applyRootMotion = true;
+            animator.SetTrigger("TrClimbCross");
+            StartCoroutine(CrossTimer());
+        }
+    }
+
+    private IEnumerator CrossTimer()
+    {
+        yield return new WaitForSeconds(1.05f);
+        cc.enabled = true;
+        animator.applyRootMotion = false;
+        animator.ResetTrigger("TrClimbCross");
     }
     #endregion
 
