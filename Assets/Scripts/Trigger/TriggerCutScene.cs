@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using Cinemachine;
 
 public class TriggerCutScene : TriggerInScene
 {
@@ -11,6 +12,9 @@ public class TriggerCutScene : TriggerInScene
     private bool isAlreadyPlayed;
 
     public Dialogue[] sentencesToPlay;
+
+    public bool transitionCamera = true;
+    private CinemachineBlenderSettings settings;
 
     #endregion
 
@@ -31,6 +35,12 @@ public class TriggerCutScene : TriggerInScene
     {
         if (isAlreadyPlayed) return;
 
+        if (!transitionCamera)
+        {
+            settings = GameManager.GM.cB.m_CustomBlends;
+            GameManager.GM.cB.m_CustomBlends = null;
+        }
+
         playable.Play();
         GameManager.GM.player.GetComponent<CharacterController>().enabled = false;
         isAlreadyPlayed = true;
@@ -48,6 +58,11 @@ public class TriggerCutScene : TriggerInScene
 
     public void StopPlayable()
     {
+        if (!transitionCamera)
+        {
+            GameManager.GM.cB.m_CustomBlends = settings;
+        }
+
         playable.Pause();
         GameManager.GM.player.GetComponent<CharacterController>().enabled = true;
     }
