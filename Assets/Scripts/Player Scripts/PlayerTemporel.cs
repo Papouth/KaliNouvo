@@ -131,18 +131,23 @@ public class PlayerTemporel : MonoBehaviour
         Scene scene = SceneManager.GetSceneByName(scenesToLoad);
 
         GameObject[] goSceneLoad = scene.GetRootGameObjects();
-        foreach (var item in goSceneLoad)
+
+        goSceneLoad[0].SetActive(true);
+
+        /*foreach (var item in goSceneLoad)
         {
             item.SetActive(true);
-        }
+        }*/
 
 
         Scene unloadScene = SceneManager.GetSceneByName(scenesToUnload);
         GameObject[] goSceneUnload = unloadScene.GetRootGameObjects();
-        foreach (var item in goSceneUnload)
+        goSceneUnload[0].SetActive(false);
+
+        /*foreach (var item in goSceneUnload)
         {
             item.SetActive(false);
-        }
+        }*/
 
         /*
         if (!scene.isLoaded)
