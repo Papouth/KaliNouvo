@@ -33,6 +33,7 @@ public class Plateforme : MonoBehaviour
 
     private Rigidbody rb;
     private Vector3 currentPos;
+    private Animator animator;
     private CharacterController cc;
     #endregion
 
@@ -40,6 +41,7 @@ public class Plateforme : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         depart = destination = transform.position;
         rb = GetComponent<Rigidbody>();
     }
@@ -161,6 +163,7 @@ public class Plateforme : MonoBehaviour
     /// </summary>
     public void ActivatePlateforme(bool enable)
     {
+        animator.SetBool("Active", true);
         isEnable = enable;
     }
 
