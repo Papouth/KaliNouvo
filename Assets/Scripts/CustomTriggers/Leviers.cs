@@ -10,15 +10,32 @@ public class Leviers : CustomsTriggers
     public UnityEvent leverEvent;
     private bool boolCheck;
 
+    [Tooltip("Quand on l'active le levier ne marche pas")]
+    public bool isBroke;
+
     [SerializeField] private CinemachineVirtualCamera cameraDoor;
     private bool isFinish;
     [SerializeField] private float timingTransition = 8;
     private float timer;
     private bool animCam;
 
+    private Animator animator;
+
     public override void Start()
     {
-        cameraDoor.Priority = -100;
+        animator = GetComponent<Animator>();
+
+
+        if (cameraDoor)
+            cameraDoor.Priority = -100;
+
+        if (isBroke)
+        {
+            animator.Play("Default");
+
+            leverEvent.RemoveAllListeners();
+        }
+
     }
 
     private void Update()

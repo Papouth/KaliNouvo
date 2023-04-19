@@ -56,13 +56,17 @@ public class ChangeCameraDolly : TriggerInScene
             GetComponent<CinemachineVirtualCamera>().
             GetCinemachineComponent<CinemachineTrackedDolly>();
 
-        _oldTrack = (CinemachineSmoothPath)currentPath.m_Path;
+        if (currentPath.m_Path)
+        {
 
-        currentPath.m_Path = dollyToTrack;
-        GameManager.GM._currentPath = (CinemachineSmoothPath)currentPath.m_Path;
+            _oldTrack = (CinemachineSmoothPath)currentPath.m_Path;
 
-       float pathLenght = dollyToTrack.FindClosestPoint(cB.ActiveVirtualCamera.LookAt.position, 0, -1, 1);
-       currentPath.m_PathPosition = pathLenght;
+            currentPath.m_Path = dollyToTrack;
+            GameManager.GM._currentPath = (CinemachineSmoothPath)currentPath.m_Path;
+
+            float pathLenght = dollyToTrack.FindClosestPoint(cB.ActiveVirtualCamera.LookAt.position, 0, -1, 1);
+            currentPath.m_PathPosition = pathLenght;
+        }
 
     }
 
