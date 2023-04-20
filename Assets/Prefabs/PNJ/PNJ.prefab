@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 4764233109710285766}
   - component: {fileID: 8189204034040479622}
   - component: {fileID: 2763071351275919817}
+  - component: {fileID: 3591398189680422104}
   m_Layer: 8
   m_Name: PNJ
   m_TagString: Untagged
@@ -145,7 +146,7 @@ NavMeshAgent:
   m_Speed: 1
   m_Acceleration: 5
   avoidancePriority: 50
-  m_AngularSpeed: 90
+  m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -167,10 +168,22 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 28cb258a13ea0e442804c8f637a0465a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3591398189680422104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4764233109710285758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09d7f748093b514ab4fe2d3d6a8b6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
