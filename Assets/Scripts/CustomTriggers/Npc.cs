@@ -105,7 +105,7 @@ public class Npc : CustomsTriggers
         {
             lookWeight = Mathf.Lerp(lookWeight, 1, Time.deltaTime);
             animator.SetLookAtWeight(lookWeight);
-            
+
         }
         else
         {
@@ -170,22 +170,29 @@ public class Npc : CustomsTriggers
             {
                 animator.SetFloat("Move", 0);
                 stopMove = true;
-                int random = Random.Range(0, animator.GetInteger("ReadIndexRandom"));
-                animator.SetInteger("IndexRandom", random);
-                animator.SetTrigger("PlayRandom");
             }
         }
         else
         {
             animator.SetFloat("Move", agent.velocity.normalized.magnitude);
-
             agent.SetDestination(target.position);
         }
     }
 
     public void CanMove()
     {
-        target = GetWayPointRandom();
+        if (canMove)
+            target = GetWayPointRandom();
+    }
+
+    /// <summary>
+    /// Set a random anim for the npc
+    /// </summary>
+    public void IdleNpc()
+    {
+        int random = Random.Range(0, animator.GetInteger("ReadIndexRandom"));
+        animator.SetInteger("IndexRandom", random);
+        animator.SetTrigger("PlayRandom");
     }
 
     /// <summary>
