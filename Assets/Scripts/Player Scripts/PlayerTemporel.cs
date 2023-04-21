@@ -42,10 +42,10 @@ public class PlayerTemporel : MonoBehaviour
 
     private void Start()
     {
-        //PastSceneAtStart();
+        PastSceneAtStart();
 
-        //scenesToLoad = past;
-        //scenesToUnload = present;
+        scenesToLoad = past;
+        scenesToUnload = present;
     }
 
     private void Update()
