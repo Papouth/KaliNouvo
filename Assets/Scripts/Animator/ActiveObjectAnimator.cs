@@ -40,7 +40,6 @@ public class ActiveObjectAnimator : StateMachineBehaviour
             {
                 if (obj.name == nameObject)
                 {
-                    Debug.Log("Alo");
                     obj.gameObject.transform.GetChild(0).gameObject.SetActive(false);
                 }
             }
