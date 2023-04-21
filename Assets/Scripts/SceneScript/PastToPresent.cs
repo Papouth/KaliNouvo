@@ -10,20 +10,26 @@ public class PastToPresent : MonoBehaviour
     [HideInInspector]
     public bool canLift;
 
-    [Tooltip("Le prefab du pass�")]
+    [Tooltip("Le prefab du passe")]
     public GameObject pastPrefab;
 
-    [Tooltip("Le prefab du pr�sent")]
+    [Tooltip("Le prefab du present")]
     public GameObject presentPrefab;
 
 
     [Header("Scenes Infos")]
     [SerializeField] private bool isPresent;
     private bool prefabState;
-    [Tooltip("La sc�ne dans laquelle la caisse se trouve")]
+    [Tooltip("La scene dans laquelle la caisse se trouve")]
     public string actualScene;
     private Scene scene;
     private bool alreadyCheck;
+
+    [Header("Plante Evolutive")]
+    [Tooltip("Si le prefab est une plante : true \n Si le prefab n'est pas une plante : false")]
+    [SerializeField] private bool isPlant;
+    [Tooltip("Si la plante est dans un pot de fleur, elle peut evoluer")]
+    private bool canEvo;
 
 
     [Header("Player Components")]
@@ -38,8 +44,8 @@ public class PastToPresent : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if (rb == null) rb = GetComponentInChildren<Rigidbody>();
 
-        // On commence dans le pr�sent
-        isPresent = true;
+        // On commence dans le present
+        //isPresent = true;
     }
 
     private void Start()
@@ -72,25 +78,41 @@ public class PastToPresent : MonoBehaviour
     }
     #endregion
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Pot2Fleur"))
+        {
+            canEvo = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Pot2Fleur"))
+        {
+            canEvo = false;
+        }
+    }
+
 
     /// <summary>
-    /// D�termine la temporalit� dans laquelle le joueur se trouve actuellement
+    /// Determine la temporalite dans laquelle le joueur se trouve actuellement
     /// </summary>
     private void SceneFinder()
     {
-        // sceneState == false -> on est dans le pr�sent
-        // sceneState == true -> on est dans le pass�
+        // sceneState == false -> on est dans le present
+        // sceneState == true -> on est dans le passe
 
         if(playerTemporel == null) return;
 
         if (!playerTemporel.sceneState)
         {
-            //Debug.Log("On est dans le pr�sent");
+            //Debug.Log("On est dans le present");
             isPresent = true;
 
 
-            // Si je n'ai pas encore modifier le prefab
-            if (prefabState)
+            // Si je n'ai pas encore modifier le prefab + que je suis en collision avec un pot de fleur
+            if (prefabState && canEvo)
             {
                 pastPrefab.SetActive(false);
                 presentPrefab.SetActive(true);
@@ -99,7 +121,7 @@ public class PastToPresent : MonoBehaviour
         }
         else if (playerTemporel.sceneState)
         {
-            //Debug.Log("On est dans le pass�");
+            //Debug.Log("On est dans le passe");
             isPresent = false;
 
 
@@ -113,9 +135,8 @@ public class PastToPresent : MonoBehaviour
         }
     }
 
-
     /// <summary>
-    /// Le joueur peut pousser l'objet dans le pass�
+    /// Le joueur peut pousser l'objet dans le passe
     /// </summary>
     private void PushOnOff()
     {
