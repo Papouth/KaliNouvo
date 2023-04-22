@@ -42,10 +42,10 @@ public class PlayerTemporel : MonoBehaviour
 
     private void Start()
     {
-        PastSceneAtStart();
-
-        scenesToLoad = past;
-        scenesToUnload = present;
+        //PastSceneAtStart();
+        //
+        //scenesToLoad = past;
+        //scenesToUnload = present;
     }
 
     private void Update()
@@ -98,7 +98,7 @@ public class PlayerTemporel : MonoBehaviour
 
         yield return new WaitForSeconds(timingAnimTemp);
 
-        // On change de temporalit�
+        // On change de temporalite
         LoadingScene();
 
         sceneState = !sceneState;
