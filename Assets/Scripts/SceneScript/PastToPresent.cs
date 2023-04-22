@@ -43,13 +43,11 @@ public class PastToPresent : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         if (rb == null) rb = GetComponentInChildren<Rigidbody>();
-
-        // On commence dans le present
-        //isPresent = true;
     }
 
     private void Start()
     {
+        actualScene = SceneManager.GetActiveScene().name;
         scene = SceneManager.GetSceneByName(actualScene);
         alreadyCheck = false;
 
@@ -64,6 +62,7 @@ public class PastToPresent : MonoBehaviour
 
     private void Update()
     {
+        // Security
         if (!scene.isLoaded && !alreadyCheck)
         {
             alreadyCheck = true;
