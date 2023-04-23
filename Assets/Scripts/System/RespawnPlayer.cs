@@ -24,7 +24,6 @@ public class RespawnPlayer : RespawnSystem
     {
         if (base.CheckGrounded() && player.inCrouch == false) return true;
         else return false;
-
     }
 
     /// <summary>
