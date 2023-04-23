@@ -33,6 +33,7 @@ public class Plateforme : MonoBehaviour
 
     private Rigidbody rb;
     private Vector3 currentPos;
+    private Animator animator;
     private CharacterController cc;
     #endregion
 
@@ -40,6 +41,7 @@ public class Plateforme : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         depart = destination = transform.position;
         rb = GetComponent<Rigidbody>();
     }
@@ -159,9 +161,10 @@ public class Plateforme : MonoBehaviour
     /// Attend qu'un levier soit activer.
     /// Fonction appeler par un levier
     /// </summary>
-    public void ActivateLevier()
+    public void ActivatePlateforme(bool enable)
     {
-        isEnable = true;
+        animator.SetBool("Active", true);
+        isEnable = enable;
     }
 
     #endregion

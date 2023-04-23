@@ -96,6 +96,8 @@ public class PlayerMovement : MonoBehaviour
 
         DropDown();
 
+        ClimbCross();
+
         //if (OnSteepSlope()) SteepSlopeMovement();
 
         Crouching();
@@ -136,7 +138,6 @@ public class PlayerMovement : MonoBehaviour
             movement = directionInput.normalized * (moveSpeed / climbSpeedReducer * Time.deltaTime);
             movement = transform.TransformDirection(movement);
 
-
             // Redirection du joueur face au mur
             RaycastHit hit;
 
@@ -145,14 +146,6 @@ public class PlayerMovement : MonoBehaviour
                 // On rotate le joueur correctement vers le mur
                 if (hit.normal == new Vector3(0f, 0f, 1f)) transform.rotation = Quaternion.Euler(0, 180, 0);
                 else transform.rotation = Quaternion.FromToRotation(-Vector3.forward, hit.normal);
-
-
-                //Debug.Log(hit.distance);
-                if (hit.distance > 0.25f)
-                {
-                    // Bug de jittering ici
-                    //movement.z = transform.forward.z + 0.0001f;
-                }
             }
         }
     }
@@ -167,6 +160,29 @@ public class PlayerMovement : MonoBehaviour
         {
             playerNewClimbSystem.isClimbing = false;
         }
+    }
+
+    /// <summary>
+    /// Permet d'escalader en appuyant sur la touche avancer
+    /// </summary>
+    private void ClimbCross()
+    {
+        if (directionInput.z >= 0.1 && playerNewClimbSystem.isClimbing)
+        {
+            playerNewClimbSystem.isClimbing = false;
+            cc.enabled = false;
+            animator.applyRootMotion = true;
+            animator.SetTrigger("TrClimbCross");
+            StartCoroutine(CrossTimer());
+        }
+    }
+
+    private IEnumerator CrossTimer()
+    {
+        yield return new WaitForSeconds(1.4f);//1.05
+        cc.enabled = true;
+        animator.applyRootMotion = false;
+        animator.ResetTrigger("TrClimbCross");
     }
     #endregion
 
@@ -412,6 +428,5 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Debug.DrawRay(transform.position + transform.TransformDirection(new Vector3(0f, 1f, 0f)), transform.forward, Color.red);
-
     }
 }

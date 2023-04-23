@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,22 +10,40 @@ public class Leviers : CustomsTriggers
     public UnityEvent leverEvent;
     private bool boolCheck;
 
-    [Header("Si c'est une porte � ouvrir")] 
-    [SerializeField] private Animation theDoorAnim;
-    [SerializeField] private GameObject doorToDestroy;
+    [Tooltip("Quand on l'active le levier ne marche pas")]
+    public bool isBroke;
 
-    [Header("Si c'est une plateforme � activer")]
-    [Tooltip("Le script de la plateforme que l'on souhaite activer")]
-    [SerializeField] private Plateforme plateformeScript;   
+    [SerializeField] private CinemachineVirtualCamera cameraDoor;
+    private bool isFinish;
+    [SerializeField] private float timingTransition = 8;
+    private float timer;
+    private bool animCam;
 
-
-    private Animator animLever;
-
+    private Animator animator;
 
     public override void Start()
     {
-        animLever = GetComponent<Animator>();
-        //if (plateformeScript != null) plateformeScript = GetComponent<Plateforme>();
+        animator = GetComponent<Animator>();
+
+
+        if (cameraDoor)
+            cameraDoor.Priority = -100;
+
+        if (isBroke)
+        {
+            animator.Play("Default");
+
+            leverEvent.RemoveAllListeners();
+        }
+
+    }
+
+    private void Update()
+    {
+        if (isFinish == false && animCam)
+        {
+            CameraAnim();
+        }
     }
 
     public override void Interact()
@@ -34,26 +53,27 @@ public class Leviers : CustomsTriggers
         return;
     }
 
-    public void OpenDoor()
+    /// <summary>
+    /// Camera Anim
+    /// </summary>
+    private void CameraAnim()
     {
-        // On ouvre la porte qui correspond
-        boolCheck = true;
+        cameraDoor.m_Priority = 100;
 
-        if (theDoorAnim != null)
+        GameManager.GM.player.GetComponent<PlayerMovement>().cc.enabled = false;
+
+        timer += Time.deltaTime;
+
+        if (timer >= timingTransition)
         {
-            theDoorAnim.Play();
-
-            animLever.SetBool("leverOn", true);
+            cameraDoor.Priority = -100;
+            isFinish = true;
+            GameManager.GM.player.GetComponent<PlayerMovement>().cc.enabled = true;
         }
-        else { Destroy(doorToDestroy); }
     }
 
-    public void ActivatePlatform()
+    public void SetCameraAnim()
     {
-        Debug.Log("bool platform");
-        // On active la plateforme qui correspond
-        boolCheck = true;
-
-        plateformeScript.isEnable = true;
+        animCam = true;
     }
 }

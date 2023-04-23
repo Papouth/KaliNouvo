@@ -30,7 +30,7 @@ public class DialogueManager : MonoBehaviour
     {
         sentences.Clear();
         if(dialogue.sentences.Length == 0) return;
-        UIManager.UIInstance.EnableTextDialogue(true);
+        MenuManager.Instance.EnableInfoText(true);
 
         foreach (string sentence in dialogue.sentences)
         {
@@ -66,12 +66,12 @@ public class DialogueManager : MonoBehaviour
     /// <returns></returns>
     public IEnumerator TypeSentence(string sentence, Dialogue dialogue)
     {
-        string currentSentence = "";
+        string currentSentence = dialogue.nameOfPeople + " : ";
 
         foreach (char letter in sentence.ToCharArray())
         {
             currentSentence += letter;
-            UIManager.UIInstance.MajTextDialogue(currentSentence);
+            MenuManager.Instance.MajInfoText(currentSentence);
             yield return new WaitForSeconds(speedDisplay);
         }
 
@@ -99,8 +99,8 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     public void EndDialogue()
     {
-        if(UIManager.UIInstance == null) return;
-        UIManager.UIInstance.EnableTextDialogue(false);
+        if(MenuManager.Instance == null) return;
+        MenuManager.Instance.EnableInfoText(false);
     }
 }
 
@@ -110,9 +110,9 @@ public class DialogueManager : MonoBehaviour
 [System.Serializable]
 public class Dialogue
 {
-    public string npcName;
-    public Sprite npcNameImage;
+    public string nameOfPeople;
 
     [TextArea(3, 10)]
     public string[] sentences;
+
 }

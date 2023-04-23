@@ -1,35 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class TutorielTrigger : MonoBehaviour
+public class TutorielTrigger : TriggerInScene
 {
     private MenuManager menuManager;
     private PlayerInput playerInput;
 
     public string startText;
 
-    public KeyCode pressButton;
+    public InputActionReference actionReference;
 
     public string endText;
 
-    private void Awake()
+    private bool alreadyPast;
+
+    public override void Awake()
     {
         menuManager = MenuManager.Instance;
         playerInput = GameManager.GM.playerInput;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 3) //Player
+        if (other.gameObject.layer == 3 && alreadyPast == false) //Player
         {
             DisplayTutoriel(true);
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public override void OnTriggerExit(Collider other)
     {
         if (other.gameObject.layer == 3) //Player
         {
@@ -39,23 +43,20 @@ public class TutorielTrigger : MonoBehaviour
 
     private void DisplayTutoriel(bool display)
     {
-        
-        menuManager.tutoText.text = startText + " " + pressButton.ToString() + " " + endText;
+        string textToDisplay;
 
-        if (display)
-            menuManager.tutoText.style.display = DisplayStyle.Flex;
-        else
-            menuManager.tutoText.style.display = DisplayStyle.None;
+        textToDisplay = startText + " " + InputControlPath.ToHumanReadableString(
+                actionReference.action.bindings[0]
+                .effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+        if (textToDisplay.Contains(startText + " " + "2DVector"))
+        {
+            textToDisplay = startText + " " + "Z,Q,S,D";
+        }
+
+
+        menuManager.MajInfoText(textToDisplay + " " + endText);
+        menuManager.EnableInfoText(display);
+
+        alreadyPast = true;
     }
-
-    private void OnDrawGizmos()
-    {
-        BoxCollider col = GetComponent<BoxCollider>();
-
-        if (col == null) return;
-
-        Gizmos.color = new Color(0, 1, 0, .5f);
-        Gizmos.DrawCube(transform.position + col.center, col.size);
-    }
-
 }
