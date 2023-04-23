@@ -25,6 +25,10 @@ public class AscenceurTp : MonoBehaviour
 
             SceneManager.LoadScene(playerTempo.present, LoadSceneMode.Additive);
             SceneManager.LoadScene(playerTempo.past, LoadSceneMode.Additive);
+
+            // Reset des scènes
+            playerTempo.scenesToLoad = playerTempo.present;
+            playerTempo.scenesToUnload = playerTempo.past;
         }
     }
 }

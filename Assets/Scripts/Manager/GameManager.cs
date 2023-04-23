@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     #region Variables
     public static GameManager GM;
     public bool havePass;
+    [Tooltip("Si faux : le joueur peut voyager dans le temps \n Si vrai : le joueur ne peut plus voyager dans le temps")]
     public bool canTP;
 
     public CinemachineBrain cB;
@@ -84,6 +85,4 @@ public class InputRebind
 {
     public InputActionReference actionReference;
     public string nameAction;
-
-
 }

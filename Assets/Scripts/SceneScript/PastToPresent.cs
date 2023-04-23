@@ -56,7 +56,7 @@ public class PastToPresent : MonoBehaviour
             if (!gameObject.activeSelf) gameObject.SetActive(true);
 
             pastPrefab.SetActive(false);
-            presentPrefab.SetActive(true);
+            presentPrefab.SetActive(false);
         }
     }
 
@@ -77,17 +77,17 @@ public class PastToPresent : MonoBehaviour
     }
     #endregion
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Pot2Fleur"))
+        if (other.gameObject.CompareTag("Pot2Fleur"))
         {
             canEvo = true;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Pot2Fleur"))
+        if (other.gameObject.CompareTag("Pot2Fleur"))
         {
             canEvo = false;
         }
@@ -110,11 +110,18 @@ public class PastToPresent : MonoBehaviour
             isPresent = true;
 
 
-            // Si je n'ai pas encore modifier le prefab + que je suis en collision avec un pot de fleur
             if (prefabState && canEvo)
             {
+                // Si je n'ai pas encore modifier le prefab + que je suis en collision avec un pot de fleur
                 pastPrefab.SetActive(false);
                 presentPrefab.SetActive(true);
+                prefabState = !prefabState;
+            }
+            else if (prefabState && !canEvo)
+            {
+                // Si pas encore modifier le prefab + pas en collision avec le pot de fleur
+                pastPrefab.SetActive(false);
+                presentPrefab.SetActive(false);
                 prefabState = !prefabState;
             }
         }

@@ -13,19 +13,13 @@ public class CutSecne_TPPlayer : MonoBehaviour
     public string oldSceneToUnload = "Tutoriel_01_Present";
     public Transform newPosKali;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         playerTemp = GameManager.GM.player.GetComponent<PlayerTemporel>();
         playerStats = GameManager.GM.player.GetComponent<PlayerStats>();
         kali3D = playerTemp.gameObject.transform.GetChild(0).gameObject;
         cc = GameManager.GM.player.GetComponent<CharacterController>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void EnabledKali(bool enabled)
@@ -40,5 +34,8 @@ public class CutSecne_TPPlayer : MonoBehaviour
         playerTemp.ChangeSceneToLoad(newSceneToLoad, oldSceneToUnload);
         playerTemp.LoadingScene();
         playerStats.GetBraceletTempo();
+
+        // Reset des scènes à changer
+        playerTemp.ChangeSceneToLoad(oldSceneToUnload, newSceneToLoad);
     }
 }
