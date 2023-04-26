@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddb502efa8a3bd458670f12c3b3ec7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameObject: M_Pnj_Idle_Texting2
+  nameObject: M_Pnj_Idle_Texting2_RH
 --- !u!1101 &-8610720727865573568
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddb502efa8a3bd458670f12c3b3ec7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameObject: M_Pnj_Idle_Texting
+  nameObject: M_Pnj_Idle_Texting_RH
 --- !u!1109 &-6974101991360331900
 AnimatorTransition:
   m_ObjectHideFlags: 1
@@ -577,13 +577,13 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
+  - first: {fileID: 5161566205381790372}
+    second:
+    - {fileID: -6974101991360331900}
   - first: {fileID: 3249303510802409825}
     second:
     - {fileID: 6491424096737688366}
     - {fileID: -5955283976236367789}
-  - first: {fileID: 5161566205381790372}
-    second:
-    - {fileID: -6974101991360331900}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddb502efa8a3bd458670f12c3b3ec7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameObject: M_Pnj_Idle_Texting
+  nameObject: M_Pnj_Idle_Texting_RH
 --- !u!114 &5668756867046453995
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -967,7 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddb502efa8a3bd458670f12c3b3ec7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameObject: M_Pnj_Idle_Texting
+  nameObject: M_Pnj_Idle_Texting_RH
 --- !u!1101 &5938590156898729986
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
