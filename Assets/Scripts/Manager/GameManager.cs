@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Code is "z,z,s,s,q,d,q,d,a,b", user needs to input this in the right order
-        cheatCode = new string[] { "z", "z", "s", "s", "q", "d", "q", "d", "a", "b" };
+        cheatCode = new string[] { "z", "z", "s", "s", "q", "d", "q", "d", "b", "a" };
         index = 0;
     }
 
