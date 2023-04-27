@@ -280,6 +280,24 @@ MonoBehaviour:
   m_Markers:
     m_Objects:
     - {fileID: -2913064877757289461}
+--- !u!114 &-5478538196619299199
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbd01b80161dd124da6c30bdc43d7d9a, type: 3}
+  m_Name: DialogueClip
+  m_EditorClassIdentifier: 
+  dialogue:
+    nameOfPeople: Kali
+    sentences:
+    - "Oh non, pas la Tour Interdite ! \u2026 Raahhhh, c\u2019est pas vrai ! Bon,
+      pas le choix\u2026 j\u2019entre, je r\xE9cup\xE8re mon masque et je ressors
+      sur le champ"
 --- !u!114 &-5088352782968157530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -555,6 +573,7 @@ MonoBehaviour:
   - {fileID: -4038600931595173884}
   - {fileID: -8362277481741030311}
   - {fileID: 734152798777796466}
+  - {fileID: 6285546390526062947}
   - {fileID: -6238504279589488702}
   m_FixedDuration: 0
   m_EditorSettings:
@@ -1014,6 +1033,98 @@ MonoBehaviour:
   m_Markers:
     m_Objects: []
   m_PostPlaybackState: 3
+--- !u!114 &6285546390526062947
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e57dfee31b7844384a6f959cd6e1cd, type: 3}
+  m_Name: Dialogue Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips:
+  - m_Version: 1
+    m_Start: 7.066666666666666
+    m_ClipIn: 0
+    m_Asset: {fileID: -5478538196619299199}
+    m_Duration: 5.916666666666666
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 6285546390526062947}
+    m_EaseInDuration: 1
+    m_EaseOutDuration: 1
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: DialogueClip
+  m_Markers:
+    m_Objects: []
 --- !u!114 &7243943337147388229
 MonoBehaviour:
   m_ObjectHideFlags: 1
