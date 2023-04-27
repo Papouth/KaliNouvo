@@ -11,8 +11,6 @@ public class TriggerCutScene : TriggerInScene
     public PlayableDirector playable;
     private bool isAlreadyPlayed;
 
-    public Dialogue[] sentencesToPlay;
-
     public bool transitionCamera = true;
     private CinemachineBlenderSettings settings;
 
@@ -65,11 +63,6 @@ public class TriggerCutScene : TriggerInScene
 
         playable.Pause();
         GameManager.GM.player.GetComponent<CharacterController>().enabled = true;
-    }
-
-    public void PlayDialogue(int index)
-    {
-        DialogueManager.InstanceDialogue.StartDialogue(sentencesToPlay[index]);
     }
 
     #endregion
