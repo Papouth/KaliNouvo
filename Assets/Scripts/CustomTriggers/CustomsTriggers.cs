@@ -31,7 +31,7 @@ public abstract class CustomsTriggers : MonoBehaviour, IInteractable
 
     public virtual void Interact()
     {
-        //Debug.Log(onInteractText);
+        Debug.Log("fesse");
         return;
     }
 
