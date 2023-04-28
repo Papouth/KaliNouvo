@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class Destroyable : CustomsTriggers
 {
-    public bool isDestroyable;
+    private bool isDestroyable;
+    [Header("GameObjet A Detruire")]
+    [SerializeField] private GameObject baseMesh;
+    [SerializeField] private GameObject[] debrisMesh;
+    private bool haveBeenDestroyed;
 
     [Header("Player Component")]
     private PlayerInputManager playerInput;
     private PlayerStats playerStats;
     private Animator anim;
-    private bool playerCheck;
+
+
 
     public override void Start()
     {
-        if (gameObject.CompareTag("Destroyable")) isDestroyable = true;
+        if (gameObject.CompareTag("Destroyable"))
+        {
+            isDestroyable = true;
+
+            foreach (var debri in debrisMesh)
+            {
+                debri.SetActive(false);
+            }
+        }
     }
 
     public void OnTriggerStay(Collider other)
@@ -42,14 +55,21 @@ public class Destroyable : CustomsTriggers
     #region Destroy Objects
     public bool BreakObject()
     {
-        if (playerInput.CanDestroy && playerStats.haveSuperForce && isDestroyable && !playerInput.CanTelekinesy)
+        if (playerInput.CanDestroy && playerStats.haveSuperForce && isDestroyable && !playerInput.CanTelekinesy && !haveBeenDestroyed)
         {
             Debug.Log("here");
+
+            haveBeenDestroyed = true;
 
             // Animation du joueur
             anim.SetTrigger("TrDestroy");
 
-            Invoke("BreakThis", 1.2f);
+            baseMesh.SetActive(false);
+            foreach (var debri in debrisMesh)
+            {
+                debri.SetActive(true);
+                debri.GetComponent<Rigidbody>().AddForce(new Vector3(0, 1, 1), ForceMode.Impulse);
+            }
 
             playerInput.CanDestroy = false;
 
@@ -57,11 +77,6 @@ public class Destroyable : CustomsTriggers
         }
 
         return false;
-    }
-
-    public void BreakThis()
-    {
-        Destroy(gameObject);
     }
     #endregion
 }

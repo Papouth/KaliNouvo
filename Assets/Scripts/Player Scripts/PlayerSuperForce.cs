@@ -24,7 +24,12 @@ public class PlayerSuperForce : PlayerPush
 
         rbCol = hit.collider.attachedRigidbody;
 
-        if (rbCol.mass < 100) rbCol.isKinematic = false;
+
+        if (rbCol != null)
+        {
+            if (rbCol.mass < 100) rbCol.isKinematic = false;
+        }
+        
 
         if (rbCol != null && !rbCol.isKinematic)
         {

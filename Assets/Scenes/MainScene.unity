@@ -706,6 +706,9 @@ MonoBehaviour:
   generateur: []
   cameraDoor: {fileID: 0}
   timingTransition: 8
+  events:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &75805446 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7438899248674094903, guid: ba9fcb8ce940c0f4f97bffe69b7225aa,
@@ -1118,11 +1121,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInteractorDistance: {fileID: 0}
   dialogues:
-    npcName: 
-    npcNameImage: {fileID: 0}
+    nameOfPeople: 
     sentences:
     - "Bonjour Aventuri\xE8re !\n\nJe suis le porteur de cube orange ! Comment puis-je
       t'aider ?"
+  dummyPivot: {fileID: 0}
+  offsetLook: {x: 0, y: 0, z: 0}
+  canMove: 0
+  wayPoints: {fileID: 0}
 --- !u!135 &166885227
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1184,13 +1190,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInteractorDistance: {fileID: 0}
   dialogues:
-    npcName: 
-    npcNameImage: {fileID: 0}
+    nameOfPeople: 
     sentences:
     - "Bonjour Aventuri\xE8re !\n\nJe suis le porteur de cube blanc ! Comment puis-je
       t'aider ?"
     - "Oh je vois ! \n\nTu cherches \xE0 r\xE9cup\xE9rer un cube blanc n'est ce pas
       ?"
+  dummyPivot: {fileID: 0}
+  offsetLook: {x: 0, y: 0, z: 0}
+  canMove: 0
+  wayPoints: {fileID: 0}
 --- !u!136 &260139442
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1402,22 +1411,22 @@ PrefabInstance:
     - target: {fileID: 717258715682608598, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.85276747
+      value: 0.6106178
       objectReference: {fileID: 0}
     - target: {fileID: 717258715682608598, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22064419
+      value: 0.33716604
       objectReference: {fileID: 0}
     - target: {fileID: 717258715682608598, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.45830378
+      value: 0.6272892
       objectReference: {fileID: 0}
     - target: {fileID: 717258715682608598, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.11858106
+      value: -0.34637153
       objectReference: {fileID: 0}
     - target: {fileID: 717258715791264468, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
@@ -2486,9 +2495,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInteractorDistance: {fileID: 0}
   dialogues:
-    npcName: 
-    npcNameImage: {fileID: 0}
+    nameOfPeople: 
     sentences: []
+  dummyPivot: {fileID: 0}
+  offsetLook: {x: 0, y: 0, z: 0}
+  canMove: 0
+  wayPoints: {fileID: 0}
 --- !u!136 &674750195
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5290,9 +5302,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInteractorDistance: {fileID: 0}
   dialogues:
-    npcName: 
-    npcNameImage: {fileID: 0}
+    nameOfPeople: 
     sentences: []
+  dummyPivot: {fileID: 0}
+  offsetLook: {x: 0, y: 0, z: 0}
+  canMove: 0
+  wayPoints: {fileID: 0}
 --- !u!136 &1632319209
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6480,8 +6495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e565c35f301dc447a73990e0670e628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueUI: {fileID: 1700700357}
-  dialogueText: {fileID: 567867436}
 --- !u!114 &2023211968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6495,7 +6508,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   havePass: 0
+  canTP: 0
   cB: {fileID: 0}
+  _currentPath: {fileID: 0}
+  player: {fileID: 0}
+  playerInput: {fileID: 0}
+  actionMap: []
 --- !u!1 &2024158894 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7438899249272781321, guid: ba9fcb8ce940c0f4f97bffe69b7225aa,
@@ -6550,9 +6568,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInteractorDistance: {fileID: 0}
   dialogues:
-    npcName: 
-    npcNameImage: {fileID: 0}
+    nameOfPeople: 
     sentences: []
+  dummyPivot: {fileID: 0}
+  offsetLook: {x: 0, y: 0, z: 0}
+  canMove: 0
+  wayPoints: {fileID: 0}
 --- !u!136 &2078388037
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7148,9 +7169,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7438899248885467864, guid: ba9fcb8ce940c0f4f97bffe69b7225aa,
         type: 3}
+      propertyPath: forceForPlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438899248885467864, guid: ba9fcb8ce940c0f4f97bffe69b7225aa,
+        type: 3}
+      propertyPath: statEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438899248885467864, guid: ba9fcb8ce940c0f4f97bffe69b7225aa,
+        type: 3}
+      propertyPath: statEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438899248885467864, guid: ba9fcb8ce940c0f4f97bffe69b7225aa,
+        type: 3}
       propertyPath: statEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 983696863}
+    - target: {fileID: 7438899248885467864, guid: ba9fcb8ce940c0f4f97bffe69b7225aa,
+        type: 3}
+      propertyPath: statEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438899248885467864, guid: ba9fcb8ce940c0f4f97bffe69b7225aa,
+        type: 3}
+      propertyPath: statEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlayerStats, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7438899249022925347, guid: ba9fcb8ce940c0f4f97bffe69b7225aa,
         type: 3}
       propertyPath: m_IsTrigger
