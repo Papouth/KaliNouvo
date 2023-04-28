@@ -10,12 +10,15 @@ public class DialogueTrackMixer : PlayableBehaviour
     {
 
         UIDocument uidoc = playerData as UIDocument;
+
+        if (!uidoc) return;
+
         Label label = uidoc.rootVisualElement.Q<Label>("TutoText");
 
         string currentText = "";
         float currentAlpha = 0f;
 
-        if (!uidoc) return;
+        if (label == null) return;
 
         int inputCount = playable.GetInputCount();
 

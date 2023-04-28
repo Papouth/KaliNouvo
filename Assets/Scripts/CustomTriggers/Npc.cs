@@ -39,6 +39,7 @@ public class Npc : CustomsTriggers
     #region Built In Methods
     public override void Start()
     {
+
         if (DialogueManager.InstanceDialogue)
             manager = DialogueManager.InstanceDialogue;
         else Debug.LogError("Pas de dialogue manager ?");
@@ -52,6 +53,8 @@ public class Npc : CustomsTriggers
 
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+
+        if (wayPoints == null) canMove = false;
 
         if (canMove)
         {
@@ -96,6 +99,7 @@ public class Npc : CustomsTriggers
             lookPlayer = false;
             manager.EndDialogue();
             GameManager.GM.canTP = false;
+            canMove = true;
         }
     }
 
@@ -121,12 +125,18 @@ public class Npc : CustomsTriggers
 
     #region CustomsMethods
 
+
     public override void Interact()
     {
         base.Interact();
 
+        if (dialogues.sentences.Length == 0) return;
+
         manager.StartDialogue(dialogues);
         GameManager.GM.canTP = true;
+
+        canMove = false;
+        animator.SetFloat("Move", 0);
 
         return;
     }
