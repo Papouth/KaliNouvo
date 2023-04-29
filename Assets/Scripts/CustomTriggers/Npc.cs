@@ -12,7 +12,7 @@ public class Npc : CustomsTriggers
 
     public Dialogue dialogues;
     private DialogueManager manager;
-    private Transform player;
+    private Transform playerLook;
 
     private Animator animator;
     private bool lookPlayer;
@@ -49,7 +49,7 @@ public class Npc : CustomsTriggers
         if (PlayerInteractor.playerInteractorInstance.GetComponent<PlayerInteractorDistance>() != null)
             playerInteractorDistance = PlayerInteractor.playerInteractorInstance.GetComponent<PlayerInteractorDistance>();
 
-        player = GameManager.GM.cB.ActiveVirtualCamera.LookAt;
+        playerLook = GameManager.GM.lookPlayer;
 
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
@@ -117,7 +117,7 @@ public class Npc : CustomsTriggers
             animator.SetLookAtWeight(lookWeight);
         }
 
-        Vector3 pos = new Vector3(player.position.x + offsetLook.x, player.position.y + offsetLook.y, player.position.z + offsetLook.z);
+        Vector3 pos = new Vector3(playerLook.position.x + offsetLook.x, playerLook.position.y + offsetLook.y, playerLook.position.z + offsetLook.z);
         animator.SetLookAtPosition(pos);
     }
 
@@ -154,7 +154,7 @@ public class Npc : CustomsTriggers
     {
         if (lookPlayer)
         {
-            dummyPivot.transform.LookAt(player.position);
+            dummyPivot.transform.LookAt(playerLook.position);
             float pivotRotY = dummyPivot.transform.localRotation.y;
 
             if (pivotRotY < .55f && pivotRotY > -.55f)
