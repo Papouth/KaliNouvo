@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public PlayerInput playerInput;
+    public Transform lookPlayer;
 
     public InputRebind[] actionMap;
     private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
