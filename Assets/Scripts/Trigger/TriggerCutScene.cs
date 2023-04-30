@@ -61,8 +61,9 @@ public class TriggerCutScene : TriggerInScene
             GameManager.GM.cB.m_CustomBlends = settings;
         }
 
-        playable.Pause();
+        playable.Stop();
         GameManager.GM.player.GetComponent<CharacterController>().enabled = true;
+        playable.gameObject.SetActive(false);
     }
 
     #endregion
