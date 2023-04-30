@@ -12,7 +12,7 @@ public class DialogueTrackMixer : PlayableBehaviour
         UIDocument uidoc = playerData as UIDocument;
 
         if (!uidoc) return;
-        if (uidoc.parentUI.transform.parent.gameObject.activeSelf == false) return;
+        if (uidoc.gameObject.activeSelf == false) return;
 
         Label label = uidoc.rootVisualElement.Q<Label>("TutoText");
 
