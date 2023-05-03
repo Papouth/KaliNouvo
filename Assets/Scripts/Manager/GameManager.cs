@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     public InputRebind[] actionMap;
     private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
 
+
+    public Blit changeTempoMat;
+    public Blit fonduNoirMat;
+
     #endregion
 
     #region Built In Methods

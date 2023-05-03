@@ -25,7 +25,7 @@ public class PlayerTemporel : MonoBehaviour
     private Animator animator;
     private CharacterController cc;
 
-    public Blit renderMat;
+
 
     #endregion
 
@@ -122,19 +122,20 @@ public class PlayerTemporel : MonoBehaviour
         }
 
         float i = 0;
+        Blit instance = GameManager.GM.changeTempoMat;
 
         while(i < 1.3f)
         {
-            float currentFloat = renderMat.settings.blitMaterial.GetFloat("_Transition");
+            float currentFloat = instance.settings.blitMaterial.GetFloat("_Transition");
             currentFloat = Mathf.Lerp(currentFloat, 1.3f, i);
-            renderMat.settings.blitMaterial.SetFloat("_Transition", currentFloat);
+            instance.settings.blitMaterial.SetFloat("_Transition", currentFloat);
 
             i = i + Time.deltaTime;
 
             yield return new WaitForSeconds(Time.deltaTime);
         }
 
-        renderMat.settings.blitMaterial.SetFloat("_Transition", -.1f); 
+        instance.settings.blitMaterial.SetFloat("_Transition", -.1f); 
 
         playerInput.ChangeTempo = false;
         inStateChangeTempo = false;
