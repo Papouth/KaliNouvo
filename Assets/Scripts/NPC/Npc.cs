@@ -38,9 +38,8 @@ public class Npc : CustomsTriggers
 
 
     #region Built In Methods
-    public override void Start()
+    public void Awake()
     {
-
         if (DialogueManager.InstanceDialogue)
             manager = DialogueManager.InstanceDialogue;
         else Debug.LogError("Pas de dialogue manager ?");
@@ -55,6 +54,10 @@ public class Npc : CustomsTriggers
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
 
+    }
+
+    public override void Start()
+    {
         if (wayPoints == null) canMove = false;
 
         if (canMove)
