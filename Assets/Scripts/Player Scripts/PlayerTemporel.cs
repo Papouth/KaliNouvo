@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class PlayerTemporel : MonoBehaviour
@@ -23,6 +25,8 @@ public class PlayerTemporel : MonoBehaviour
     private Animator animator;
     private CharacterController cc;
 
+    public Blit renderMat;
+
     #endregion
 
     #region Built In Methods
@@ -33,7 +37,7 @@ public class PlayerTemporel : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
         animator = GetComponent<Animator>();
         cc = GetComponent<CharacterController>();
-
+        
         if (past == null || present == null) return;
 
         //SceneManager.LoadScene(past, LoadSceneMode.Additive);
@@ -116,6 +120,21 @@ public class PlayerTemporel : MonoBehaviour
             scenesToLoad = past;
             scenesToUnload = present;
         }
+
+        float i = 0;
+
+        while(i < 1.3f)
+        {
+            float currentFloat = renderMat.settings.blitMaterial.GetFloat("_Transition");
+            currentFloat = Mathf.Lerp(currentFloat, 1.3f, i);
+            renderMat.settings.blitMaterial.SetFloat("_Transition", currentFloat);
+
+            i = i + Time.deltaTime;
+
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        renderMat.settings.blitMaterial.SetFloat("_Transition", -.1f); 
 
         playerInput.ChangeTempo = false;
         inStateChangeTempo = false;
