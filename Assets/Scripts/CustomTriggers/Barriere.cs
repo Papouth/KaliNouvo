@@ -4,19 +4,9 @@ using UnityEngine;
 
 public class Barriere : MonoBehaviour
 {
-    private Collider[] barriereCols;
-    public bool isActive;
+    [HideInInspector] public bool isActive;
+    [SerializeField] private GameObject electricArc;
 
-
-    private void Awake()
-    {
-        barriereCols = GetComponents<Collider>();
-
-        foreach (var col in barriereCols)
-        {
-            col.enabled = false;
-        }
-    }
 
     public void Activation()
     {
@@ -24,10 +14,7 @@ public class Barriere : MonoBehaviour
         {
             isActive = true;
 
-            foreach (var col in barriereCols)
-            {
-                col.enabled = true;
-            }
+            electricArc.SetActive(true);
 
             // Activation de l'effet s'il y en a un
         }
@@ -39,10 +26,7 @@ public class Barriere : MonoBehaviour
         {
             isActive = false;
 
-            foreach (var col in barriereCols)
-            {
-                col.enabled = false;
-            }
+            electricArc.SetActive(false);
 
             // Désactivation de l'effet s'il y en a un
         }

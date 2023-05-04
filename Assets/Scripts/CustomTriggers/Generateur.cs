@@ -14,10 +14,16 @@ public class Generateur : CustomsTriggers
 
     private Animator _animator;
 
+    [Header("Barrieres Electriques")]
     [Tooltip("false si pas de barrière qui s'active \n true si une barrière s'active")]
     [SerializeField] private bool activateBarriere;
+    [Tooltip("false si pas de barrière qui se désactive \n true si une barrière se désactive")]
+    [SerializeField] private bool deactivateBarriere;
+
     [Tooltip("Les barrières à activer")]
-    [SerializeField] private Barriere[] barrieres;
+    [SerializeField] private Barriere[] barrieresActivation;
+    [Tooltip("Les barrières à désactiver")]
+    [SerializeField] private Barriere[] barrieresDeactivation;
 
     #endregion
 
@@ -33,7 +39,7 @@ public class Generateur : CustomsTriggers
     public override void Interact()
     {
         valid = true;
-        Debug.Log("Here");
+        Debug.Log("J'active le générateur");
 
         if (!_indicator) return;
 
@@ -44,15 +50,29 @@ public class Generateur : CustomsTriggers
 
         if (activateBarriere)
         {
-            if (barrieres.Length == 0)
+            if (barrieresActivation.Length == 0)
             {
                 Debug.Log("ERREUR PAS DE BARRIERE DE RENSEIGNER");
                 return;
             }
 
-            foreach (var bar in barrieres)
+            foreach (var bar in barrieresActivation)
             {
                 bar.Activation();
+            }
+        }
+
+        if (deactivateBarriere)
+        {
+            if (barrieresDeactivation.Length == 0)
+            {
+                Debug.Log("ERREUR PAS DE BARRIERE DE RENSEIGNER");
+                return;
+            }
+
+            foreach (var bar in barrieresDeactivation)
+            {
+                bar.Desactivate();
             }
         }
     }
