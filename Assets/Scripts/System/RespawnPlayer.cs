@@ -65,7 +65,6 @@ public class RespawnPlayer : RespawnSystem
             float currentFloat = instance.settings.blitMaterial.GetFloat("_Transition");
             currentFloat = Mathf.Lerp(-0.1f, currentFloat, j);
 
-            Debug.Log(currentFloat);
             instance.settings.blitMaterial.SetFloat("_Transition", currentFloat);
 
             j = j - Time.deltaTime * 3f;
