@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CutSecne_TPPlayer : MonoBehaviour
 {
@@ -37,5 +38,18 @@ public class CutSecne_TPPlayer : MonoBehaviour
 
         // Reset des scènes à changer
         playerTemp.ChangeSceneToLoad(oldSceneToUnload, newSceneToLoad);
+    }
+
+    /// <summary>
+    /// Load the hub
+    /// </summary>
+    public void LoadHubScene()
+    {
+        playerTemp.ChangeSceneToLoad(newSceneToLoad, oldSceneToUnload);
+        SceneManager.UnloadSceneAsync("Tutoriel_01_Passe");
+        SceneManager.UnloadSceneAsync("Tutoriel_01_Present");
+        Debug.Log("Allo ?");
+        SceneManager.LoadScene(oldSceneToUnload, LoadSceneMode.Additive);
+        SceneManager.LoadScene(newSceneToLoad, LoadSceneMode.Additive);
     }
 }
