@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
     public Blit changeTempoMat;
     public Blit fonduNoirMat;
 
+    [Header("Generateurs et Indicateurs")]
+    public bool indicatorG1;
+    public bool indicatorG2;
+    public bool indicatorG3;
+
     #endregion
 
     #region Built In Methods
