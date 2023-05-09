@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1540463132943142985
+--- !u!114 &-849275136231152746
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ScientifiquePasCapucheVdebutant VShader 1
+  m_Name: Mat_Gamta_Femme_2
   m_Shader: {fileID: -6465566751694194690, guid: 8011a98f1e9ff1649a623affa8f66c16,
     type: 3}
   m_ValidKeywords: []
@@ -35,15 +35,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_1f98240f4f884189b3b8b1e3762957b3:
-        m_Texture: {fileID: 2800000, guid: a788bfedaf935864fbc2ec9b9d2f9cac, type: 3}
+        m_Texture: {fileID: 2800000, guid: e1d726735d37d7b46a6f2b2fd3c35c8f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_5908047dc1cb473ba0fdcc0c615f79a6:
-        m_Texture: {fileID: 2800000, guid: 92a197c99ac3b864ca056a4d2306e0cc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7dfaaeff125c4554586b6dc884e2ade3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_d960ee2a361c4bb886a4e18db18837c3:
-        m_Texture: {fileID: 2800000, guid: 7ec4a1d5c2593f54f87b3b04c596f962, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4a4258b7247f3164e94843fd038f4569, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_f99e3d5eeae4418fa8779a2209787b59:
@@ -75,7 +75,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Emissive:
-        m_Texture: {fileID: 2800000, guid: 956324f0e8730144b9e44ea0e1e1d56c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7dfaaeff125c4554586b6dc884e2ade3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -121,9 +121,9 @@ Material:
     - Boolean_3: 0
     - Boolean_4: 0
     - Boolean_891bb769b0fc4dd6a1e440fd059501a9: 0
-    - Vector1_acab247d23524e16b1e72437f218b160: 1
+    - Vector1_acab247d23524e16b1e72437f218b160: 0.98
     - Vector1_b9496c680acd4ca9a8680822e34c7b95: 0.397
-    - Vector1_cda54ceaffe54f0690a11af02abbbd79: 0.4
+    - Vector1_cda54ceaffe54f0690a11af02abbbd79: 0.31
     - _AlphaClip: 0
     - _Alpha_Clip: 1
     - _AmbientOcclusion: 1
@@ -138,7 +138,7 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Emissive_Strenght: 2.4
+    - _Emissive_Strenght: 5
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -149,10 +149,10 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _ShadowBlend: 0.787
-    - _ShadowSize: -0.293
-    - _ShadowTexture_Normal_Intensity: 0.37
-    - _ShadowTexture_Normal_Offset: 0.88
+    - _ShadowBlend: 0.212
+    - _ShadowSize: -0.566
+    - _ShadowTexture_Normal_Intensity: 1.32
+    - _ShadowTexture_Normal_Offset: 1.21
     - _ShadowTexture_Opacity: 1
     - _Smooth_Strenght: 1
     - _Smoothness: 0.5
@@ -164,14 +164,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_8ddd00ec131d470b9208e25612504d9e: {r: 0.6132076, g: 0.6132076, b: 0.6132076,
-        a: 1}
+    - Color_8ddd00ec131d470b9208e25612504d9e: {r: 0, g: 0, b: 0, a: 1}
     - Vector2_0f9af665572340848c744bd9d98cabbc: {r: 3, g: 3, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Emissive_Color: {r: 0.61960787, g: 2, b: 1.1921569, a: 0}
-    - _Shadow_Color: {r: 0.6745728, g: 0.8448799, b: 0.8773585, a: 1}
+    - _Emissive_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Shadow_Color: {r: 0.40392157, g: 0.5764706, b: 0.7176471, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Texture_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
