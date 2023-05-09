@@ -7,71 +7,67 @@ using UnityEngine.EventSystems;
 /// <summary>
 /// Ce script sert majoritairement pour la telekinesy
 /// </summary>
-public class OnMouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+public class OnMouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     #region Variables
     [Header("Telekinesy Parameters")]
     private Renderer objectRend;
+
     [Tooltip("Matériau affiché au passage de la souris")]
     [SerializeField] private Material mouseOverMat;
+
     [Tooltip("Matériau affiché après sélection")]
     [SerializeField] private Material selectedMat;
     private Material storedMat;
-    private bool onSelect;
+
+    private PlayerTelekinesie playerTelekinesie;
     #endregion
 
 
     private void Awake()
     {
+        playerTelekinesie = GameManager.GM.player.GetComponent<PlayerTelekinesie>();
         objectRend = GetComponent<Renderer>();
         storedMat = objectRend.material;
     }
 
     private void Update()
     {
-        Reset();
-    }
 
-    private void Reset()
-    {
-        if (PlayerTelekinesie.telekinesyObject != gameObject)
-        {
-            onSelect = false;
-        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!onSelect)
-        {
+        if (playerTelekinesie.selected == false)
             objectRend.material = mouseOverMat;
-        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!onSelect)
-        {
-            objectRend.material = storedMat;
-        }
+        objectRend.material = storedMat;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (PlayerInputManager.telekinesyKeyOn)
+        if (playerTelekinesie.telekinesyOn)
         {
-            onSelect = !onSelect;
+            playerTelekinesie.selected = true;
 
-            if (onSelect)
-            {
-                PlayerTelekinesie.telekinesyObject = gameObject;
-                objectRend.material = selectedMat;
-            }
-            else if (!onSelect)
-            {
-                PlayerTelekinesie.telekinesyObject = null;
-                objectRend.material = mouseOverMat;
-            }
+            playerTelekinesie.telekinesyObject = gameObject;
+            playerTelekinesie.rigidbodyObject = gameObject.GetComponent<Rigidbody>();
+            objectRend.material = selectedMat;
+        }
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (playerTelekinesie.telekinesyOn)
+        {
+            playerTelekinesie.selected = false;
+            playerTelekinesie.telekinesyObject = null;
+            playerTelekinesie.rigidbodyObject = gameObject.GetComponent<Rigidbody>();
+            objectRend.material = selectedMat;
+
         }
     }
 }

@@ -105,7 +105,7 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
                     ""id"": ""67edaba9-e781-44a7-bdf5-14e311c1329e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
