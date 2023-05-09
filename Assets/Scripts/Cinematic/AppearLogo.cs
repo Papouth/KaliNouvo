@@ -33,7 +33,7 @@ public class AppearLogo : MonoBehaviour
         Debug.Log("Here 1");
         isEnable = true;
 
-        logo.style.opacity = 100;
+        logo.style.opacity = 1;
 
         yield return new WaitForSecondsRealtime(displayDuration);
 
