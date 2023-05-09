@@ -34,7 +34,6 @@ public class Door : MonoBehaviour
         target = cameraDoor.transform.position;
     }
 
-
     public void Update()
     {
         CanUnlockDoor();
@@ -103,8 +102,6 @@ public class Door : MonoBehaviour
     {
         canUnlock = true;
     }
-
-
 
     #endregion
 }

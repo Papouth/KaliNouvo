@@ -49,10 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   havePass: 0
+  canTP: 0
   cB: {fileID: 0}
   _currentPath: {fileID: 0}
   player: {fileID: 0}
   playerInput: {fileID: 0}
+  lookPlayer: {fileID: 0}
   actionMap:
   - actionReference: {fileID: 4075830800043267526, guid: 5f373fbbfdf627f4792cbe106995fdbe,
       type: 3}
@@ -78,6 +80,11 @@ MonoBehaviour:
   - actionReference: {fileID: 5644752096070490290, guid: 5f373fbbfdf627f4792cbe106995fdbe,
       type: 3}
     nameAction: Telekinesie
+  changeTempoMat: {fileID: -8359501528779492950, guid: c40be3174f62c4acf8c1216858c64956,
+    type: 2}
+  fonduNoirMat: {fileID: 9037736402361393355, guid: c40be3174f62c4acf8c1216858c64956,
+    type: 2}
+  _animNpc: {fileID: 0}
 --- !u!114 &5701154445860037012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,8 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e565c35f301dc447a73990e0670e628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueUI: {fileID: 0}
-  dialogueText: {fileID: 0}
 --- !u!114 &3979667620478582850
 MonoBehaviour:
   m_ObjectHideFlags: 0

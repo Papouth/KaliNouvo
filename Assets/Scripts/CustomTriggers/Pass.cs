@@ -6,7 +6,9 @@ public class Pass : CustomsTriggers
 {
     private GameManager gameManager;
 
-    private void Start()
+    public Dialogue dialogueWhenInteract;
+
+    public override void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
     }
@@ -14,6 +16,7 @@ public class Pass : CustomsTriggers
     public override void Interact()
     {
         gameManager.havePass = true;
+        DialogueManager.InstanceDialogue.StartDialogue(dialogueWhenInteract);
 
         Destroy(gameObject);
     }

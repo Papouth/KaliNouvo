@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class PlayerTemporel : MonoBehaviour
@@ -23,6 +25,8 @@ public class PlayerTemporel : MonoBehaviour
     private Animator animator;
     private CharacterController cc;
 
+
+
     #endregion
 
     #region Built In Methods
@@ -33,7 +37,7 @@ public class PlayerTemporel : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
         animator = GetComponent<Animator>();
         cc = GetComponent<CharacterController>();
-
+        
         if (past == null || present == null) return;
 
         //SceneManager.LoadScene(past, LoadSceneMode.Additive);
@@ -43,7 +47,7 @@ public class PlayerTemporel : MonoBehaviour
     private void Start()
     {
         //PastSceneAtStart();
-
+        //
         //scenesToLoad = past;
         //scenesToUnload = present;
     }
@@ -98,7 +102,7 @@ public class PlayerTemporel : MonoBehaviour
 
         yield return new WaitForSeconds(timingAnimTemp);
 
-        // On change de temporalit�
+        // On change de temporalite
         LoadingScene();
 
         sceneState = !sceneState;
@@ -117,6 +121,22 @@ public class PlayerTemporel : MonoBehaviour
             scenesToUnload = present;
         }
 
+        float i = 0;
+        Blit instance = GameManager.GM.changeTempoMat;
+
+        while(i < 1.3f)
+        {
+            float currentFloat = instance.settings.blitMaterial.GetFloat("_Transition");
+            currentFloat = Mathf.Lerp(currentFloat, 1.3f, i);
+            instance.settings.blitMaterial.SetFloat("_Transition", currentFloat);
+
+            i = i + Time.deltaTime;
+
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        instance.settings.blitMaterial.SetFloat("_Transition", -.1f); 
+
         playerInput.ChangeTempo = false;
         inStateChangeTempo = false;
         cc.enabled = true;
@@ -131,18 +151,23 @@ public class PlayerTemporel : MonoBehaviour
         Scene scene = SceneManager.GetSceneByName(scenesToLoad);
 
         GameObject[] goSceneLoad = scene.GetRootGameObjects();
-        foreach (var item in goSceneLoad)
+
+        goSceneLoad[0].SetActive(true);
+
+        /*foreach (var item in goSceneLoad)
         {
             item.SetActive(true);
-        }
+        }*/
 
 
         Scene unloadScene = SceneManager.GetSceneByName(scenesToUnload);
         GameObject[] goSceneUnload = unloadScene.GetRootGameObjects();
-        foreach (var item in goSceneUnload)
+        goSceneUnload[0].SetActive(false);
+
+        /*foreach (var item in goSceneUnload)
         {
             item.SetActive(false);
-        }
+        }*/
 
         /*
         if (!scene.isLoaded)

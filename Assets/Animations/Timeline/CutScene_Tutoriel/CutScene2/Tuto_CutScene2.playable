@@ -39,6 +39,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde0d25a170598d46a0b9dc16b4527a5, type: 3}
   m_Name: ActivationPlayableAsset
   m_EditorClassIdentifier: 
+--- !u!114 &-7643481967906447437
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 20.499999999998998
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 66fa4d0c10b21ea41b6e0de02ee0d3ed, type: 2}
+--- !u!114 &-5243390805210514256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46e36075dd1c124a8422c228e75e1fb, type: 3}
+  m_Name: Signal Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects:
+    - {fileID: -7643481967906447437}
 --- !u!114 &-3164615392148060672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,7 +197,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 2166474063850770100}
-    m_Duration: 20.483333333333334
+    m_Duration: 20.499999999998998
     m_TimeScale: 1
     m_ParentTrack: {fileID: -2916507664898730279}
     m_EaseInDuration: 0
@@ -250,7 +290,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 348960297937091402}
-    m_Duration: 20.483333333333334
+    m_Duration: 20.5
     m_TimeScale: 1
     m_ParentTrack: {fileID: -2814539462404362077}
     m_EaseInDuration: 0
@@ -336,6 +376,7 @@ MonoBehaviour:
   - {fileID: 3948149909927047599}
   - {fileID: -8945880842475598142}
   - {fileID: -2814539462404362077}
+  - {fileID: -5243390805210514256}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
@@ -628,7 +669,7 @@ MonoBehaviour:
     m_Start: 11.45
     m_ClipIn: 0
     m_Asset: {fileID: 2103407197368455479}
-    m_Duration: 9.366666666666667
+    m_Duration: 9.049999999998999
     m_TimeScale: 1
     m_ParentTrack: {fileID: 5891085247744717925}
     m_EaseInDuration: 0

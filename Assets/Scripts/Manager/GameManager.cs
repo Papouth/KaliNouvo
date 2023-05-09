@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     #region Variables
     public static GameManager GM;
     public bool havePass;
+    [Tooltip("Si faux : le joueur peut voyager dans le temps \n Si vrai : le joueur ne peut plus voyager dans le temps")]
     public bool canTP;
 
     public CinemachineBrain cB;
@@ -19,9 +20,14 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public PlayerInput playerInput;
+    public Transform lookPlayer;
 
     public InputRebind[] actionMap;
     private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
+
+
+    public Blit changeTempoMat;
+    public Blit fonduNoirMat;
 
     #endregion
 
@@ -77,6 +83,97 @@ public class GameManager : MonoBehaviour
 
         actionMap[index].actionReference.action.Enable();
     }
+
+
+    //Louis garde ca secret stp
+
+    private string[] cheatCode;
+    private int index;
+    [SerializeField] private RuntimeAnimatorController _animNpc;
+
+    private List<RuntimeAnimatorController> animatorsNPC = new List<RuntimeAnimatorController>();
+    private RuntimeAnimatorController playerAnimator;
+
+    void Start()
+    {
+        // Code is "z,z,s,s,q,d,q,d,a,b", user needs to input this in the right order
+        cheatCode = new string[] { "z", "z", "s", "s", "q", "d", "q", "d", "b", "a" };
+        index = 0;
+    }
+
+    void Update()
+    {
+        InputCheatCodeSecret();
+    }
+
+    void InputCheatCodeSecret()
+    {
+        // Check if any key is pressed
+        if (Input.anyKeyDown)
+        {
+            // Check if the next key in the code is pressed
+            if (Input.GetKeyDown(cheatCode[index]))
+            {
+                // Add 1 to index to check the next key in the code
+                index++;
+            }
+            // Wrong key entered, we reset code typing
+            else
+            {
+                index = 0;
+            }
+        }
+
+        // If index reaches the length of the cheatCode string, 
+        // the entire code was correctly entered
+        if (index == cheatCode.Length)
+        {
+            // Cheat code successfully inputted!
+            // Unlock crazy cheat code stuff
+            CheatCode();
+        }
+    }
+
+    void CheatCode()
+    {
+        index = 00;
+        ReplaceAnimator();
+    }
+
+    private void ReplaceAnimator()
+    {
+        Npc[] npcs = FindObjectsOfType<Npc>();
+
+        foreach (Npc npc in npcs)
+        {
+            if (npc.GetComponent<Animator>().runtimeAnimatorController != null)
+                animatorsNPC.Add(npc.GetComponent<Animator>().runtimeAnimatorController);
+            npc.GetComponent<Animator>().runtimeAnimatorController = _animNpc;
+        }
+
+        playerAnimator = player.GetComponentInChildren<Animator>().runtimeAnimatorController;
+        player.GetComponentInChildren<Animator>().runtimeAnimatorController = _animNpc;
+
+        StartCoroutine(DisableCheat());
+    }
+
+    private void BackToNormal()
+    {
+        Npc[] npcs = FindObjectsOfType<Npc>();
+
+        for (int i = 0; i < npcs.Length; i++)
+        {
+            npcs[i].GetComponent<Animator>().runtimeAnimatorController = animatorsNPC[i];
+        }
+
+        player.GetComponentInChildren<Animator>().runtimeAnimatorController = playerAnimator;
+    }
+
+    private IEnumerator DisableCheat()
+    {
+        yield return new WaitForSecondsRealtime(30f);
+        BackToNormal();
+    }
 }
 
 [System.Serializable]
@@ -84,6 +181,4 @@ public class InputRebind
 {
     public InputActionReference actionReference;
     public string nameAction;
-
-
 }

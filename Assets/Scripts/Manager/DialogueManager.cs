@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager InstanceDialogue { get; set; }
-    
+
     private Queue<string> sentences;
     public float speedDisplay;
 
@@ -29,7 +29,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         sentences.Clear();
-        if(dialogue.sentences.Length == 0) return;
+        if (dialogue.sentences.Length == 0) return;
         MenuManager.Instance.EnableInfoText(true);
 
         foreach (string sentence in dialogue.sentences)
@@ -99,7 +99,9 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     public void EndDialogue()
     {
-        if(MenuManager.Instance == null) return;
+        if (MenuManager.Instance == null) return;
+
+        sentences.Clear();
         MenuManager.Instance.EnableInfoText(false);
     }
 }

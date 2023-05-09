@@ -16,11 +16,15 @@ public class GetStat : CustomsTriggers
     [Tooltip("A cocher si c'est pour avoir le bracelet temporel")]
     [SerializeField] private bool tempoExternPlayer;
 
+    [Tooltip("A cocher si c'est pour avoir la super force")]
+    [SerializeField] private bool forceForPlayer;
+
 
 
     private void Update()
     {
         TempoException();
+        ForceException();
     }
 
     public override void Interact()
@@ -60,6 +64,17 @@ public class GetStat : CustomsTriggers
             tempoExternPlayer = false;
             statEvent = new UnityEvent();
             statEvent.AddListener(playerStats.GetBraceletTempo);
+        }
+    }
+
+    private void ForceException()
+    {
+        if (forceForPlayer && unlockScript)
+        {
+            forceForPlayer = false;
+            statEvent = new UnityEvent();
+            statEvent.AddListener(playerStats.GetSuperForce);
+            Debug.Log("super force");
         }
     }
 }
