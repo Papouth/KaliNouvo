@@ -7,6 +7,7 @@ public class GetBlackScreen : MonoBehaviour
 {
     public float durationRenderFeature;
 
+    [Tooltip("Set 0 pour empecher le matériaux de revenir")]
     public float speedFeatureMat = 1;
 
     public Blit renderFeatureMat;
@@ -24,13 +25,15 @@ public class GetBlackScreen : MonoBehaviour
         while (i < 1.3f)
         {
             float currentFloat = renderFeatureMat.settings.blitMaterial.GetFloat(nameParameterFeature);
-            currentFloat = Mathf.Lerp(currentFloat, 1.3f, i / speedFeatureMat);
+            currentFloat = Mathf.Lerp(currentFloat, 1.3f, i);
             renderFeatureMat.settings.blitMaterial.SetFloat(nameParameterFeature, currentFloat);
 
-            i = i + Time.deltaTime;
+            i = i + Time.deltaTime / speedFeatureMat;
 
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return new WaitForSeconds(Time.deltaTime / speedFeatureMat);
         }
+
+        if (durationRenderFeature == 0) StopAllCoroutines();
 
         yield return new WaitForSeconds(durationRenderFeature);
 
@@ -39,13 +42,13 @@ public class GetBlackScreen : MonoBehaviour
         while (j > 0)
         {
             float currentFloat = renderFeatureMat.settings.blitMaterial.GetFloat(nameParameterFeature);
-            currentFloat = Mathf.Lerp(-0.1f, currentFloat, j / speedFeatureMat);
+            currentFloat = Mathf.Lerp(-0.1f, currentFloat, j);
 
             renderFeatureMat.settings.blitMaterial.SetFloat(nameParameterFeature, currentFloat);
 
-            j = j - Time.deltaTime;
+            j = j - Time.deltaTime / speedFeatureMat;
 
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return new WaitForSeconds(Time.deltaTime / speedFeatureMat);
         }
 
 
