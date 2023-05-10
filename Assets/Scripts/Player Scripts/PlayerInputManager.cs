@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 public class PlayerInputManager : MonoBehaviour
@@ -17,7 +18,7 @@ public class PlayerInputManager : MonoBehaviour
     private bool canSelect;
     private bool canMenu;
 
-    public static bool telekinesyKeyOn;
+    public bool telekinesyKeyOn;
     #endregion
 
 
@@ -146,13 +147,7 @@ public class PlayerInputManager : MonoBehaviour
     {
         canTelekinesy = true;
         telekinesyKeyOn = true;
-        Invoke("TelekinesyTimer", 5f);
-    }
-
-    private void TelekinesyTimer()
-    {
-        canTelekinesy = false;
-        telekinesyKeyOn = false;
+        Debug.Log("Telekinesie on");
     }
 
     public void OnSelect()
@@ -164,6 +159,11 @@ public class PlayerInputManager : MonoBehaviour
     private void SelectTimer()
     {
         canSelect = false;
+    }
+
+    private void OnScroll(InputValue value)
+    {
+        Debug.Log(value.Get<float>());
     }
     #endregion
 }

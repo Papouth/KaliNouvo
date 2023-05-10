@@ -83,7 +83,7 @@
                     "id": "67edaba9-e781-44a7-bdf5-14e311c1329e",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
@@ -126,6 +126,15 @@
                     "name": "MouseY",
                     "type": "Value",
                     "id": "cf171498-1149-465f-8c83-757c2113038c",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Scroll",
+                    "type": "Value",
+                    "id": "f8e16868-6b2d-48c1-beab-b6d7d7ef0219",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -328,6 +337,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MouseY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b7aff4a2-4df3-44af-a3b8-295f62ee46ec",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scroll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

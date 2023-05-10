@@ -105,7 +105,7 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
                     ""id"": ""67edaba9-e781-44a7-bdf5-14e311c1329e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
@@ -148,6 +148,15 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
                     ""name"": ""MouseY"",
                     ""type"": ""Value"",
                     ""id"": ""cf171498-1149-465f-8c83-757c2113038c"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Scroll"",
+                    ""type"": ""Value"",
+                    ""id"": ""f8e16868-6b2d-48c1-beab-b6d7d7ef0219"",
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -352,6 +361,17 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
                     ""action"": ""MouseY"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b7aff4a2-4df3-44af-a3b8-295f62ee46ec"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -374,6 +394,7 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
         m_PlayerMap_Menu = m_PlayerMap.FindAction("Menu", throwIfNotFound: true);
         m_PlayerMap_MouseX = m_PlayerMap.FindAction("MouseX", throwIfNotFound: true);
         m_PlayerMap_MouseY = m_PlayerMap.FindAction("MouseY", throwIfNotFound: true);
+        m_PlayerMap_Scroll = m_PlayerMap.FindAction("Scroll", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -447,6 +468,7 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMap_Menu;
     private readonly InputAction m_PlayerMap_MouseX;
     private readonly InputAction m_PlayerMap_MouseY;
+    private readonly InputAction m_PlayerMap_Scroll;
     public struct PlayerMapActions
     {
         private @PlayerMovementInput m_Wrapper;
@@ -465,6 +487,7 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
         public InputAction @Menu => m_Wrapper.m_PlayerMap_Menu;
         public InputAction @MouseX => m_Wrapper.m_PlayerMap_MouseX;
         public InputAction @MouseY => m_Wrapper.m_PlayerMap_MouseY;
+        public InputAction @Scroll => m_Wrapper.m_PlayerMap_Scroll;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -516,6 +539,9 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
                 @MouseY.started -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnMouseY;
                 @MouseY.performed -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnMouseY;
                 @MouseY.canceled -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnMouseY;
+                @Scroll.started -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnScroll;
+                @Scroll.performed -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnScroll;
+                @Scroll.canceled -= m_Wrapper.m_PlayerMapActionsCallbackInterface.OnScroll;
             }
             m_Wrapper.m_PlayerMapActionsCallbackInterface = instance;
             if (instance != null)
@@ -562,6 +588,9 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
                 @MouseY.started += instance.OnMouseY;
                 @MouseY.performed += instance.OnMouseY;
                 @MouseY.canceled += instance.OnMouseY;
+                @Scroll.started += instance.OnScroll;
+                @Scroll.performed += instance.OnScroll;
+                @Scroll.canceled += instance.OnScroll;
             }
         }
     }
@@ -582,5 +611,6 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
         void OnMenu(InputAction.CallbackContext context);
         void OnMouseX(InputAction.CallbackContext context);
         void OnMouseY(InputAction.CallbackContext context);
+        void OnScroll(InputAction.CallbackContext context);
     }
 }
