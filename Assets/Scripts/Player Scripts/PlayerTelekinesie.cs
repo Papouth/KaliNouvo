@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
+using UnityEngine.LowLevel;
 
 public class PlayerTelekinesie : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class PlayerTelekinesie : MonoBehaviour
     public Rigidbody rigidbodyObject;
     public Collider colObject;
 
+
+
     public float forceVariable;
     public float timeToLerp = 5;
 
@@ -20,12 +24,15 @@ public class PlayerTelekinesie : MonoBehaviour
 
     [Header("Player Component")]
     private PlayerInputManager playerInput;
-
     public bool selected = false;
-
     public Camera cameraPlayer;
-
     public LayerMask layerGround;
+
+
+    public GameObject targetIK;
+    public TwoBoneIKConstraint ikLeftHand;
+    public GameObject dummyIkLookAt;
+    public Vector2 lookAtDummy;
 
     #endregion
 
@@ -39,9 +46,43 @@ public class PlayerTelekinesie : MonoBehaviour
     {
         EnableTelekinesie();
         MoveObject();
+
+        if (LookPlayerIK())
+        {
+            ikLeftHand.weight = Mathf.Clamp(ikLeftHand.weight + Time.deltaTime, 0, 1);
+        }
+        else
+        {
+            ikLeftHand.weight = Mathf.Clamp(ikLeftHand.weight - Time.deltaTime, 0, 1);
+        }
+
+
         // Montrer via de l'UI que la télékinésie est activé
         //Debug.Log(playerInput.CanTelekinesy);
     }
+
+
+    private void OnAnimatorIK(int layerIndex)
+    {
+        
+    }
+
+    private bool LookPlayerIK()
+    {
+        if (telekinesyOn == false) return false;
+        if (!telekinesyObject) return false;
+
+        dummyIkLookAt.transform.LookAt(targetIK.transform.position);
+        float pivotRotY = dummyIkLookAt.transform.localRotation.y;
+        Debug.Log(pivotRotY);
+
+        if (pivotRotY > lookAtDummy.x || pivotRotY < lookAtDummy.y)
+        {
+            return true;
+        }
+        else return false;
+    }
+
 
     /// <summary>
     /// Enable telekinesie for player
@@ -74,11 +115,14 @@ public class PlayerTelekinesie : MonoBehaviour
         RaycastHit hit;
         Ray ray = cameraPlayer.ScreenPointToRay(playerInput.MousePosition);
 
+
+
         if (Physics.Raycast(ray, out hit, 99, layerGround))
         {
-            Debug.Log("Here");
-            Debug.DrawLine(ray.origin, hit.point, Color.red, 5f);
+            //IK
+            targetIK.transform.position = telekinesyObject.transform.position;
 
+            //Math et physique pour trouver la bonne position et smooth le tout
             currentHeight += playerInput.ScrollMouse * Time.deltaTime * forceVariable;
 
             currentHeight = Mathf.Clamp(currentHeight, 1f, maxHeigtPlayer);
@@ -93,6 +137,7 @@ public class PlayerTelekinesie : MonoBehaviour
 
             //rigidbodyObject.AddForceAtPosition(force.normalized * forceVariable, hit.point, ForceMode.Force);
 
+            //Deplace l'object
             rigidbodyObject.MovePosition(nextPos);
 
         }
