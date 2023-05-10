@@ -14,6 +14,9 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Bracelet Tempo")]
     public bool haveTempo;
+
+    [Header("Telekinesy")]
+    public bool haveTelekinesy;
     #endregion
 
 
@@ -37,5 +40,11 @@ public class PlayerStats : MonoBehaviour
     {
         //Debug.Log("Bracelet Tempo récupéré");
         haveTempo = true;
+    }
+
+    public void GetTelekinesy()
+    {
+        Debug.Log("Telekinesy récupéré");
+        haveTelekinesy = true;
     }
 }
