@@ -12,6 +12,11 @@ public class PlayerTelekinesie : MonoBehaviour
     public Collider colObject;
 
     public float forceVariable;
+    public float timeToLerp = 5;
+
+    float currentHeight = 0;
+
+    public float maxHeigtPlayer = 5f;
 
     [Header("Player Component")]
     private PlayerInputManager playerInput;
@@ -38,6 +43,9 @@ public class PlayerTelekinesie : MonoBehaviour
         //Debug.Log(playerInput.CanTelekinesy);
     }
 
+    /// <summary>
+    /// Enable telekinesie for player
+    /// </summary>
     private void EnableTelekinesie()
     {
         if (playerInput.CanTelekinesy)
@@ -55,6 +63,9 @@ public class PlayerTelekinesie : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Move object along mouse position of the player with offset heigth
+    /// </summary>
     private void MoveObject()
     {
         if (telekinesyOn == false) return;
@@ -67,16 +78,23 @@ public class PlayerTelekinesie : MonoBehaviour
         {
             Debug.Log("Here");
             Debug.DrawLine(ray.origin, hit.point, Color.red, 5f);
-            Vector3 force = hit.point - ray.origin;
 
-            rigidbodyObject.AddForceAtPosition(force.normalized * forceVariable , hit.point, ForceMode.Force);
-            
-            /*
-            Vector3 current = transform.position;
-            Vector3 nextLerp = Vector3.Lerp(current, hit.point, Time.deltaTime);
+            currentHeight += playerInput.ScrollMouse * Time.deltaTime * forceVariable;
 
-            transform.position = nextLerp;
-            */
+            currentHeight = Mathf.Clamp(currentHeight, 1f, maxHeigtPlayer);
+
+            Vector3 offsetHeight = new Vector3(hit.point.x, hit.point.y + currentHeight, hit.point.z);
+
+            Vector3 currentPos = telekinesyObject.transform.position;
+
+            Vector3 nextPos = Vector3.Lerp(currentPos, offsetHeight, Time.deltaTime * timeToLerp);
+
+            //Vector3 force = offsetHeight - ray.origin;
+
+            //rigidbodyObject.AddForceAtPosition(force.normalized * forceVariable, hit.point, ForceMode.Force);
+
+            rigidbodyObject.MovePosition(nextPos);
+
         }
         else
         {
