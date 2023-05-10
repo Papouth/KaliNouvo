@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class GetStat : CustomsTriggers
 {
+    #region Variables
     public UnityEvent statEvent;
     private bool statState;
     public Animation statAnim;
@@ -19,12 +20,16 @@ public class GetStat : CustomsTriggers
     [Tooltip("A cocher si c'est pour avoir la super force")]
     [SerializeField] private bool forceForPlayer;
 
+    [Tooltip("A cocher si c'est pour avoir la telekinesy")]
+    [SerializeField] private bool telekinesyForPlayer;
+    #endregion
 
 
     private void Update()
     {
         TempoException();
         ForceException();
+        TelekinesyException();
     }
 
     public override void Interact()
@@ -46,6 +51,13 @@ public class GetStat : CustomsTriggers
         // On joue l'animation de recuperation du bracelet de tempo
         statState = true;
         //statAnim.Play();
+    }
+
+    public void AnimTelekinesy()
+    {
+        // On joue l'animation de recuperation de la telekinesy
+        statState = true;
+        // statAnim.Play();
     }
 
     public override void OnTriggerEnter(Collider other)
@@ -75,6 +87,17 @@ public class GetStat : CustomsTriggers
             statEvent = new UnityEvent();
             statEvent.AddListener(playerStats.GetSuperForce);
             Debug.Log("super force");
+        }
+    }
+
+    private void TelekinesyException()
+    {
+        if (telekinesyForPlayer && unlockScript)
+        {
+            telekinesyForPlayer = false;
+            statEvent = new UnityEvent();
+            statEvent.AddListener(playerStats.GetTelekinesy);
+            Debug.Log("Telekinesy Acquise");
         }
     }
 }

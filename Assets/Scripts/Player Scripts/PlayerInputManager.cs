@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 public class PlayerInputManager : MonoBehaviour
@@ -158,6 +159,11 @@ public class PlayerInputManager : MonoBehaviour
     private void SelectTimer()
     {
         canSelect = false;
+    }
+
+    private void OnScroll(InputValue value)
+    {
+        Debug.Log(value.Get<float>());
     }
     #endregion
 }
