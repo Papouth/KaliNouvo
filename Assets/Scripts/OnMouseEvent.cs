@@ -70,7 +70,6 @@ public class OnMouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             playerTelekinesie.telekinesyObject = null;
             playerTelekinesie.rigidbodyObject = null;
 
-            playerTelekinesie.colObject.enabled = true;
             playerTelekinesie.colObject = null;
 
             objectRend.material = selectedMat;
