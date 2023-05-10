@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
     public bool indicatorG2;
     public bool indicatorG3;
 
+    [Header("Barrieres Electriques")]
+    public bool oneForAll;
+
     #endregion
 
     #region Built In Methods
