@@ -9,6 +9,9 @@ public class PlayerTelekinesie : MonoBehaviour
     public bool telekinesyOn;
     public GameObject telekinesyObject;
     public Rigidbody rigidbodyObject;
+    public Collider colObject;
+
+    public float forceVariable;
 
     [Header("Player Component")]
     private PlayerInputManager playerInput;
@@ -62,8 +65,22 @@ public class PlayerTelekinesie : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 99, layerGround))
         {
+            Debug.Log("Here");
             Debug.DrawLine(ray.origin, hit.point, Color.red, 5f);
-            rigidbodyObject.AddForceAtPosition(hit.point, hit.point, ForceMode.Force);
+            Vector3 force = hit.point - ray.origin;
+
+            rigidbodyObject.AddForceAtPosition(force.normalized * forceVariable , hit.point, ForceMode.Force);
+            
+            /*
+            Vector3 current = transform.position;
+            Vector3 nextLerp = Vector3.Lerp(current, hit.point, Time.deltaTime);
+
+            transform.position = nextLerp;
+            */
+        }
+        else
+        {
+
         }
     }
 }
