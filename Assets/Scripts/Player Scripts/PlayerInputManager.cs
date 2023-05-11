@@ -151,7 +151,6 @@ public class PlayerInputManager : MonoBehaviour
     {
         canTelekinesy = true;
         telekinesyKeyOn = true;
-        Debug.Log("Telekinesie on");
     }
 
     public void OnSelect()
@@ -167,8 +166,6 @@ public class PlayerInputManager : MonoBehaviour
 
     private void OnScroll(InputValue value)
     {
-        Debug.Log(value.Get<float>());
-
         if (value.Get<float>() >= 1)
         {
             scrollMouse = 1;

@@ -51,12 +51,7 @@ public class OnMouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (playerTelekinesie.telekinesyOn)
         {
-            playerTelekinesie.selected = true;
-
-            playerTelekinesie.telekinesyObject = gameObject;
-            playerTelekinesie.rigidbodyObject = gameObject.GetComponent<Rigidbody>();
-            playerTelekinesie.colObject = gameObject.GetComponent<Collider>();
-
+            playerTelekinesie.AddObjectTelekinesie(gameObject);
             objectRend.material = selectedMat;
         }
     }
@@ -65,13 +60,7 @@ public class OnMouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (playerTelekinesie.telekinesyOn)
         {
-            playerTelekinesie.selected = false;
-
-            playerTelekinesie.telekinesyObject = null;
-            playerTelekinesie.rigidbodyObject = null;
-
-            playerTelekinesie.colObject = null;
-
+            playerTelekinesie.RemoveTelekinesieObject();
             objectRend.material = selectedMat;
 
         }
