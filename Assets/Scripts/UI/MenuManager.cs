@@ -88,6 +88,8 @@ public class MenuManager : MonoBehaviour
         docCreditMenu.rootVisualElement.style.display = DisplayStyle.None;
         docPlayMenu.rootVisualElement.style.display = DisplayStyle.None;
         infoText.style.display = DisplayStyle.None;
+
+        SceneManager.LoadScene(mainMenuScene, LoadSceneMode.Additive);
     }
 
     private void Update()
@@ -279,6 +281,7 @@ public class MenuManager : MonoBehaviour
 
         MusicManager.Instance.ChangeMusic(1);
 
+        SceneManager.UnloadSceneAsync(mainMenuScene);
         SceneManager.LoadScene(sceneIntro, LoadSceneMode.Additive);
 
 
@@ -293,6 +296,8 @@ public class MenuManager : MonoBehaviour
 
         SceneManager.UnloadSceneAsync(player.present);
         SceneManager.UnloadSceneAsync(player.past);
+
+        SceneManager.LoadScene(mainMenuScene, LoadSceneMode.Additive);
     }
 
     /// <summary>
