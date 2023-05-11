@@ -10,7 +10,6 @@ public class GetStat : CustomsTriggers
     private bool statState;
     public Animation statAnim;
 
-
     private PlayerStats playerStats;
     private bool unlockScript;
 
@@ -22,7 +21,11 @@ public class GetStat : CustomsTriggers
 
     [Tooltip("A cocher si c'est pour avoir la telekinesy")]
     [SerializeField] private bool telekinesyForPlayer;
+
+    [Tooltip("La porte à fermer quand on récupère la telekinesy")]
+    [SerializeField] private Animator doorAnimator;
     #endregion
+
 
 
     private void Update()
@@ -97,6 +100,10 @@ public class GetStat : CustomsTriggers
             telekinesyForPlayer = false;
             statEvent = new UnityEvent();
             statEvent.AddListener(playerStats.GetTelekinesy);
+
+            // Animation porte qui se referme
+            doorAnimator.SetBool("closeDoor", true);
+
             Debug.Log("Telekinesy Acquise");
         }
     }

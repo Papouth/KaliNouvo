@@ -11,8 +11,6 @@ public class PlayerPush : MonoBehaviour
     public float rangeMaxPush = 0.4f;
     public LayerMask layersCanPush;
 
-    private Rigidbody hitGO;
-
     [Header("Player Component")]
     protected CharacterController cc;
     protected Animator animator;

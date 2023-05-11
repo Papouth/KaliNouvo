@@ -33,6 +33,8 @@ public class Generateur : CustomsTriggers
     [SerializeField] private Barriere[] barrieresActivation;
     [Tooltip("Les barrières à désactiver")]
     [SerializeField] private Barriere[] barrieresDeactivation;
+    [Tooltip("A cocher si le generateur doit activer toutes les barrieres de la Zone 1")]
+    [SerializeField] private bool allBarrieresZ1;
 
     #endregion
 
@@ -85,6 +87,11 @@ public class Generateur : CustomsTriggers
             {
                 bar.Desactivate();
             }
+        }
+
+        if (allBarrieresZ1)
+        {
+            GameManager.GM.oneForAll = true;
         }
     }
     #endregion
