@@ -7,6 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
+    public bool loadMainMenu;
 
     [Header("Main Menu")]
     [SerializeField]
@@ -89,7 +90,8 @@ public class MenuManager : MonoBehaviour
         docPlayMenu.rootVisualElement.style.display = DisplayStyle.None;
         infoText.style.display = DisplayStyle.None;
 
-        SceneManager.LoadScene(mainMenuScene, LoadSceneMode.Additive);
+        if (loadMainMenu)
+            SceneManager.LoadScene(mainMenuScene, LoadSceneMode.Additive);
     }
 
     private void Update()
@@ -246,7 +248,7 @@ public class MenuManager : MonoBehaviour
 
 
     #region DialogueSet
-   
+
     public void MajInfoText(string sentences)
     {
         infoText.text = sentences;
