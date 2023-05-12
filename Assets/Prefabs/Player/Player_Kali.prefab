@@ -1157,6 +1157,7 @@ GameObject:
   - component: {fileID: 4709994029848905152}
   - component: {fileID: 3548786494226868284}
   - component: {fileID: 9202419715335012055}
+  - component: {fileID: 8000159372355887231}
   m_Layer: 3
   m_Name: Player_Kali
   m_TagString: Player
@@ -1566,7 +1567,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.2, y: 0.75, z: 0.2}
+  m_Extents: {x: 0.175, y: 0.75, z: 0.175}
   m_MoveThreshold: 2
   m_Carve: 1
   m_CarveOnlyStationary: 0
@@ -1588,6 +1589,22 @@ MonoBehaviour:
   - m_Rig: {fileID: 6037224615553135372}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &8000159372355887231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8233528653410943343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e0756e6ce9a2d4ca3f8270d2e657f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 73793
+  DistanceToGround: 0.1
 --- !u!1001 &3331531078952605107
 PrefabInstance:
   m_ObjectHideFlags: 0
