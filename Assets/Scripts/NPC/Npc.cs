@@ -20,7 +20,7 @@ public class Npc : CustomsTriggers
     private float lookWeight;
     [SerializeField] private Vector3 offsetLook;
 
-    [SerializeField] private bool canMove;
+    public bool canMove;
     [HideInInspector] public bool isTalking;
 
     [Header("MovePart")]
@@ -29,7 +29,7 @@ public class Npc : CustomsTriggers
 
     private bool stopMove;
 
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     [SerializeField]
     private WayPoint wayPoints;
 
@@ -66,7 +66,7 @@ public class Npc : CustomsTriggers
         }
     }
 
-    public void Update()
+    public virtual void Update()
     {
         if (canMove && !isTalking) MoveNpc();
     }
@@ -85,29 +85,19 @@ public class Npc : CustomsTriggers
         }
     }
 
-    public void OnTriggerStay(Collider other)
+    public virtual void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
         }
     }
 
-    public void OnTriggerExit(Collider other)
+    public virtual void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            // Peut �tre remplacer par un point d'interrogation par exemple
-            //topCube.SetActive(false);
-
-
-            lookPlayer = false;
-            manager.EndDialogue();
-            GameManager.GM.canTP = false;
-            isTalking = false;
-        }
+        
     }
 
-    private void OnAnimatorIK(int layerIndex)
+    public virtual void OnAnimatorIK(int layerIndex)
     {
         if (LookPlayerIK())
         {

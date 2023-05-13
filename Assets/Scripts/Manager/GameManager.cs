@@ -4,7 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
-using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
     public bool indicatorG1;
     public bool indicatorG2;
     public bool indicatorG3;
+
+    [Header("Barrieres Electriques")]
+    public bool oneForAll;
 
     #endregion
 

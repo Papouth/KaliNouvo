@@ -19,12 +19,16 @@ public class PlayerInputManager : MonoBehaviour
     private bool canMenu;
 
     public bool telekinesyKeyOn;
+
+    private float scrollMouse;
     #endregion
 
 
     #region Bool Functions
     public Vector2 MoveInput => moveInput;
     public Vector2 MousePosition => mousePosition;
+
+    public float ScrollMouse => scrollMouse;
 
     public bool CanJump
     {
@@ -147,7 +151,6 @@ public class PlayerInputManager : MonoBehaviour
     {
         canTelekinesy = true;
         telekinesyKeyOn = true;
-        Debug.Log("Telekinesie on");
     }
 
     public void OnSelect()
@@ -163,7 +166,18 @@ public class PlayerInputManager : MonoBehaviour
 
     private void OnScroll(InputValue value)
     {
-        Debug.Log(value.Get<float>());
+        if (value.Get<float>() >= 1)
+        {
+            scrollMouse = 1;
+        }
+        else if (value.Get<float>() <= -1)
+        {
+            scrollMouse = -1;
+        }
+        else
+        {
+            scrollMouse = 0;
+        }
     }
     #endregion
 }
