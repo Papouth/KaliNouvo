@@ -102,9 +102,13 @@ MonoBehaviour:
   dialogues:
     nameOfPeople: 
     sentences: []
+  manager: {fileID: 0}
+  animator: {fileID: 0}
   dummyPivot: {fileID: 4213658674814633087}
   offsetLook: {x: 0, y: 0, z: 0}
   canMove: 0
+  isTalking: 0
+  agent: {fileID: 0}
   wayPoints: {fileID: 0}
 --- !u!135 &4764233109710285765
 SphereCollider:
@@ -130,9 +134,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 4
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!195 &8189204034040479622
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -142,10 +146,10 @@ NavMeshAgent:
   m_GameObject: {fileID: 4764233109710285758}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.3
+  m_Radius: 0.4
   m_Speed: 1
   m_Acceleration: 5
-  avoidancePriority: 50
+  avoidancePriority: 40
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1

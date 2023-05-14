@@ -14,7 +14,7 @@ public class Hbsx7436 : CustomsTriggers
 
     private void Awake()
     {
-        rendProp = theProp.GetComponent<MeshRenderer>();
+        //rendProp = theProp.GetComponent<MeshRenderer>();
     }
 
     public override void Interact()
@@ -27,13 +27,13 @@ public class Hbsx7436 : CustomsTriggers
 
     private void Exec()
     {
-        rendProp.material = hbsxMat;
+        //rendProp.material = hbsxMat;
         hbOn = true;
     }
 
     private void Unexec()
     {
-        rendProp.material = theMat;
+        //rendProp.material = theMat;
         hbOn = false;
     }
 }
