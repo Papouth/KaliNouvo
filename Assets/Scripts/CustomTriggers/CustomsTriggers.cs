@@ -6,6 +6,8 @@ using UnityEngine;
 public interface IInteractable
 {
     public void Interact();
+
+    public List<Material> GetMaterialGameObject();
 }
 
 public abstract class CustomsTriggers : MonoBehaviour, IInteractable
@@ -33,6 +35,23 @@ public abstract class CustomsTriggers : MonoBehaviour, IInteractable
     {
         Debug.Log("fesse");
         return;
+    }
+
+    public virtual List<Material> GetMaterialGameObject()
+    {
+        MeshRenderer[] objects = GetComponentsInChildren<MeshRenderer>();
+
+        List<Material> mats = new List<Material>();
+
+        foreach(MeshRenderer mesh in objects)
+        {
+            foreach(Material mat in mesh.materials)
+            {
+                mats.Add(mat);
+            }
+        }
+
+        return mats;
     }
 
     public virtual void TextInfo()
