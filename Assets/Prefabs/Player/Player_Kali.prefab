@@ -118,7 +118,7 @@ MonoBehaviour:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
-  - m_Transform: {fileID: 7148036475686812091}
+  - m_Transform: {fileID: 0}
     m_Style:
       shape: {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
       color: {r: 0, g: 0.19344974, b: 1, a: 0.5}
@@ -126,37 +126,22 @@ MonoBehaviour:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
---- !u!1 &156193321553133365
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7148036475686812091}
-  m_Layer: 0
-  m_Name: Hint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7148036475686812091
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156193321553133365}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.172, y: -0.039, z: 0.117}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6037361544402110780}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  - m_Transform: {fileID: 0}
+    m_Style:
+      shape: {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
+      color: {r: 0.08884287, g: 0, b: 1, a: 0.5}
+      size: 0.1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+    m_Visible: 1
+  - m_Transform: {fileID: 0}
+    m_Style:
+      shape: {fileID: 4300000, guid: 687b70eb9c49243639f9379f6965034f, type: 2}
+      color: {r: 1, g: 0, b: 0, a: 0.5}
+      size: 0.1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+    m_Visible: 1
 --- !u!1 &1423044934584755489
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 0.7
   m_Data:
-    m_ConstrainedObject: {fileID: 2809985795642207486}
+    m_ConstrainedObject: {fileID: 0}
     m_SourceObjects:
       m_Length: 1
       m_Item0:
@@ -1058,11 +1043,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 0
   m_Data:
-    m_Root: {fileID: 4961344060883050824}
-    m_Mid: {fileID: 6037361544402110780}
-    m_Tip: {fileID: 3696536713285139146}
+    m_Root: {fileID: 0}
+    m_Mid: {fileID: 0}
+    m_Tip: {fileID: 0}
     m_Target: {fileID: 3848125664750216355}
-    m_Hint: {fileID: 7148036475686812091}
+    m_Hint: {fileID: 0}
     m_TargetPositionWeight: 1
     m_TargetRotationWeight: 1
     m_HintWeight: 1
@@ -1272,8 +1257,6 @@ MonoBehaviour:
   - {fileID: 0}
   playerInput: {fileID: 0}
   hands: {fileID: 1423044935026070009}
-  colorInteraction: {r: 0, g: 1, b: 0.065570354, a: 1}
-  oldColorInteraction: {r: 0.6117647, g: 0.6117647, b: 0.6117647, a: 1}
 --- !u!114 &4444244832395046200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,8 +1516,6 @@ MonoBehaviour:
   - {fileID: 0}
   playerInput: {fileID: 0}
   hands: {fileID: 1423044935026070009}
-  colorInteraction: {r: 0, g: 0, b: 0, a: 0}
-  oldColorInteraction: {r: 0, g: 0, b: 0, a: 0}
   objectsOnCamera: []
 --- !u!114 &3285395951064303844
 MonoBehaviour:
@@ -1707,6 +1688,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8721376823822195669}
     m_Modifications:
+    - target: {fileID: 774887322162508072, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1169349884265299536, guid: 521647e5e859867448f17e22f54f3cbf,
         type: 3}
       propertyPath: m_RootOrder
@@ -1762,37 +1748,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1207977208059964234, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3843117468450485208, guid: 521647e5e859867448f17e22f54f3cbf,
         type: 3}
       propertyPath: m_Name
       value: Kali_3D
       objectReference: {fileID: 0}
+    - target: {fileID: 6217481020026196740, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320483654677126105, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6759316953995529886, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 521647e5e859867448f17e22f54f3cbf, type: 3}
---- !u!4 &2809985795642207486 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5649493648108308501, guid: 521647e5e859867448f17e22f54f3cbf,
-    type: 3}
-  m_PrefabInstance: {fileID: 7536804466871756011}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3696536713285139146 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6617097599192866337, guid: 521647e5e859867448f17e22f54f3cbf,
-    type: 3}
-  m_PrefabInstance: {fileID: 7536804466871756011}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4961344060883050824 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3189155020056184227, guid: 521647e5e859867448f17e22f54f3cbf,
-    type: 3}
-  m_PrefabInstance: {fileID: 7536804466871756011}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6037361544402110780 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4274232625323240919, guid: 521647e5e859867448f17e22f54f3cbf,
-    type: 3}
-  m_PrefabInstance: {fileID: 7536804466871756011}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8692587459268123323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1169349884265299536, guid: 521647e5e859867448f17e22f54f3cbf,
