@@ -283,7 +283,8 @@ public class MenuManager : MonoBehaviour
 
         MusicManager.Instance.ChangeMusic(1);
 
-        SceneManager.UnloadSceneAsync(mainMenuScene);
+        if (loadMainMenu)
+            SceneManager.UnloadSceneAsync(mainMenuScene);
         SceneManager.LoadScene(sceneIntro, LoadSceneMode.Additive);
 
 
