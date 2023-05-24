@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4467829447207794427}
+  - component: {fileID: 8042432686031339004}
   m_Layer: 0
   m_Name: Arbre_Foret_4
   m_TagString: Untagged
@@ -32,6 +33,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &8042432686031339004
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2366494448752770400}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.004014828
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6312697419081168016}
+  m_Enabled: 1
 --- !u!1001 &1599778228246454366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114,6 +134,12 @@ PrefabInstance:
 --- !u!4 &1277109899464394677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c732f7f86b27ff44399bf8194ad66f61,
+    type: 3}
+  m_PrefabInstance: {fileID: 1599778228246454366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6312697419081168016 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4492137176492731186, guid: c732f7f86b27ff44399bf8194ad66f61,
     type: 3}
   m_PrefabInstance: {fileID: 1599778228246454366}
   m_PrefabAsset: {fileID: 0}
