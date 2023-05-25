@@ -51,7 +51,7 @@ public class Npc : CustomsTriggers
 
         playerLook = GameManager.GM.lookPlayer;
 
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
 
     }
