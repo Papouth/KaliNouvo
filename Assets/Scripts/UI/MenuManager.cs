@@ -116,8 +116,6 @@ public class MenuManager : MonoBehaviour
         creditsButton.clickable.clicked += () => { EnableMenu(docCreditMenu, docMainMenu); };
         leaveButton.clickable.clicked += LeaveGame;
 
-
-        Debug.Log("Menu Set");
     }
 
 
@@ -148,8 +146,6 @@ public class MenuManager : MonoBehaviour
         SetAudioSettings();
 
         EnableVisualElement(audioVisual);
-
-        Debug.Log("Option menu Set");
     }
 
     private void SetAudioSettings()
@@ -218,9 +214,7 @@ public class MenuManager : MonoBehaviour
 
         Button leaveButton = rootCreditMenu.Q<Button>("Leave");
         leaveButton.clickable.clicked += () => { EnableMenu(docMainMenu, docCreditMenu); };
-
-        Debug.Log("Credit menu Set");
-    }
+            }
 
     /// <summary>
     /// Set the play menu of the game
@@ -237,7 +231,6 @@ public class MenuManager : MonoBehaviour
         optionButton.clickable.clicked += () => { EnableMenu(docSettingsMenu, docPlayMenu); };
         leaveButton.clickable.clicked += () => { EnableMenu(docMainMenu, docPlayMenu); BackMenuToMenu(); };
 
-        Debug.Log("Play Menu Set");
     }
 
     private void SetTutoMenu()
@@ -276,7 +269,6 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     private void LauchGame()
     {
-        Debug.Log("Game Lauch");
 
         EnableMenu(null, docMainMenu);
         Time.timeScale = 1;
@@ -324,7 +316,6 @@ public class MenuManager : MonoBehaviour
     {
         if (docToActivate != null)
         {
-            Debug.Log("Enable menu : " + docToActivate.gameObject.name);
             docToActivate.rootVisualElement.style.display = DisplayStyle.Flex;
         }
 
@@ -346,10 +337,8 @@ public class MenuManager : MonoBehaviour
         if (currentVisualElement != null)
         {
             currentVisualElement.style.display = DisplayStyle.None;
-            Debug.Log("Disable Visual : " + currentVisualElement.name);
         }
 
-        Debug.Log("Enable Visual : " + visualElementToActivate.name);
         visualElementToActivate.style.display = DisplayStyle.Flex;
         currentVisualElement = visualElementToActivate;
     }

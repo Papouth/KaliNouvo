@@ -16,11 +16,6 @@ public class Pepo : Npc
         canLook = ChanceToLook();
     }
 
-    public void OnEnable()
-    {
-        canLook = ChanceToLook();
-    }
-
     public override void Update()
     {
         base.Update();
