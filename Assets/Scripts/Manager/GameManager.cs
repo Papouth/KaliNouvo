@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
 
         playerInput = player.GetComponent<PlayerInput>();
+
     }
 
     #endregion
