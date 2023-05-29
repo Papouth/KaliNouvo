@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 2576492139875094511}
   - component: {fileID: 8174656806407336627}
   - component: {fileID: 5143698692712282105}
+  - component: {fileID: 268157142}
   m_Layer: 0
   m_Name: TourTVHolo_low
   m_TagString: Untagged
@@ -166,6 +167,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &268157142
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124036185713800623}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8809376028224756614, guid: dcbc23c8d953abb4bbc1e3610e14e821, type: 3}
 --- !u!1 &1784018235849696532
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +439,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6504065424262216089}
-  - component: {fileID: 6504065424262216088}
   m_Layer: 0
   m_Name: Bat_Tour_TV_Present
   m_TagString: Untagged
@@ -439,7 +453,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5839134240146252579}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -453,20 +467,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &6504065424262216088
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5839134240146252579}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 3.3537216
-  m_Height: 38.411583
-  m_Direction: 1
-  m_Center: {x: -0.00004005432, y: 19.205791, z: 0.00004386902}
 --- !u!1 &8483232881469907937
 GameObject:
   m_ObjectHideFlags: 0
