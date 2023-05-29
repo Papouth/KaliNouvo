@@ -1634,6 +1634,7 @@ Transform:
   m_Children:
   - {fileID: 791918370}
   - {fileID: 2068493659}
+  - {fileID: 1618579261}
   m_Father: {fileID: 613920884}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2312,7 +2313,7 @@ GameObject:
   - component: {fileID: 791918372}
   - component: {fileID: 791918371}
   m_Layer: 0
-  m_Name: Trigger4Inte
+  m_Name: Trigger4Exte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2345,8 +2346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a5943ba32ce1e4d9ec25a66c140f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorGizmo: {r: 1, g: 0, b: 0.010215759, a: 0.6156863}
-  dollyToTrack: {fileID: 1693225112}
+  colorGizmo: {r: 0.047058824, g: 1, b: 0, a: 0.6156863}
+  dollyToTrack: {fileID: 895619070}
 --- !u!65 &791918372
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2690,7 +2691,7 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 0, g: 0.9686275, b: 0, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
@@ -4401,6 +4402,66 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594742342}
   m_Mesh: {fileID: 8836350737178613064, guid: e8ebbd8c115a803449fa8525daf0c60e, type: 3}
+--- !u!1 &1618579260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1618579261}
+  - component: {fileID: 1618579263}
+  - component: {fileID: 1618579262}
+  m_Layer: 0
+  m_Name: Trigger4Exte (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1618579261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618579260}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -49.33, y: 12.96, z: -89.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 506120029}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1618579262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618579260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a5943ba32ce1e4d9ec25a66c140f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorGizmo: {r: 0.047058824, g: 1, b: 0, a: 0.6156863}
+  dollyToTrack: {fileID: 895619070}
+--- !u!65 &1618579263
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618579260}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.138237, y: 3.8174887, z: 5.92334}
+  m_Center: {x: -0.032794952, y: 0.65874434, z: -0.27814484}
 --- !u!1 &1682412472
 GameObject:
   m_ObjectHideFlags: 0
@@ -4628,7 +4689,7 @@ MonoBehaviour:
   m_Resolution: 20
   m_Appearance:
     pathColor: {r: 1, g: 0.009601339, b: 0, a: 1}
-    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    inactivePathColor: {r: 1, g: 0.007843138, b: 0, a: 1}
     width: 0.2
   m_Looped: 0
   m_Waypoints:
@@ -5376,7 +5437,7 @@ GameObject:
   - component: {fileID: 2068493661}
   - component: {fileID: 2068493660}
   m_Layer: 0
-  m_Name: Trigger4Exte
+  m_Name: Trigger4Inte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5409,8 +5470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a5943ba32ce1e4d9ec25a66c140f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorGizmo: {r: 0.048704147, g: 1, b: 0, a: 0.6156863}
-  dollyToTrack: {fileID: 895619070}
+  colorGizmo: {r: 1, g: 0, b: 0.011764706, a: 0.6156863}
+  dollyToTrack: {fileID: 1693225112}
 --- !u!65 &2068493661
 BoxCollider:
   m_ObjectHideFlags: 0

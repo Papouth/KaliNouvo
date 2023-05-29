@@ -3756,7 +3756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a5943ba32ce1e4d9ec25a66c140f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorGizmo: {r: 0.9150943, g: 0.66157943, b: 0.038848326, a: 0.2901961}
+  colorGizmo: {r: 0.039215676, g: 0.9137255, b: 0.078088306, a: 0.5019608}
   dollyToTrack: {fileID: 1968960997}
 --- !u!1001 &303314134
 PrefabInstance:
@@ -4384,6 +4384,8 @@ Transform:
   - {fileID: 410756784}
   - {fileID: 287514051}
   - {fileID: 1968960996}
+  - {fileID: 1205717399}
+  - {fileID: 528045263}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5394,7 +5396,7 @@ GameObject:
   - component: {fileID: 410756784}
   - component: {fileID: 410756785}
   m_Layer: 0
-  m_Name: DollyTrack2
+  m_Name: DollyTrackCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5429,8 +5431,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Resolution: 20
   m_Appearance:
-    pathColor: {r: 1, g: 0.030630242, b: 0, a: 1}
-    inactivePathColor: {r: 1, g: 0, b: 0.08282852, a: 1}
+    pathColor: {r: 1, g: 0, b: 0.84147406, a: 1}
+    inactivePathColor: {r: 1, g: 0, b: 0.8431373, a: 1}
     width: 1.08
   m_Looped: 1
   m_Waypoints:
@@ -6519,6 +6521,66 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 527876698}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &528045262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 528045263}
+  - component: {fileID: 528045265}
+  - component: {fileID: 528045264}
+  m_Layer: 0
+  m_Name: TriggerCamera (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &528045263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528045262}
+  m_LocalRotation: {x: -0, y: 0.08349299, z: -0, w: 0.99650836}
+  m_LocalPosition: {x: 11.463, y: 5.02, z: -90.664}
+  m_LocalScale: {x: 0.85143, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 345841661}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 9.579, z: 0}
+--- !u!65 &528045264
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528045262}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.3202486, y: 4, z: 6.586342}
+  m_Center: {x: 0.11760092, y: 0, z: -0.02412033}
+--- !u!114 &528045265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528045262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a5943ba32ce1e4d9ec25a66c140f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorGizmo: {r: 0.039215676, g: 0.9137255, b: 0.078088306, a: 0.5019608}
+  dollyToTrack: {fileID: 1968960997}
 --- !u!1001 &539189788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8749,6 +8811,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 716521090}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &730951151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 730951152}
+  m_Layer: 8
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &730951152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730951151}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 71.957, y: 14.147, z: 0.448}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 776013070}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &732073272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9940,6 +10033,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 391633399}
     m_Modifications:
+    - target: {fileID: 191233691809389480, guid: cc55a6a6ce327dc4b841322e4b866653,
+        type: 3}
+      propertyPath: tp
+      value: 
+      objectReference: {fileID: 730951152}
+    - target: {fileID: 191233691809389480, guid: cc55a6a6ce327dc4b841322e4b866653,
+        type: 3}
+      propertyPath: scenePast
+      value: Zone1_Passe
+      objectReference: {fileID: 0}
+    - target: {fileID: 191233691809389480, guid: cc55a6a6ce327dc4b841322e4b866653,
+        type: 3}
+      propertyPath: scenePresent
+      value: Zone1_Present
+      objectReference: {fileID: 0}
     - target: {fileID: 1533653473786133247, guid: cc55a6a6ce327dc4b841322e4b866653,
         type: 3}
       propertyPath: m_RootOrder
@@ -15776,6 +15884,66 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1205163273}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1205717398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1205717399}
+  - component: {fileID: 1205717401}
+  - component: {fileID: 1205717400}
+  m_Layer: 0
+  m_Name: TriggerCamera (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1205717399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205717398}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 62.36, y: 1.06, z: -110.77}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 345841661}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1205717400
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205717398}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.970848, y: 4, z: 7.0023575}
+  m_Center: {x: -0.21390152, y: 0, z: 0.13772202}
+--- !u!114 &1205717401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205717398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a5943ba32ce1e4d9ec25a66c140f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorGizmo: {r: 0.039215676, g: 0.9137255, b: 0.078088306, a: 0.5019608}
+  dollyToTrack: {fileID: 1968960997}
 --- !u!1001 &1207295803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23036,7 +23204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a5943ba32ce1e4d9ec25a66c140f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorGizmo: {r: 0.9339623, g: 0.55718565, b: 0.030838395, a: 0.4627451}
+  colorGizmo: {r: 0.93333334, g: 0.031372547, b: 0.74412197, a: 0.4627451}
   dollyToTrack: {fileID: 410756785}
 --- !u!1001 &1699515856
 PrefabInstance:
@@ -24460,6 +24628,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1840361674}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1844061318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1844061319}
+  m_Layer: 8
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1844061319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844061318}
+  m_LocalRotation: {x: 0, y: -0.78320533, z: 0, w: 0.6217631}
+  m_LocalPosition: {x: -59.102, y: 7.408, z: -15.216}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1964861961}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -103.11, z: 0}
 --- !u!1001 &1871189660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26099,6 +26298,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 391633399}
     m_Modifications:
+    - target: {fileID: 191233691809389480, guid: cc55a6a6ce327dc4b841322e4b866653,
+        type: 3}
+      propertyPath: tp
+      value: 
+      objectReference: {fileID: 1844061319}
+    - target: {fileID: 191233691809389480, guid: cc55a6a6ce327dc4b841322e4b866653,
+        type: 3}
+      propertyPath: scenePast
+      value: Zone2_Passe
+      objectReference: {fileID: 0}
+    - target: {fileID: 191233691809389480, guid: cc55a6a6ce327dc4b841322e4b866653,
+        type: 3}
+      propertyPath: scenePresent
+      value: Zone2_Present
+      objectReference: {fileID: 0}
     - target: {fileID: 1533653473786133247, guid: cc55a6a6ce327dc4b841322e4b866653,
         type: 3}
       propertyPath: m_RootOrder
@@ -26253,7 +26467,7 @@ GameObject:
   - component: {fileID: 1968960996}
   - component: {fileID: 1968960997}
   m_Layer: 0
-  m_Name: DollyTrack2 (1)
+  m_Name: DollyTrack2Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26288,8 +26502,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Resolution: 20
   m_Appearance:
-    pathColor: {r: 1, g: 0.030630242, b: 0, a: 1}
-    inactivePathColor: {r: 1, g: 0, b: 0.08282852, a: 1}
+    pathColor: {r: 0, g: 1, b: 0.0022239685, a: 1}
+    inactivePathColor: {r: 0, g: 1, b: 0.003921569, a: 1}
     width: 1.08
   m_Looped: 0
   m_Waypoints:
@@ -26307,7 +26521,7 @@ MonoBehaviour:
     roll: 0
   - position: {x: 7.4445877, y: 5, z: -110.84915}
     roll: 0
-  - position: {x: 23.370323, y: 5, z: -114.725075}
+  - position: {x: 23.893276, y: 5, z: -124.85727}
     roll: 0
 --- !u!1 &1969009178
 GameObject:
