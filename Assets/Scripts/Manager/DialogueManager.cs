@@ -12,6 +12,8 @@ public class DialogueManager : MonoBehaviour
 
     public PlayerInputManager playerInput;
 
+    public float timeDisplayDialogue = 3;
+
 
     void Awake()
     {
@@ -76,7 +78,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         //yield return WaitForKeyDown(playerInput.);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(timeDisplayDialogue);
 
         DisplayNextSentece(dialogue);
     }
