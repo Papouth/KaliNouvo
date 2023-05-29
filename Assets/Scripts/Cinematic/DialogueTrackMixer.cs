@@ -14,7 +14,12 @@ public class DialogueTrackMixer : PlayableBehaviour
         if (!uidoc) return;
         if (uidoc.gameObject.activeSelf == false) return;
 
+        if (uidoc.rootVisualElement == null) return;
+        if (uidoc.rootVisualElement.Q<Label>("TutoText") == null) return;
+
         Label label = uidoc.rootVisualElement.Q<Label>("TutoText");
+
+        if (label == null) return;
 
         string currentText = "";
         float currentAlpha = 0f;

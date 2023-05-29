@@ -13,5 +13,9 @@ public class Prime : Npc
         {
             cutSceneToPlay.SetActive(true);
         }
+        else
+        {
+            base.Interact();
+        }
     }
 }

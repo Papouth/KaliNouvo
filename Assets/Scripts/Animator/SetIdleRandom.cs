@@ -7,7 +7,8 @@ public class SetIdleRandom : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponent<Npc>().IdleNpc();
+        if (animator.GetComponent<Npc>() != null)
+            animator.GetComponent<Npc>().IdleNpc();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
