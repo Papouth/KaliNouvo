@@ -82,6 +82,8 @@ public class TeleporteurZone : CustomsTriggers
         playerTempo.scenesToLoad = playerTempo.present;
         playerTempo.scenesToUnload = playerTempo.past;
 
+        playerTempo.LoadingScene();
+
         // On met Kali a la bonne position
         cc.transform.position = tp.position;
     }
@@ -141,6 +143,18 @@ public class TeleporteurZone : CustomsTriggers
 
     private void OnDisable()
     {
+        if (cc)
+        {
+            // On réactive le character controller
+            cc.enabled = true;
+        }
+
+        // On remet la possibilité au joueur de se TP dans une autre tempo
+        GameManager.GM.canTP = true;
+
+        // On remet la possibilité d'interargir
+        haveInteract = false;
+
         renderFeatureMat.settings.blitMaterial.SetFloat(nameParameterFeature, -.1f);
         StopAllCoroutines();
     }
