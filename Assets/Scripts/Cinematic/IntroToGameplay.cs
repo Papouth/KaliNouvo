@@ -26,6 +26,7 @@ public class IntroToGameplay : MonoBehaviour
 
         playerTempo.ChangeSceneToLoad("Tutoriel_01_Passe", "Tutoriel_01_Present");
 
+        GameManager.GM.EnableKali(true);
 
         SceneManager.UnloadSceneAsync(animIntro);
     }
