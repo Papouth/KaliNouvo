@@ -40,7 +40,7 @@ public class TriggerCutScene : TriggerInScene
         }
 
         playable.Play();
-        GameManager.GM.player.GetComponent<CharacterController>().enabled = false;
+
         isAlreadyPlayed = true;
     }
 
@@ -49,10 +49,6 @@ public class TriggerCutScene : TriggerInScene
 
     }
 
-    private void OnDisable()
-    {
-        StopPlayable();
-    }
 
     public void StopPlayable()
     {
@@ -61,9 +57,13 @@ public class TriggerCutScene : TriggerInScene
             GameManager.GM.cB.m_CustomBlends = settings;
         }
 
-        playable.Stop();
-        GameManager.GM.player.GetComponent<CharacterController>().enabled = true;
-        playable.gameObject.SetActive(false);
+        GameManager.GM.EnableKali(true);
+
+        if (playable)
+        {
+            playable.gameObject.SetActive(false);
+            playable.Stop();
+        }
     }
 
     #endregion
