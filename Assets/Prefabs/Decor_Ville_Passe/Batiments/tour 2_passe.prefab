@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3918653913008911369}
   - component: {fileID: 130043009396390828}
   - component: {fileID: 2750281159065259878}
-  - component: {fileID: 2512284102691136959}
+  - component: {fileID: 5796329808898702108}
   m_Layer: 0
   m_Name: tour 2_passe
   m_TagString: Untagged
@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4407346542439526067}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.62877, y: 0.62877, z: 0.62877}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2512284102691136959
-CapsuleCollider:
+--- !u!64 &5796329808898702108
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +94,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 4.708905
-  m_Height: 18.246609
-  m_Direction: 1
-  m_Center: {x: 0.00000047683716, y: 9.123302, z: -0.000004053116}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8538168493130578459, guid: 7f69c1908b51d10498198c9c922ae1e4, type: 3}
