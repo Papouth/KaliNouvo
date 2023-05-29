@@ -12,7 +12,10 @@ public class Barriere : MonoBehaviour
 
     private void OnEnable()
     {
-        if (GameManager.GM.oneForAll && !deviated) electricArc.SetActive(true);
+        if (GameManager.GM)
+        {
+            if (GameManager.GM.oneForAll && !deviated) electricArc.SetActive(true);
+        }
     }
 
     private void Update()
