@@ -37,7 +37,7 @@ public class PlayerTemporel : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
         animator = GetComponent<Animator>();
         cc = GetComponent<CharacterController>();
-        
+
         if (past == null || present == null) return;
 
         //SceneManager.LoadScene(past, LoadSceneMode.Additive);
@@ -124,7 +124,7 @@ public class PlayerTemporel : MonoBehaviour
         float i = 0;
         Blit instance = GameManager.GM.changeTempoMat;
 
-        while(i < 1.3f)
+        while (i < 1.3f)
         {
             float currentFloat = instance.settings.blitMaterial.GetFloat("_Transition");
             currentFloat = Mathf.Lerp(currentFloat, 1.3f, i);
@@ -135,7 +135,7 @@ public class PlayerTemporel : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
         }
 
-        instance.settings.blitMaterial.SetFloat("_Transition", -.1f); 
+        instance.settings.blitMaterial.SetFloat("_Transition", -.1f);
 
         playerInput.ChangeTempo = false;
         inStateChangeTempo = false;
@@ -151,6 +151,8 @@ public class PlayerTemporel : MonoBehaviour
         Scene scene = SceneManager.GetSceneByName(scenesToLoad);
 
         GameObject[] goSceneLoad = scene.GetRootGameObjects();
+
+        if (goSceneLoad.Length == 0) return;
 
         goSceneLoad[0].SetActive(true);
 
