@@ -26,8 +26,7 @@ public class CutSecne_TPPlayer : MonoBehaviour
     public void EnabledKali(bool enabled)
     {
         cc.transform.position = newPosKali.position;
-        cc.enabled = enabled;
-        kali3D.SetActive(enabled);
+        GameManager.GM.EnableKali(enabled);
     }
 
     public void ChangePlayerInCutScene()

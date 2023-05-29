@@ -93,6 +93,13 @@ public class GameManager : MonoBehaviour
         actionMap[index].actionReference.action.Enable();
     }
 
+    public void EnableKali(bool enable)
+    {
+        player.GetComponent<CharacterController>().enabled = enable;
+        
+        player.gameObject.transform.GetChild(0).gameObject.SetActive(enable);
+    }
+
 
     //Louis garde ca secret stp
 
