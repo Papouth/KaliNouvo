@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 2515113195700483418}
   - component: {fileID: 361287880947990928}
   - component: {fileID: 8596271219218891570}
-  m_Layer: 6
+  - component: {fileID: 737204051567682199}
+  - component: {fileID: 191233691809389480}
+  m_Layer: 8
   m_Name: "SocleT\xE9l\xE9portation_Passe"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2162696602200875077}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -98,3 +100,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4026644384297347843, guid: 426ea9e906b0dd848ad64fa8a538f66f, type: 3}
+--- !u!135 &737204051567682199
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2162696602200875077}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: -0.0000009536743, y: 0.08271785, z: -0.00000023841858}
+--- !u!114 &191233691809389480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2162696602200875077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae3af72f840fd74dbc4bbd6979e9cfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInteractorDistance: {fileID: 0}
+  scenePast: 
+  scenePresent: 
+  tp: {fileID: 0}
+  durationRenderFeature: 3
+  speedFeatureMat: 3
+  renderFeatureMat: {fileID: 9037736402361393355, guid: c40be3174f62c4acf8c1216858c64956,
+    type: 2}
+  nameParameterFeature: _Transition
