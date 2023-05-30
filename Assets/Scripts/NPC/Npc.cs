@@ -94,7 +94,10 @@ public class Npc : CustomsTriggers
 
     public virtual void OnTriggerExit(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            GameManager.GM.canTP = false;
+        }
     }
 
     public virtual void OnAnimatorIK(int layerIndex)
