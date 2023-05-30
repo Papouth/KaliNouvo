@@ -69,28 +69,12 @@ public class TeleporteurZone : CustomsTriggers
         SceneManager.UnloadSceneAsync(playerTempo.present);
 
         // On change les scènes passé et présent du joueur
-        playerTempo.past = scenePast;
-        playerTempo.scenesToLoad = playerTempo.past;
-        playerTempo.present = scenePresent;
-        playerTempo.scenesToUnload = playerTempo.present;
+        playerTempo.ChangeStringName(scenePast, scenePresent);
+        playerTempo.ChangeSceneToLoad(scenePast, scenePresent);
 
         // On load les scènes passé et présent de la nouvelle zone
         SceneManager.LoadScene(playerTempo.present, LoadSceneMode.Additive);
         SceneManager.LoadScene(playerTempo.past, LoadSceneMode.Additive);
-
-        // Reset des scènes pour le joueur
-        playerTempo.scenesToLoad = playerTempo.present;
-        playerTempo.scenesToUnload = playerTempo.past;
-
-        playerTempo.LoadingScene();
-
-        // On met Kali a la bonne position
-        cc.transform.position = tp.position;
-    }
-
-    public void StartBlackScreen()
-    {
-        StartCoroutine(SetBlackScreen());
     }
 
     public IEnumerator SetBlackScreen()
@@ -114,15 +98,7 @@ public class TeleporteurZone : CustomsTriggers
 
         yield return new WaitForSeconds(durationRenderFeature);
 
-        // On réactive le character controller
-        cc.enabled = true;
-
-        // On remet la possibilité au joueur de se TP dans une autre tempo
-        GameManager.GM.canTP = true;
-
-        // On remet la possibilité d'interargir
-        haveInteract = false;
-
+        // ne passe pas car disable
         float j = 1.3f;
 
         while (j > 0)
@@ -143,19 +119,51 @@ public class TeleporteurZone : CustomsTriggers
 
     private void OnDisable()
     {
-        if (cc)
+        //if (cc)
+        //{
+        //    // On réactive le character controller
+        //    cc.enabled = true;
+        //}
+        //
+        //// On remet la possibilité au joueur de se TP dans une autre tempo
+        //GameManager.GM.canTP = true;
+        //
+        //// On remet la possibilité d'interargir
+        //haveInteract = false;
+
+        if (haveInteract)
         {
+            Debug.Log("solution");
+
+            /*Scene presentScene = SceneManager.GetSceneByName(scenePresent);
+
+            GameObject[] presentUnload = presentScene.GetRootGameObjects();
+
+            foreach (var item in presentUnload)
+            {
+                item.SetActive(false);
+            }*/
+
+            // Reset des scènes pour le joueur
+            playerTempo.ChangeSceneToLoad(scenePresent, scenePast);
+
+            // On met Kali a la bonne position
+            cc.transform.position = tp.position;
+
+
+
             // On réactive le character controller
             cc.enabled = true;
+
+            // On remet la possibilité au joueur de se TP dans une autre tempo
+            GameManager.GM.canTP = true;
+
+            // On remet la possibilité d'interargir
+            haveInteract = false;
         }
 
-        // On remet la possibilité au joueur de se TP dans une autre tempo
-        GameManager.GM.canTP = true;
-
-        // On remet la possibilité d'interargir
-        haveInteract = false;
 
         renderFeatureMat.settings.blitMaterial.SetFloat(nameParameterFeature, -.1f);
-        StopAllCoroutines();
+        //StopAllCoroutines();
     }
 }

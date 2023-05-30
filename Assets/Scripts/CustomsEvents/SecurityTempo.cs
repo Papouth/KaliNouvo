@@ -17,11 +17,17 @@ public class SecurityTempo : MonoBehaviour
         if (!past)
         {
             Scene unloadScene = SceneManager.GetSceneByName(playerTempo.present);
+
             GameObject[] goSceneUnload = unloadScene.GetRootGameObjects();
+
+            goSceneUnload[0].SetActive(false);
+
+
+            /*
             foreach (var item in goSceneUnload)
             {
                 item.SetActive(false);
-            }
+            }*/
         }
         else if (past)
         {
@@ -29,10 +35,13 @@ public class SecurityTempo : MonoBehaviour
 
             GameObject[] pastUnload = pastScene.GetRootGameObjects();
 
+            pastUnload[0].SetActive(false);
+
+            /*
             foreach (var item in pastUnload)
             {
                 item.SetActive(false);
-            }
+            }*/
         }
     }
 }
