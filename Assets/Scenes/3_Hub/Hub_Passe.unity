@@ -10332,6 +10332,7 @@ Transform:
   - {fileID: 1968960996}
   - {fileID: 1205717399}
   - {fileID: 528045263}
+  - {fileID: 1986869920}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17265,7 +17266,6 @@ GameObject:
   m_Component:
   - component: {fileID: 617636551}
   - component: {fileID: 617636555}
-  - component: {fileID: 617636554}
   - component: {fileID: 617636553}
   - component: {fileID: 617636552}
   m_Layer: 0
@@ -17357,14 +17357,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &617636554
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617636550}
-  m_Enabled: 1
 --- !u!20 &617636555
 Camera:
   m_ObjectHideFlags: 0
@@ -19276,7 +19268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730951151}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 71.957, y: 14.147, z: 0.448}
+  m_LocalPosition: {x: 71.957, y: 13.66, z: 0.448}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35436,8 +35428,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.970848, y: 4, z: 7.0023575}
-  m_Center: {x: -0.21390152, y: 0, z: 0.13772202}
+  m_Size: {x: 15.809761, y: 4, z: 7.0023575}
+  m_Center: {x: -3.633358, y: 0, z: 0.13772202}
 --- !u!114 &1205717401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35450,8 +35442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a5943ba32ce1e4d9ec25a66c140f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorGizmo: {r: 0.039215676, g: 0.9137255, b: 0.078088306, a: 0.5019608}
-  dollyToTrack: {fileID: 1968960997}
+  colorGizmo: {r: 0.0786757, g: 0.90416247, b: 0.9811321, a: 0.5019608}
+  dollyToTrack: {fileID: 1986869921}
 --- !u!1001 &1207295803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51285,8 +51277,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 30, y: 4, z: 25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 28.590351, y: 4, z: 25}
+  m_Center: {x: -0.70482445, y: 0, z: 0}
 --- !u!114 &1692739750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55119,7 +55111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1844061318}
   m_LocalRotation: {x: 0, y: -0.78320533, z: 0, w: 0.6217631}
-  m_LocalPosition: {x: -59.102, y: 7.408, z: -15.216}
+  m_LocalPosition: {x: -59.102, y: 6.989, z: -15.216}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61032,7 +61024,7 @@ MonoBehaviour:
     roll: 0
   - position: {x: 7.4445877, y: 5, z: -110.84915}
     roll: 0
-  - position: {x: 23.893276, y: 5, z: -124.85727}
+  - position: {x: 23.69445, y: 5, z: -126.486755}
     roll: 0
 --- !u!1 &1969009178
 GameObject:
@@ -61351,6 +61343,61 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1978538414}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1986869919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1986869920}
+  - component: {fileID: 1986869921}
+  m_Layer: 0
+  m_Name: DollyTrackEntryTPZ1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1986869920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986869919}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 60.418, y: 11.22, z: -109.833}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 345841661}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1986869921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986869919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a200b19ca1a9685429ed7e043c28e904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Resolution: 20
+  m_Appearance:
+    pathColor: {r: 0, g: 0.87161016, b: 1, a: 1}
+    inactivePathColor: {r: 0, g: 0.8705883, b: 1, a: 1}
+    width: 0.2
+  m_Looped: 0
+  m_Waypoints:
+  - position: {x: 7.409775, y: 2.8731718, z: -0.5172348}
+    roll: 0
+  - position: {x: -13.194855, y: 1.6951723, z: 0.085762024}
+    roll: 0
 --- !u!1001 &1991718991
 PrefabInstance:
   m_ObjectHideFlags: 0
