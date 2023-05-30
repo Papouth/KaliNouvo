@@ -119,31 +119,8 @@ public class TeleporteurZone : CustomsTriggers
 
     private void OnDisable()
     {
-        //if (cc)
-        //{
-        //    // On réactive le character controller
-        //    cc.enabled = true;
-        //}
-        //
-        //// On remet la possibilité au joueur de se TP dans une autre tempo
-        //GameManager.GM.canTP = true;
-        //
-        //// On remet la possibilité d'interargir
-        //haveInteract = false;
-
         if (haveInteract)
         {
-            Debug.Log("solution");
-
-            /*Scene presentScene = SceneManager.GetSceneByName(scenePresent);
-
-            GameObject[] presentUnload = presentScene.GetRootGameObjects();
-
-            foreach (var item in presentUnload)
-            {
-                item.SetActive(false);
-            }*/
-
             // Reset des scènes pour le joueur
             playerTempo.ChangeSceneToLoad(scenePresent, scenePast);
 
@@ -164,6 +141,5 @@ public class TeleporteurZone : CustomsTriggers
 
 
         renderFeatureMat.settings.blitMaterial.SetFloat(nameParameterFeature, -.1f);
-        //StopAllCoroutines();
     }
 }
