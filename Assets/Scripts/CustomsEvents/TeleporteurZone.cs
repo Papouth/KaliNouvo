@@ -49,7 +49,7 @@ public class TeleporteurZone : CustomsTriggers
         if (inTrigger && !haveInteract)
         {
             // On empêche le joueur de se TP dans une autre tempo
-            GameManager.GM.canTP = false;
+            GameManager.GM.canTP = true;
 
             // On empêche le joueur de re-interargir avec
             haveInteract = true;
@@ -133,7 +133,7 @@ public class TeleporteurZone : CustomsTriggers
             cc.enabled = true;
 
             // On remet la possibilité au joueur de se TP dans une autre tempo
-            GameManager.GM.canTP = true;
+            GameManager.GM.canTP = false;
 
             // On remet la possibilité d'interargir
             haveInteract = false;
