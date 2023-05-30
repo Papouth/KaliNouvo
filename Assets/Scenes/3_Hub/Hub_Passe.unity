@@ -17282,8 +17282,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617636550}
-  m_LocalRotation: {x: -0.13821447, y: 0.58374226, z: -0.11059503, w: -0.7924081}
-  m_LocalPosition: {x: 4.200001, y: 0.84, z: -9.239998}
+  m_LocalRotation: {x: -0.08462758, y: -0.18358904, z: -0.013442294, w: 0.9792613}
+  m_LocalPosition: {x: 2.2579994, y: 0.038999975, z: -8.777}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19164,6 +19164,67 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 716521090}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &717583394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717583395}
+  - component: {fileID: 717583396}
+  - component: {fileID: 717583397}
+  m_Layer: 0
+  m_Name: "TriggerCutSc\xE8ne"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &717583395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717583394}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 36.264, y: 0.983, z: -99.044}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &717583396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717583394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7846394f2d812f045a696aac5b553025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorGizmo: {r: 0.03579378, g: 0, b: 1, a: 0.6117647}
+  playable: {fileID: 906645230}
+  transitionCamera: 1
+--- !u!65 &717583397
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717583394}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.271099, y: 2.700334, z: 2.4805222}
+  m_Center: {x: 0.13503075, y: -0.40915704, z: 0.039554596}
 --- !u!1001 &725275672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24417,7 +24478,6 @@ GameObject:
   - component: {fileID: 906645229}
   - component: {fileID: 906645228}
   - component: {fileID: 906645227}
-  - component: {fileID: 906645226}
   m_Layer: 0
   m_Name: CutScene 5
   m_TagString: Untagged
@@ -24443,21 +24503,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &906645226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906645224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7846394f2d812f045a696aac5b553025, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorGizmo: {r: 0.03579378, g: 0, b: 1, a: 0.6117647}
-  playable: {fileID: 906645230}
-  transitionCamera: 1
 --- !u!114 &906645227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24561,7 +24606,7 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 906645226}
+        - m_Target: {fileID: 717583396}
           m_TargetAssemblyTypeName: TriggerCutScene, Assembly-CSharp
           m_MethodName: StopPlayable
           m_Mode: 1
@@ -24609,7 +24654,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: d73751bc6a9477e4d9e1e055b3403336, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -55924,7 +55969,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890161625}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
