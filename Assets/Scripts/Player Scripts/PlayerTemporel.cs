@@ -87,7 +87,7 @@ public class PlayerTemporel : MonoBehaviour
     /// </summary>
     private void ChangeTempo()
     {
-        if (playerInput.ChangeTempo && playerInteractor.hands.transform.childCount == 0 && playerStats.haveTempo && !inStateChangeTempo && !GameManager.GM.canTP)
+        if (playerInput.ChangeTempo && /*playerInteractor.hands.transform.childCount == 0 && */ playerStats.haveTempo && !inStateChangeTempo && !GameManager.GM.canTP)
         {
             StartCoroutine(TimingTempo());
         }
