@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
-using UnityEngine.LowLevel;
 using UnityEngine.VFX;
 
 public class PlayerTelekinesie : MonoBehaviour
