@@ -97,6 +97,7 @@ public class Npc : CustomsTriggers
         if (other.CompareTag("Player"))
         {
             GameManager.GM.canTP = false;
+            manager.EndDialogue();
         }
     }
 
@@ -208,8 +209,13 @@ public class Npc : CustomsTriggers
     /// <returns></returns>
     public Transform GetWayPointRandom()
     {
+        Transform newTarget = wayPoints.points[Random.Range(0, wayPoints.points.Length)];
+
         stopMove = false;
-        return target = wayPoints.points[Random.Range(0, wayPoints.points.Length)];
+        Debug.Log("GetWay");
+
+        if (newTarget == target) return GetWayPointRandom();
+        else return newTarget;
     }
     #endregion
 }
