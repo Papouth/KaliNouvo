@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 
 public class PlayerInteractor : MonoBehaviour
@@ -19,19 +21,35 @@ public class PlayerInteractor : MonoBehaviour
     [HideInInspector] public PlayerInputManager playerInput;
     public GameObject hands;
 
+    [Header("UI")]
+    public UIDocument interactionMenu;
+    private Label textLabel;
+    private VisualElement rootInteraction;
+
+    public InputActionReference playerAction;
+
+    public bool disableUI;
+
 
     private void Awake()
     {
         playerInteractorInstance = this;
         playerInput = GetComponent<PlayerInputManager>();
+
+        rootInteraction = interactionMenu.rootVisualElement;
+
+        textLabel = rootInteraction.Q<Label>("InteractionText");
+
+        textLabel.text = InputControlPath.ToHumanReadableString(
+                playerAction.action.bindings[0]
+                .effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        rootInteraction.style.display = DisplayStyle.None;
     }
 
     public virtual void Update()
     {
-        if (playerInput.CanInteract)
-        {
-            Detector();
-        }
+        Detector();
     }
 
     /// <summary>
@@ -44,18 +62,39 @@ public class PlayerInteractor : MonoBehaviour
         // On Interagis
         if (interactableCount > 0)
         {
-            interactable = NearestCollider(colliders);
-
-            if (interactable != null) //Sécurité au cas ou
+            if (!disableUI)
             {
-                //Debug.Log("here" + interactable);
-                interactable.Interact();
+                rootInteraction.style.display = DisplayStyle.Flex;
+                Debug.Log("Here");
             }
-        }
 
-        playerInput.CanInteract = false;
-        interactable = null;
+            if (playerInput.CanInteract)
+            {
+                interactable = NearestCollider(colliders);
+
+                if (interactable != null) //Sécurité au cas ou
+                {
+                    //Debug.Log("here" + interactable);
+                    interactable.Interact();
+                    rootInteraction.style.display = DisplayStyle.None;
+                    Debug.Log("Interact");
+                    disableUI = true;
+                }
+                playerInput.CanInteract = false;
+                interactable = null;
+            }
+
+        }
+        else
+        {
+            Debug.Log("None");
+            playerInput.CanInteract = false;
+            interactable = null;
+            rootInteraction.style.display = DisplayStyle.None;
+            disableUI = false;
+        }
     }
+
 
     /// <summary>
     /// Le collider le plus proche du joueur selon un radius et un layer

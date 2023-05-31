@@ -10,8 +10,8 @@ public class Generateur : CustomsTriggers
     [HideInInspector] public bool valid;
 
     [Header("Indicateurs")]
-    [SerializeField] private MeshRenderer _indicator;
-    [SerializeField] private Material _indicatorMaterial;
+    [SerializeField] private Indicateur _indicator;
+
 
     [Tooltip("On coche la case si ce generateur active l'indicateur 1 [ZONE 1]")]
     [SerializeField] private bool indicateur1;
@@ -52,7 +52,7 @@ public class Generateur : CustomsTriggers
         valid = true;
         Debug.Log("J'active le générateur");
 
-        if (_indicator) _indicator.materials = new Material[2] { _indicator.materials[1], _indicatorMaterial };
+        if (_indicator) _indicator.ChangeMaterial(); 
 
         if (indicateur1) GameManager.GM.indicatorG1 = true;
         if (indicateur2) GameManager.GM.indicatorG2 = true;

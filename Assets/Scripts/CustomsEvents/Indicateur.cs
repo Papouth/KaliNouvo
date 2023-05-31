@@ -21,15 +21,20 @@ public class Indicateur : MonoBehaviour
     {
         if (gen1 && GameManager.GM.indicatorG1)
         {
-            _indicator.materials = new Material[2] { _indicator.materials[1], _indicatorMaterial };
+            ChangeMaterial();
         }
         if (gen2 && GameManager.GM.indicatorG2)
         {
-            _indicator.materials = new Material[2] { _indicator.materials[1], _indicatorMaterial };
+            ChangeMaterial();
         }
         if (gen3 && GameManager.GM.indicatorG3)
         {
-            _indicator.materials = new Material[2] { _indicator.materials[1], _indicatorMaterial };
+            ChangeMaterial();
         }
+    }
+
+    public void ChangeMaterial()
+    {
+        _indicator.material = new Material(_indicatorMaterial);
     }
 }

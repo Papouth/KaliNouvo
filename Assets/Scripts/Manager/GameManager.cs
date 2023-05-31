@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
 
         playerInput = player.GetComponent<PlayerInput>();
+
     }
 
     #endregion
@@ -90,6 +91,13 @@ public class GameManager : MonoBehaviour
         textField.Blur();
 
         actionMap[index].actionReference.action.Enable();
+    }
+
+    public void EnableKali(bool enable)
+    {
+        player.GetComponent<CharacterController>().enabled = enable;
+        
+        player.gameObject.transform.GetChild(0).gameObject.SetActive(enable);
     }
 
 

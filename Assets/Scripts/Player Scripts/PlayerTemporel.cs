@@ -16,6 +16,7 @@ public class PlayerTemporel : MonoBehaviour
     public bool sceneState;
 
     public float timingAnimTemp = 0;
+    public float speedAnimTransition = 0;
     private bool inStateChangeTempo = false;
 
     [Header("Player Component")]
@@ -37,7 +38,7 @@ public class PlayerTemporel : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
         animator = GetComponent<Animator>();
         cc = GetComponent<CharacterController>();
-        
+
         if (past == null || present == null) return;
 
         //SceneManager.LoadScene(past, LoadSceneMode.Additive);
@@ -87,7 +88,7 @@ public class PlayerTemporel : MonoBehaviour
     /// </summary>
     private void ChangeTempo()
     {
-        if (playerInput.ChangeTempo && playerInteractor.hands.transform.childCount == 0 && playerStats.haveTempo && !inStateChangeTempo && !GameManager.GM.canTP)
+        if (playerInput.ChangeTempo && /*playerInteractor.hands.transform.childCount == 0 && */ playerStats.haveTempo && !inStateChangeTempo && !GameManager.GM.canTP)
         {
             StartCoroutine(TimingTempo());
         }
@@ -124,18 +125,18 @@ public class PlayerTemporel : MonoBehaviour
         float i = 0;
         Blit instance = GameManager.GM.changeTempoMat;
 
-        while(i < 1.3f)
+        while (i < 1.3f / speedAnimTransition)
         {
             float currentFloat = instance.settings.blitMaterial.GetFloat("_Transition");
             currentFloat = Mathf.Lerp(currentFloat, 1.3f, i);
             instance.settings.blitMaterial.SetFloat("_Transition", currentFloat);
 
-            i = i + Time.deltaTime;
+            i = i + Time.deltaTime * speedAnimTransition;
 
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return new WaitForSeconds(Time.deltaTime * speedAnimTransition);
         }
 
-        instance.settings.blitMaterial.SetFloat("_Transition", -.1f); 
+        instance.settings.blitMaterial.SetFloat("_Transition", -.1f);
 
         playerInput.ChangeTempo = false;
         inStateChangeTempo = false;
@@ -151,6 +152,8 @@ public class PlayerTemporel : MonoBehaviour
         Scene scene = SceneManager.GetSceneByName(scenesToLoad);
 
         GameObject[] goSceneLoad = scene.GetRootGameObjects();
+
+        if (goSceneLoad.Length == 0) return;
 
         goSceneLoad[0].SetActive(true);
 

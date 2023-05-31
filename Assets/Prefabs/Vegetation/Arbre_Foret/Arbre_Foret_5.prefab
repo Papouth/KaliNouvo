@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2831568781877872304
 Transform:
@@ -114,6 +114,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7163112666374677756, guid: 109354db8a655464ebefa3040acbaa90,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7163112666374677756, guid: 109354db8a655464ebefa3040acbaa90,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 95
+      objectReference: {fileID: 0}
     - target: {fileID: -4492137176492731186, guid: 109354db8a655464ebefa3040acbaa90,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -123,11 +133,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 75bace8841c7abc42885cdcacaa75aa7, type: 2}
+      objectReference: {fileID: 2100000, guid: 2b4169c1486d7454c9bebe6eda480faa, type: 2}
     - target: {fileID: 919132149155446097, guid: 109354db8a655464ebefa3040acbaa90,
         type: 3}
       propertyPath: m_Name
       value: Arbre_Foret_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 109354db8a655464ebefa3040acbaa90,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 109354db8a655464ebefa3040acbaa90, type: 3}
@@ -137,6 +152,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2507451807663133787}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4493397091968536415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7163112666374677756, guid: 109354db8a655464ebefa3040acbaa90,
+    type: 3}
+  m_PrefabInstance: {fileID: 2507451807663133787}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &4682228621640311503
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493397091968536415}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 24.71
+  m_Height: 235.37398
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -98.75}
 --- !u!23 &7162125472212385941 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -4492137176492731186, guid: 109354db8a655464ebefa3040acbaa90,

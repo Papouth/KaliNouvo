@@ -49,18 +49,29 @@ public class ChangeCameraDolly : TriggerInScene
     /// </summary>
     public override void EventOnTriggerEnter()
     {
-        Debug.Log("Cinemachine tracked dolly : " + cB.ActiveVirtualCamera.VirtualCameraGameObject);
+        if (cB.ActiveVirtualCamera == null) return;
+
         CinemachineTrackedDolly currentPath = cB.
             ActiveVirtualCamera.
             VirtualCameraGameObject.
             GetComponent<CinemachineVirtualCamera>().
             GetCinemachineComponent<CinemachineTrackedDolly>();
 
+        if (!currentPath) return;
+
         if (currentPath.m_Path)
         {
 
             _oldTrack = (CinemachineSmoothPath)currentPath.m_Path;
 
+            currentPath.m_Path = dollyToTrack;
+            GameManager.GM._currentPath = (CinemachineSmoothPath)currentPath.m_Path;
+
+            float pathLenght = dollyToTrack.FindClosestPoint(cB.ActiveVirtualCamera.LookAt.position, 0, -1, 1);
+            currentPath.m_PathPosition = pathLenght;
+        }
+        else if (!currentPath.m_Path)
+        {
             currentPath.m_Path = dollyToTrack;
             GameManager.GM._currentPath = (CinemachineSmoothPath)currentPath.m_Path;
 
