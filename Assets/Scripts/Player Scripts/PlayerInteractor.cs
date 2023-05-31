@@ -65,7 +65,6 @@ public class PlayerInteractor : MonoBehaviour
             if (!disableUI)
             {
                 rootInteraction.style.display = DisplayStyle.Flex;
-                Debug.Log("Here");
             }
 
             if (playerInput.CanInteract)
@@ -77,7 +76,6 @@ public class PlayerInteractor : MonoBehaviour
                     //Debug.Log("here" + interactable);
                     interactable.Interact();
                     rootInteraction.style.display = DisplayStyle.None;
-                    Debug.Log("Interact");
                     disableUI = true;
                 }
                 playerInput.CanInteract = false;
@@ -87,7 +85,6 @@ public class PlayerInteractor : MonoBehaviour
         }
         else
         {
-            Debug.Log("None");
             playerInput.CanInteract = false;
             interactable = null;
             rootInteraction.style.display = DisplayStyle.None;
