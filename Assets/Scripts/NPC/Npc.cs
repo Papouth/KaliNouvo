@@ -212,7 +212,6 @@ public class Npc : CustomsTriggers
         Transform newTarget = wayPoints.points[Random.Range(0, wayPoints.points.Length)];
 
         stopMove = false;
-        Debug.Log("GetWay");
 
         if (newTarget == target) return GetWayPointRandom();
         else return newTarget;
