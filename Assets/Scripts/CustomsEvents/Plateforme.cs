@@ -66,12 +66,24 @@ public class Plateforme : MonoBehaviour
     /// <param name="other">The other Collider involved in this collision.</param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) cc = other.GetComponent<CharacterController>();
+        if (other.CompareTag("Player"))
+        {
+            cc = other.GetComponent<CharacterController>();
+            GameManager.GM.canTP = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player")) cc.Move(rb.velocity * Time.deltaTime);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GameManager.GM.canTP = true;
+        }
     }
 
     #endregion
