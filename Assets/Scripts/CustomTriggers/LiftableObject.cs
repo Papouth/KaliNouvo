@@ -21,20 +21,37 @@ public class LiftableObject : CustomsTriggers
 
         return;
     }
-    
-    
+
+    private void Update()
+    {
+        AntiTpWhenLifting();
+    }
+
+    /// <summary>
+    /// Empeche le joueur de changer de tempo quand il a un objet en main
+    /// </summary>
+    private void AntiTpWhenLifting()
+    {
+        if (playerInteractorDistance.hands.transform.childCount == 0) playerInteractorDistance.playerInput.ChangeTempo = true;
+        else if (playerInteractorDistance.hands.transform.childCount > 0) playerInteractorDistance.playerInput.ChangeTempo = false;
+    }
+
     public void GoToHand(GameObject hands, PlayerInputManager playerInput)
     {
         //Debug.Log("gotohand");
 
         if (playerInput.CanInteract && hands.transform.childCount == 0)
         {
+            // On porte l'objet
+
             gameObject.transform.SetParent(hands.transform, false);
             gameObject.transform.position = hands.transform.position;
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
         }
         else if (playerInput.CanInteract && hands.transform.childCount > 0)
         {
+            // On arrete de porter l'objet
+
             gameObject.transform.SetParent(null);
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
         }
