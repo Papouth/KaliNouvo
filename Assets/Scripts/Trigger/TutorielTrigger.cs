@@ -29,6 +29,8 @@ public class TutorielTrigger : TriggerInScene
         if (other.gameObject.layer == 3 && alreadyPast == false) //Player
         {
             DisplayTutoriel(true);
+            StopAllCoroutines();
+            StartCoroutine(WaitSecondForDisplay());
         }
     }
 
@@ -36,7 +38,6 @@ public class TutorielTrigger : TriggerInScene
     {
         if (other.gameObject.layer == 3) //Player
         {
-            DisplayTutoriel(false);
         }
     }
 
@@ -57,5 +58,11 @@ public class TutorielTrigger : TriggerInScene
         menuManager.EnableInfoText(display);
 
         alreadyPast = true;
+    }
+
+    IEnumerator WaitSecondForDisplay()
+    {
+        yield return new WaitForSeconds(DialogueManager.InstanceDialogue.timeDisplayDialogue);
+        DisplayTutoriel(false);
     }
 }

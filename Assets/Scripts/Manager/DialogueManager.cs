@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -57,6 +58,8 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
 
         StopAllCoroutines();
+
+
         StartCoroutine(TypeSentence(sentence, dialogue));
     }
 
@@ -68,32 +71,25 @@ public class DialogueManager : MonoBehaviour
     /// <returns></returns>
     public IEnumerator TypeSentence(string sentence, Dialogue dialogue)
     {
-        string currentSentence = dialogue.nameOfPeople + " : ";
 
-        foreach (char letter in sentence.ToCharArray())
-        {
-            currentSentence += letter;
-            MenuManager.Instance.MajInfoText(currentSentence);
-            yield return new WaitForSeconds(speedDisplay);
-        }
+        MenuManager.Instance.MajInfoText(sentence);
 
-        //yield return WaitForKeyDown(playerInput.);
-        yield return new WaitForSeconds(timeDisplayDialogue);
+        yield return new WaitForSeconds(.1f);
+        yield return WaitForDoneProcess(timeDisplayDialogue);
 
         DisplayNextSentece(dialogue);
     }
 
-    /// <summary>
-    /// wait for a key press to next display sentence
-    /// </summary>
-    /// <returns></returns>
-    public IEnumerator WaitForKeyDown(bool canDestroy)
+
+    IEnumerator WaitForDoneProcess(float timeout)
     {
-        while (!canDestroy)
+        while (!Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Waiting key");
             yield return null;
+            timeout -= Time.deltaTime;
+            if (timeout <= 0f) break;
         }
+        Debug.Log("Input");
     }
 
     /// <summary>

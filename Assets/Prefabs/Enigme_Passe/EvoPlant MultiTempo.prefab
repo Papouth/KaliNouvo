@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 8690923158838992070}
   m_Layer: 0
   m_Name: Graine
-  m_TagString: Untagged
+  m_TagString: Graine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -723,9 +723,10 @@ GameObject:
   - component: {fileID: 5990137460236501462}
   - component: {fileID: 918281058387786187}
   - component: {fileID: 6978690664109089559}
+  - component: {fileID: 511822183786767835}
   m_Layer: 8
   m_Name: EvoPlant MultiTempo
-  m_TagString: Untagged
+  m_TagString: Graine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -820,6 +821,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1659657, y: 0.15277618, z: 0.2179955}
   m_Center: {x: -0.000548169, y: -0.008096844, z: 0.020838797}
+--- !u!114 &511822183786767835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8283619704291275751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ff27b1db08f5a4588bfcdcb1d9b116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnObject:
+    serializedVersion: 2
+    m_Bits: 65
+  respawnPoint: {fileID: 0}
+  timeUpdate: 3
 --- !u!1 &8907021599855017082
 GameObject:
   m_ObjectHideFlags: 0

@@ -97,6 +97,7 @@ public class PlayerTemporel : MonoBehaviour
 
     private IEnumerator TimingTempo()
     {
+        playerInput.enabled = false;
         inStateChangeTempo = true;
         cc.enabled = false;
         animator.SetBool("Tempo", true);
@@ -138,6 +139,7 @@ public class PlayerTemporel : MonoBehaviour
 
         instance.settings.blitMaterial.SetFloat("_Transition", -.1f);
 
+        playerInput.enabled = true;
         playerInput.ChangeTempo = false;
         inStateChangeTempo = false;
         cc.enabled = true;
