@@ -22,6 +22,9 @@ public class GetStat : CustomsTriggers
     [Tooltip("A cocher si c'est pour avoir la telekinesy")]
     [SerializeField] private bool telekinesyForPlayer;
 
+    [Tooltip("A cocher si c'est pour avoir l'osmose")]
+    [SerializeField] private bool osmoseForPlayer;
+
     [Tooltip("La porte à fermer quand on récupère la telekinesy")]
     [SerializeField] private Animator doorAnimator;
     #endregion
@@ -33,6 +36,7 @@ public class GetStat : CustomsTriggers
         TempoException();
         ForceException();
         TelekinesyException();
+        OsmoseException();
     }
 
     public override void Interact()
@@ -59,6 +63,13 @@ public class GetStat : CustomsTriggers
     public void AnimTelekinesy()
     {
         // On joue l'animation de recuperation de la telekinesy
+        statState = true;
+        // statAnim.Play();
+    }
+
+    public void AnimOsmose()
+    {
+        // On joue l'animation de recuperation de l'osmose
         statState = true;
         // statAnim.Play();
     }
@@ -105,6 +116,19 @@ public class GetStat : CustomsTriggers
             doorAnimator.SetBool("closeDoor", true);
 
             Debug.Log("Telekinesy Acquise");
+        }
+    }
+
+    private void OsmoseException()
+    {
+        if (osmoseForPlayer && unlockScript)
+        {
+            osmoseForPlayer = false;
+            statEvent = new UnityEvent();
+
+            statEvent.AddListener(playerStats.GetOsmose);
+
+            Debug.Log("super force");
         }
     }
 }

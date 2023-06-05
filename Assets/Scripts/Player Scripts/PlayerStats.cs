@@ -37,6 +37,10 @@ public class PlayerStats : MonoBehaviour
     public bool haveTelekinesy;
     public GameObject telekinesyObject;
 
+    [Header("Osmose")]
+    public bool haveOsmose;
+    //public GameObject osmoseObject;
+
     #endregion
 
 
@@ -121,6 +125,14 @@ public class PlayerStats : MonoBehaviour
         haveTelekinesy = true;
 
         telekinesyObject?.SetActive(true);
+    }
+
+    public void GetOsmose()
+    {
+        Debug.Log("Osmose récupéré");
+        haveOsmose = true;
+
+        //osmoseObject?.SetActive(true);
     }
 
     public void ActivateMask()
