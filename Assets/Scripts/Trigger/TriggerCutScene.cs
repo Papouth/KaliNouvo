@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using Cinemachine;
+using UnityEngine.UIElements;
 
 public class TriggerCutScene : TriggerInScene
 {
@@ -13,6 +14,10 @@ public class TriggerCutScene : TriggerInScene
 
     public bool transitionCamera = true;
     private CinemachineBlenderSettings settings;
+
+    public SceneDataManager sceneDataManager;
+
+    public int index;
 
     #endregion
 
@@ -42,11 +47,15 @@ public class TriggerCutScene : TriggerInScene
         playable.Play();
 
         isAlreadyPlayed = true;
+
+        sceneDataManager?.CheckTrigger(this);
+
+        GameManager.GM.player.GetComponent<PlayerInteractor>().rootInteraction.style.display = DisplayStyle.None;
+
     }
 
     public override void EventOnTriggerExit()
     {
-
     }
 
 
@@ -64,6 +73,7 @@ public class TriggerCutScene : TriggerInScene
             playable.gameObject.SetActive(false);
             playable.Stop();
         }
+
     }
 
     #endregion
