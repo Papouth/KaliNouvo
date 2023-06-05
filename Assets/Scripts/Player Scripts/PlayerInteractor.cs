@@ -24,7 +24,7 @@ public class PlayerInteractor : MonoBehaviour
     [Header("UI")]
     public UIDocument interactionMenu;
     private Label textLabel;
-    private VisualElement rootInteraction;
+    public VisualElement rootInteraction;
 
     public InputActionReference playerAction;
 
