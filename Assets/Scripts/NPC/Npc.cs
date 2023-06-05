@@ -69,6 +69,8 @@ public class Npc : CustomsTriggers
     public virtual void Update()
     {
         if (canMove && !isTalking) MoveNpc();
+
+        animator.SetFloat("Move", agent.velocity.normalized.magnitude);
     }
 
 
@@ -182,7 +184,6 @@ public class Npc : CustomsTriggers
         }
         else
         {
-            animator.SetFloat("Move", agent.velocity.normalized.magnitude);
             agent.SetDestination(target.position);
         }
     }

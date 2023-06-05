@@ -26,6 +26,8 @@ public class PlayerTemporel : MonoBehaviour
     private Animator animator;
     private CharacterController cc;
 
+    private bool isMasqueOn;
+
 
 
     #endregion
@@ -95,6 +97,23 @@ public class PlayerTemporel : MonoBehaviour
         else if (playerInput.ChangeTempo && !playerStats.haveTempo || inStateChangeTempo || GameManager.GM.canTP) playerInput.ChangeTempo = false;
     }
 
+    public void ChangeMask()
+    {
+        if (playerStats.needMask)
+        {
+            if (playerStats.changeMask)
+            {
+                animator.SetBool("MasqueOn", true);
+                playerStats.changeMask = false;
+            }
+            else
+            {
+                animator.SetBool("MasqueOn", false);
+                playerStats.changeMask = true;
+            }
+        }
+    }
+
     private IEnumerator TimingTempo()
     {
         playerInput.enabled = false;
@@ -102,7 +121,11 @@ public class PlayerTemporel : MonoBehaviour
         cc.enabled = false;
         animator.SetBool("Tempo", true);
 
-        yield return new WaitForSeconds(timingAnimTemp);
+        ChangeMask();
+
+        if (playerStats)
+
+            yield return new WaitForSeconds(timingAnimTemp);
 
         // On change de temporalite
         LoadingScene();

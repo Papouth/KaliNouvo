@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
     public GameObject braceletScreen;
     public GameObject braceletTempo;
 
-
+    
     //Partie Masque
     public GameObject masqueObject;
     public Transform masqueRig;
@@ -27,7 +27,10 @@ public class PlayerStats : MonoBehaviour
     private Transform posToLerp;
 
     private float timerChangeMaskLerp;
-    private bool changeMask;
+    
+
+    public bool needMask;
+    public bool changeMask;
 
 
     [Header("Telekinesy")]
@@ -50,7 +53,7 @@ public class PlayerStats : MonoBehaviour
 
         telekinesyObject?.SetActive(false);
 
-        masqueObject?.SetActive(false);
+        //masqueObject?.SetActive(false);
 
         if (superForceObject.Length != 0)
         {
@@ -65,15 +68,16 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        ChangeMaskPos(false);
+        //ChangeMaskPos(false);
     }
 
     private void Update()
     {
+        /*
         if (changeMask)
         {
             ChangeMaskLerp();
-        }
+        }*/
     }
 
     public void GetSuperForce()
@@ -117,6 +121,11 @@ public class PlayerStats : MonoBehaviour
         haveTelekinesy = true;
 
         telekinesyObject?.SetActive(true);
+    }
+
+    public void ActivateMask()
+    {
+        masqueObject?.SetActive(true);
     }
 
     /// <summary>
