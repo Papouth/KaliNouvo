@@ -1118,8 +1118,11 @@ MonoBehaviour:
   masqueRig: {fileID: 1134200851540685646}
   posOffMask: {fileID: 4091321367604776632}
   posOnMask: {fileID: 6255210753392660448}
+  needMask: 0
+  maskOn: 0
   haveTelekinesy: 0
   telekinesyObject: {fileID: 7872683367876298543}
+  haveOsmose: 0
 --- !u!114 &8584994012357103011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1137,8 +1140,9 @@ MonoBehaviour:
   past: Tutoriel_01_Passe
   present: Tutoriel_01_Present
   sceneState: 1
-  timingAnimTemp: 0.25
-  speedAnimTransition: 2
+  timingAnimTemp: 2
+  speedAnimTransition: 3
+  timingAnimMask: 3
 --- !u!114 &760919441237352756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1387,6 +1391,61 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Kali_3D
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032348381409658957, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432458984611698597, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.113
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432458984611698597, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0638
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432458984611698597, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0333
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432458984611698597, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.77463853
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432458984611698597, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.20586203
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432458984611698597, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.58106536
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432458984611698597, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.14113511
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432458984611698597, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -28.879
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432458984611698597, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 74.095
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432458984611698597, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.347
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 521647e5e859867448f17e22f54f3cbf, type: 3}

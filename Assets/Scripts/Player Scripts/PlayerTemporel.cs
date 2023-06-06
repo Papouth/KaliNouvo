@@ -17,6 +17,7 @@ public class PlayerTemporel : MonoBehaviour
 
     public float timingAnimTemp = 0;
     public float speedAnimTransition = 0;
+    public float timingAnimMask = 3;
     private bool inStateChangeTempo = false;
 
     [Header("Player Component")]
@@ -101,15 +102,21 @@ public class PlayerTemporel : MonoBehaviour
     {
         if (playerStats.needMask)
         {
-            if (playerStats.changeMask)
+            Debug.Log("Allo");
+
+            if (playerStats.maskOn)
             {
-                animator.SetBool("MasqueOn", true);
-                playerStats.changeMask = false;
+                animator.SetLayerWeight(1, 1);
+                animator.SetBool("MasqueOn", false);
+                playerStats.maskOn = false;
+                animator.SetTrigger("ChangeMask");
             }
             else
             {
-                animator.SetBool("MasqueOn", false);
-                playerStats.changeMask = true;
+                animator.SetLayerWeight(1, 1);
+                animator.SetBool("MasqueOn", true);
+                playerStats.maskOn = true;
+                animator.SetTrigger("ChangeMask");
             }
         }
     }
@@ -120,8 +127,6 @@ public class PlayerTemporel : MonoBehaviour
         inStateChangeTempo = true;
         cc.enabled = false;
         animator.SetBool("Tempo", true);
-
-        ChangeMask();
 
         if (playerStats)
 
@@ -162,11 +167,20 @@ public class PlayerTemporel : MonoBehaviour
 
         instance.settings.blitMaterial.SetFloat("_Transition", -.1f);
 
+
+
         playerInput.enabled = true;
         playerInput.ChangeTempo = false;
         inStateChangeTempo = false;
         cc.enabled = true;
         animator.SetBool("Tempo", false);
+
+
+        ChangeMask();
+
+        yield return new WaitForSeconds(timingAnimMask);
+
+        animator.SetLayerWeight(1, 0);
     }
 
     /// <summary>
