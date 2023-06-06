@@ -10,6 +10,7 @@ public class PlayerOsmose : MonoBehaviour
     private PlayerInteractor playerInteractor;
 
     private PlayerInteractorDistance playerInteractorDistance;
+    private PlayerStats playerStats;
 
 
     // D�mo Osmose Technologique
@@ -30,7 +31,7 @@ public class PlayerOsmose : MonoBehaviour
 
     private void UseOsmose()
     {
-        if (playerInput.CanOsmose)
+        if (playerInput.CanOsmose && playerStats.haveOsmose)
         {
             Debug.Log("Utilisation de l'Osmose Technologique en cours !");
 

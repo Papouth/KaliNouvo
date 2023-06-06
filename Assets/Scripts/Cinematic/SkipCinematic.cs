@@ -19,6 +19,7 @@ public class SkipCinematic : MonoBehaviour
         action?.Invoke();
 
         playableDirector.time = time;
+        playableDirector.Evaluate();
     }
 
 }
