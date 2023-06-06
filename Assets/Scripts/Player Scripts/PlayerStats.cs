@@ -30,7 +30,7 @@ public class PlayerStats : MonoBehaviour
     
 
     public bool needMask;
-    public bool changeMask;
+    public bool maskOn;
 
 
     [Header("Telekinesy")]
@@ -149,7 +149,7 @@ public class PlayerStats : MonoBehaviour
         if (tp) posToLerp = posOnMask;
         else posToLerp = posOffMask;
 
-        changeMask = true;
+        maskOn = true;
     }
 
     /// <summary>
@@ -168,7 +168,7 @@ public class PlayerStats : MonoBehaviour
         if (timerChangeMaskLerp > 1)
         {
             timerChangeMaskLerp = 0;
-            changeMask = false;
+            maskOn = false;
         }
     }
 }
