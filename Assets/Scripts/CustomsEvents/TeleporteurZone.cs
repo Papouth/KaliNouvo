@@ -46,6 +46,7 @@ public class TeleporteurZone : CustomsTriggers
 
     public override void Interact()
     {
+        Debug.Log("Interact");
         if (inTrigger && !haveInteract)
         {
             // On empêche le joueur de se TP dans une autre tempo
