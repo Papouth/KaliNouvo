@@ -102,8 +102,6 @@ public class PlayerTemporel : MonoBehaviour
     {
         if (playerStats.needMask)
         {
-            Debug.Log("Allo");
-
             if (playerStats.maskOn)
             {
                 animator.SetLayerWeight(1, 1);

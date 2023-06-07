@@ -61,7 +61,7 @@ public class CutSecne_TPPlayer : MonoBehaviour
     public void ActivateNeedMaskPlayer()
     {
         playerStats.needMask = true;
-        playerTemp.ChangeMask();
+        playerStats.masqueObject.SetActive(true);
     }
     
     public void ActivateMask()
