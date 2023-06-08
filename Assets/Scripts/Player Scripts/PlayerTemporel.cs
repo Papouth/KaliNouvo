@@ -29,8 +29,6 @@ public class PlayerTemporel : MonoBehaviour
 
     private bool isMasqueOn;
 
-
-
     #endregion
 
     #region Built In Methods
@@ -91,7 +89,7 @@ public class PlayerTemporel : MonoBehaviour
     /// </summary>
     private void ChangeTempo()
     {
-        if (playerInput.ChangeTempo && /*playerInteractor.hands.transform.childCount == 0 && */ playerStats.haveTempo && !inStateChangeTempo && !GameManager.GM.canTP)
+        if (playerInput.ChangeTempo && playerStats.haveTempo && !inStateChangeTempo && !GameManager.GM.canTP)
         {
             StartCoroutine(TimingTempo());
         }
@@ -139,14 +137,12 @@ public class PlayerTemporel : MonoBehaviour
         if (sceneState)
         {
             // On est dans le passé
-            scenesToLoad = present;
-            scenesToUnload = past;
+            ChangeSceneToLoad(present, past);
         }
         else if (!sceneState)
         {
             // On est dans le présent
-            scenesToLoad = past;
-            scenesToUnload = present;
+            ChangeSceneToLoad(past, present);
         }
 
         float i = 0;
