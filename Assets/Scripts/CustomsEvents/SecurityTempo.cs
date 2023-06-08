@@ -16,6 +16,7 @@ public class SecurityTempo : MonoBehaviour
 
         if (!past)
         {
+            Debug.Log(playerTempo.present);
             Scene unloadScene = SceneManager.GetSceneByName(playerTempo.present);
 
             GameObject[] goSceneUnload = unloadScene.GetRootGameObjects();

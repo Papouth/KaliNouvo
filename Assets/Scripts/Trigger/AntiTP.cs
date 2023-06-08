@@ -11,11 +11,11 @@ public class AntiTP : TriggerCutScene
 
     public override void EventOnTriggerEnter()
     {
-        GameManager.GM.canTP = false;
+        GameManager.GM.canTP = true;
     }
 
     public override void EventOnTriggerExit()
     {
-        GameManager.GM.canTP = true;
+        GameManager.GM.canTP = false;
     }
 }

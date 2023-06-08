@@ -69,7 +69,7 @@ public class Plateforme : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             cc = other.GetComponent<CharacterController>();
-            GameManager.GM.canTP = false;
+            GameManager.GM.canTP = true;
         }
     }
 
@@ -82,7 +82,7 @@ public class Plateforme : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.GM.canTP = true;
+            GameManager.GM.canTP = false;
         }
     }
 
