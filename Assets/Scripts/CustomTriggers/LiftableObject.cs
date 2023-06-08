@@ -32,14 +32,12 @@ public class LiftableObject : CustomsTriggers
     /// </summary>
     private void AntiTpWhenLifting()
     {
-        if (playerInteractorDistance.hands.transform.childCount == 0) playerInteractorDistance.playerInput.ChangeTempo = true;
-        else if (playerInteractorDistance.hands.transform.childCount > 0) playerInteractorDistance.playerInput.ChangeTempo = false;
+        if (playerInteractorDistance.hands.transform.childCount == 0) GameManager.GM.canTP = false;
+        else if (playerInteractorDistance.hands.transform.childCount > 0) GameManager.GM.canTP = true;
     }
 
     public void GoToHand(GameObject hands, PlayerInputManager playerInput)
     {
-        //Debug.Log("gotohand");
-
         if (playerInput.CanInteract && hands.transform.childCount == 0)
         {
             // On porte l'objet

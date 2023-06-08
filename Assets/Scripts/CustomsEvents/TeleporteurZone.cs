@@ -73,8 +73,8 @@ public class TeleporteurZone : CustomsTriggers
         playerTempo.ChangeSceneToLoad(scenePast, scenePresent);
 
         // On load les scènes passé et présent de la nouvelle zone
-        SceneManager.LoadScene(playerTempo.present, LoadSceneMode.Additive);
         SceneManager.LoadScene(playerTempo.past, LoadSceneMode.Additive);
+        SceneManager.LoadScene(playerTempo.present, LoadSceneMode.Additive);
     }
 
     public IEnumerator SetBlackScreen()
@@ -127,8 +127,6 @@ public class TeleporteurZone : CustomsTriggers
             // On met Kali a la bonne position
             cc.transform.position = tp.position;
 
-
-
             // On réactive le character controller
             cc.enabled = true;
 
@@ -138,7 +136,6 @@ public class TeleporteurZone : CustomsTriggers
             // On remet la possibilité d'interargir
             haveInteract = false;
         }
-
 
         renderFeatureMat.settings.blitMaterial.SetFloat(nameParameterFeature, -.1f);
     }

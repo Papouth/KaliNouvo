@@ -32,7 +32,11 @@ public class GetBlackScreen : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime / speedFeatureMat);
         }
 
-        if (durationRenderFeature == 0) StopAllCoroutines();
+        if (durationRenderFeature == 0)
+        {
+            renderFeatureMat.settings.blitMaterial.SetFloat(nameParameterFeature, -.1f);
+            StopAllCoroutines();
+        }
 
         yield return new WaitForSeconds(durationRenderFeature);
 
