@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CutSceneManager : MonoBehaviour
 {
+
     public bool cutscene5 = false;
 
 

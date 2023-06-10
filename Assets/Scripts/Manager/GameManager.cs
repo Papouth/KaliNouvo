@@ -5,6 +5,7 @@ using Cinemachine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using Autodesk.Fbx;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,6 +38,9 @@ public class GameManager : MonoBehaviour
     [Header("Barrieres Electriques")]
     public bool oneForAll;
 
+    [Space(5)]
+    public SceneData[] allScenesDatas;
+
     #endregion
 
     #region Built In Methods
@@ -55,6 +59,20 @@ public class GameManager : MonoBehaviour
 
         playerInput = player.GetComponent<PlayerInput>();
 
+        ResetSceneData();
+
+    }
+
+    public void ResetSceneData()
+    {
+        Debug.Log("ResetData");
+        foreach (SceneData sceneData in allScenesDatas)
+        {
+            for (int i = 0; i < sceneData.triggersCutSceneIsChecked.Length; i++)
+            {
+                sceneData.triggersCutSceneIsChecked[i] = false;
+            }
+        }
     }
 
     #endregion
@@ -96,7 +114,7 @@ public class GameManager : MonoBehaviour
     public void EnableKali(bool enable)
     {
         player.GetComponent<CharacterController>().enabled = enable;
-        
+
         player.gameObject.transform.GetChild(0).gameObject.SetActive(enable);
     }
 
