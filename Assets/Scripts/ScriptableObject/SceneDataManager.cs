@@ -11,11 +11,12 @@ public class SceneDataManager : MonoBehaviour
 
     private void OnEnable()
     {
-
         for (int i = 0; i < triggerCutScene.Length; i++)
         {
             triggerCutScene[i].index = i;
-            triggerCutScene[i].enabled = sceneData.triggersCutSceneIsChecked[i];
+            triggerCutScene[i].enabled = !sceneData.triggersCutSceneIsChecked[i];
+            triggerCutScene[i].playable.gameObject.SetActive(!sceneData.triggersCutSceneIsChecked[i]);
+            Debug.Log("Re-Check");
         }
     }
 
@@ -29,6 +30,7 @@ public class SceneDataManager : MonoBehaviour
         if (triggerCutScene.Contains(trigger))
         {
             sceneData.triggersCutSceneIsChecked[trigger.index] = true;
+            Debug.Log("Check");
         }
     }
 }
