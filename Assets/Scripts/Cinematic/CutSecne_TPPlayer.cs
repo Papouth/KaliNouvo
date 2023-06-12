@@ -46,6 +46,7 @@ public class CutSecne_TPPlayer : MonoBehaviour
     public void LoadHubScene()
     {
         playerTemp.ChangeSceneToLoad(newSceneToLoad, oldSceneToUnload);
+        playerTemp.ChangeStringName(oldSceneToUnload, newSceneToLoad);
 
         playerStats.transform.position = newPosKali.position;
 
@@ -62,10 +63,24 @@ public class CutSecne_TPPlayer : MonoBehaviour
     {
         playerStats.needMask = true;
         playerStats.masqueObject.SetActive(true);
+        playerStats.StartCoroutine(MaskCoroutine());
     }
-    
+    public IEnumerator MaskCoroutine()
+    {
+        playerTemp.ChangeMask();
+
+        yield return new WaitForSeconds(playerTemp.timingAnimMask);
+
+        playerTemp.animator.SetLayerWeight(1, 0);
+    }
+
     public void ActivateMask()
     {
         playerStats.ActivateMask();
+    }
+
+    public void GetSuperForceCutScene()
+    {
+        playerStats.GetSuperForce();
     }
 }

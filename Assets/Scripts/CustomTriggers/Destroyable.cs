@@ -53,30 +53,37 @@ public class Destroyable : CustomsTriggers
     }
 
     #region Destroy Objects
-    public bool BreakObject()
+    public void BreakObject()
     {
         if (playerInput.CanDestroy && playerStats.haveSuperForce && isDestroyable && !playerInput.CanTelekinesy && !haveBeenDestroyed)
         {
-            Debug.Log("here");
+            Debug.Log("BreakObject");
 
             haveBeenDestroyed = true;
 
-            // Animation du joueur
-            anim.SetTrigger("TrDestroy");
+            StartCoroutine(DestroyObject());
+           
 
-            baseMesh.SetActive(false);
-            foreach (var debri in debrisMesh)
-            {
-                debri.SetActive(true);
-                debri.GetComponent<Rigidbody>().AddForce(new Vector3(0, 1, 1), ForceMode.Impulse);
-            }
-
-            playerInput.CanDestroy = false;
-
-            return true;
         }
 
-        return false;
+    }
+
+    public IEnumerator DestroyObject()
+    {
+        // Animation du joueur
+        anim.SetTrigger("TrDestroy");
+
+
+        yield return new WaitForSeconds(.5f);
+
+        baseMesh.SetActive(false);
+        foreach (var debri in debrisMesh)
+        {
+            debri.SetActive(true);
+            debri.GetComponent<Rigidbody>().AddForce(new Vector3(0, 5, 5), ForceMode.Impulse);
+        }
+
+        playerInput.CanDestroy = false;
     }
     #endregion
 }
