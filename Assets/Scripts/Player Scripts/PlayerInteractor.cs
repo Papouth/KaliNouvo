@@ -15,7 +15,7 @@ public class PlayerInteractor : MonoBehaviour
     public int interactableCount;
 
     [Header("Composant")]
-    public Collider[] colliders = new Collider[5];
+    public Collider[] colliders;
     public IInteractable interactable;
 
     [HideInInspector] public PlayerInputManager playerInput;
