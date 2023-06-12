@@ -13,6 +13,8 @@ public class CutSecne_TPPlayer : MonoBehaviour
 
     public string newSceneToLoad = "Tutoriel_01_Passe";
     public string oldSceneToUnload = "Tutoriel_01_Present";
+    public string newPast;
+    public string newPresent;
     public Transform newPosKali;
 
 
@@ -38,6 +40,11 @@ public class CutSecne_TPPlayer : MonoBehaviour
 
         // Reset des scènes à changer
         playerTemp.ChangeSceneToLoad(oldSceneToUnload, newSceneToLoad);
+    }
+
+    public void ChangeStringNameCutScene()
+    {
+        playerTemp.ChangeStringName(newPast, newPresent);
     }
 
     /// <summary>
