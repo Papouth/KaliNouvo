@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
     public GameObject braceletScreen;
     public GameObject braceletTempo;
 
-    
+
     //Partie Masque
     public GameObject masqueObject;
     public Transform masqueRig;
@@ -27,7 +27,7 @@ public class PlayerStats : MonoBehaviour
     private Transform posToLerp;
 
     private float timerChangeMaskLerp;
-    
+
 
     public bool needMask;
     public bool maskOn;
@@ -86,7 +86,7 @@ public class PlayerStats : MonoBehaviour
 
     public void GetSuperForce()
     {
-        //Debug.Log("SuperForce récupéré");
+        Debug.Log("SuperForce récupéré");
         playerPush.enabled = false;
         playerSuperForce.enabled = true;
         haveSuperForce = true;
@@ -104,9 +104,12 @@ public class PlayerStats : MonoBehaviour
     /// Active les bracelets de super force
     /// </summary>
     /// <param name="state"></param>
-    public void ActivateSuperForceObject(bool state)
+    public void EnableGanteletSF(int i)
     {
-        gantelSuperForce?.SetActive(true);
+        if (i == 0)
+            gantelSuperForce?.SetActive(true);
+        else
+            gantelSuperForce?.SetActive(false);
     }
 
     public void GetBraceletTempo()
