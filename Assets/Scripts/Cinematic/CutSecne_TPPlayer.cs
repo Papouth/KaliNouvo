@@ -90,4 +90,9 @@ public class CutSecne_TPPlayer : MonoBehaviour
     {
         playerStats.GetSuperForce();
     }
+
+    public void GetTelekinesieCutScene()
+    {
+        playerStats.GetTelekinesy();
+    }
 }
