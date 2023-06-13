@@ -74,7 +74,7 @@ public class Destroyable : CustomsTriggers
         anim.SetTrigger("TrDestroy");
 
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.9583f);
 
         baseMesh.SetActive(false);
         foreach (var debri in debrisMesh)
