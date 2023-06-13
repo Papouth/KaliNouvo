@@ -92,6 +92,16 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Desactive le document d'interaction
+    /// </summary>
+    /// <param name="isAcitve">true = activé, false = desactive</param>
+    public void DisableUIDocument(bool isAcitve)
+    {
+        if(isAcitve) rootInteraction.style.display = DisplayStyle.Flex;
+        else rootInteraction.style.display = DisplayStyle.None;
+    }
+
 
     /// <summary>
     /// Le collider le plus proche du joueur selon un radius et un layer
