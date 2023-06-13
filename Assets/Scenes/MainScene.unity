@@ -1131,6 +1131,7 @@ MonoBehaviour:
   offsetLook: {x: 0, y: 0, z: 0}
   canMove: 0
   isTalking: 0
+  agent: {fileID: 0}
   wayPoints: {fileID: 0}
 --- !u!135 &166885227
 SphereCollider:
@@ -1205,6 +1206,7 @@ MonoBehaviour:
   offsetLook: {x: 0, y: 0, z: 0}
   canMove: 0
   isTalking: 0
+  agent: {fileID: 0}
   wayPoints: {fileID: 0}
 --- !u!136 &260139442
 CapsuleCollider:
@@ -1804,6 +1806,7 @@ MonoBehaviour:
   offsetLook: {x: 0, y: 0, z: 0}
   canMove: 0
   isTalking: 0
+  agent: {fileID: 0}
   wayPoints: {fileID: 0}
 --- !u!136 &674750195
 CapsuleCollider:
@@ -3185,7 +3188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1054821961
 Transform:
   m_ObjectHideFlags: 0
@@ -4870,6 +4873,7 @@ MonoBehaviour:
   offsetLook: {x: 0, y: 0, z: 0}
   canMove: 0
   isTalking: 0
+  agent: {fileID: 0}
   wayPoints: {fileID: 0}
 --- !u!136 &1632319209
 CapsuleCollider:
@@ -5636,7 +5640,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ikLeftHand
       value: 
-      objectReference: {fileID: 2143645265}
+      objectReference: {fileID: 0}
     - target: {fileID: 9163656343194889140, guid: 2a9ab10c458166441821c0e6b953420b,
         type: 3}
       propertyPath: cameraPlayer
@@ -6060,6 +6064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedDisplay: 0.05
   playerInput: {fileID: 1865253960}
+  timeDisplayDialogue: 3
 --- !u!4 &2023211966
 Transform:
   m_ObjectHideFlags: 0
@@ -6113,6 +6118,7 @@ MonoBehaviour:
   indicatorG2: 0
   indicatorG3: 0
   oneForAll: 0
+  allScenesDatas: []
   _animNpc: {fileID: 0}
 --- !u!1 &2024158894 stripped
 GameObject:
@@ -6176,6 +6182,7 @@ MonoBehaviour:
   offsetLook: {x: 0, y: 0, z: 0}
   canMove: 0
   isTalking: 0
+  agent: {fileID: 0}
   wayPoints: {fileID: 0}
 --- !u!136 &2078388037
 CapsuleCollider:
@@ -6398,18 +6405,6 @@ Transform:
   m_Father: {fileID: 1632319212}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2143645265 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3991208679772925946, guid: 2a9ab10c458166441821c0e6b953420b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1865253945}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2144832492 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7438899248756027836, guid: ba9fcb8ce940c0f4f97bffe69b7225aa,

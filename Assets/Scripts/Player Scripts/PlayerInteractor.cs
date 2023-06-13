@@ -98,8 +98,7 @@ public class PlayerInteractor : MonoBehaviour
     /// <param name="isAcitve">true = activé, false = desactive</param>
     public void DisableUIDocument(bool isAcitve)
     {
-        if(isAcitve) rootInteraction.style.display = DisplayStyle.Flex;
-        else rootInteraction.style.display = DisplayStyle.None;
+        disableUI = !isAcitve;
     }
 
 
