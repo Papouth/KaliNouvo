@@ -81,9 +81,12 @@ public class Destroyable : CustomsTriggers
         {
             debri.SetActive(true);
             debri.GetComponent<Rigidbody>().AddForce(new Vector3(0, 5, 5), ForceMode.Impulse);
+            Destroy(debri.gameObject, Random.Range(5f, 8f));
         }
 
         playerInput.CanDestroy = false;
+
+
     }
     #endregion
 }
