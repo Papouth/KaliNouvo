@@ -5,7 +5,7 @@ using Cinemachine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
-using Autodesk.Fbx;
+//using Autodesk.Fbx;
 
 public class GameManager : MonoBehaviour
 {
