@@ -31,7 +31,7 @@ public class GetStat : CustomsTriggers
 
 
 
-    private void Update()
+    private void Awake()
     {
         TempoException();
         ForceException();

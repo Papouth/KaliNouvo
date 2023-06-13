@@ -24,7 +24,7 @@ public class PlayerTemporel : MonoBehaviour
     private PlayerInputManager playerInput;
     private PlayerInteractor playerInteractor;
     private PlayerStats playerStats;
-    private Animator animator;
+    public Animator animator;
     private CharacterController cc;
 
     private bool isMasqueOn;
@@ -169,7 +169,11 @@ public class PlayerTemporel : MonoBehaviour
         cc.enabled = true;
         animator.SetBool("Tempo", false);
 
+        yield return ChangeMaskEnumerator();
+    }
 
+    public IEnumerator ChangeMaskEnumerator()
+    {
         ChangeMask();
 
         yield return new WaitForSeconds(timingAnimMask);
