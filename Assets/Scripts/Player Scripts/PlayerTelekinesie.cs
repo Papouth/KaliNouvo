@@ -136,6 +136,9 @@ public class PlayerTelekinesie : MonoBehaviour
         rigidbodyObject = objectToAdd.GetComponent<Rigidbody>();
         colObject = objectToAdd.GetComponent<Collider>();
 
+        rigidbodyObject.isKinematic = true;
+        rigidbodyObject.useGravity = false;
+
         if (!aimConstraint) return;
         StopAllCoroutines();
         StartCoroutine(AddWeightDataIK());
@@ -150,6 +153,9 @@ public class PlayerTelekinesie : MonoBehaviour
     /// </summary>
     public void RemoveTelekinesieObject()
     {
+        rigidbodyObject.isKinematic = false;
+        rigidbodyObject.useGravity = true;
+
         selected = false;
         telekinesyObject = null;
         rigidbodyObject = null;
