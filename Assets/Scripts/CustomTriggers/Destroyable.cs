@@ -74,16 +74,19 @@ public class Destroyable : CustomsTriggers
         anim.SetTrigger("TrDestroy");
 
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.9583f);
 
         baseMesh.SetActive(false);
         foreach (var debri in debrisMesh)
         {
             debri.SetActive(true);
             debri.GetComponent<Rigidbody>().AddForce(new Vector3(0, 5, 5), ForceMode.Impulse);
+            Destroy(debri.gameObject, Random.Range(5f, 8f));
         }
 
         playerInput.CanDestroy = false;
+
+
     }
     #endregion
 }

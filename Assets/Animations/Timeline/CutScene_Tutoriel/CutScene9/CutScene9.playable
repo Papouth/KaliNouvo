@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 54.95
+  m_Time: 54.96666666666667
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: a1ed40ea8fb5ff64cab5e62924b066d1, type: 2}
@@ -694,9 +694,8 @@ MonoBehaviour:
   dialogue:
     nameOfPeople: Scientifique
     sentences:
-    - "Ah, ouf ce n\u2019est que toi\u2026 D\xE9sol\xE9, mais on est un peu \xE0
-      cran\u2026 On a d\xFB changer le syst\xE8me de verrouillage de la porte pour
-      que le Botaniste ne puisse plus nous d\xE9ranger\u2026"
+    - "Ah, ouf ce n\u2019est que toi\u2026 D\xE9sol\xE9, on pensait que c'\xE9tait
+      encore le Botaniste..."
 --- !u!114 &-4506953877349757977
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1024,8 +1023,8 @@ MonoBehaviour:
   dialogue:
     nameOfPeople: Scientifique
     sentences:
-    - " \u2026Ahem, voil\xE0 ce qui s\u2019est pass\xE9. Maintenant que tu es ici,
-      \xE7a te dit de voir notre derni\xE8re invention ?"
+    - " \u2026Ahem... Maintenant que tu es ici, \xE7a te dit de voir notre derni\xE8re
+      invention ?"
 --- !u!114 &-1328374841397821689
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1085,7 +1084,7 @@ MonoBehaviour:
   dialogue:
     nameOfPeople: Kali
     sentences:
-    - "Je dois \xEAtre capable de casser ces murs maintenant !"
+    - "Je dois \xEAtre capable de casser des murs fissur\xE9s maintenantt !"
 --- !u!114 &-883550774399126425
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2941,13 +2940,31 @@ MonoBehaviour:
     m_Duration: 2.816666666666663
     m_TimeScale: 1
     m_ParentTrack: {fileID: 1840944266081656514}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
+    m_EaseInDuration: 0.5
+    m_EaseOutDuration: 0.5
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -3061,8 +3078,8 @@ MonoBehaviour:
     m_Duration: 2.0166666666666657
     m_TimeScale: 1
     m_ParentTrack: {fileID: 1840944266081656514}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
+    m_EaseInDuration: 0.5
+    m_EaseOutDuration: 0.5
     m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
@@ -3091,7 +3108,25 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4

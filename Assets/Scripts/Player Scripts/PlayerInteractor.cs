@@ -31,6 +31,9 @@ public class PlayerInteractor : MonoBehaviour
     public bool disableUI;
 
 
+    public bool cutSceneInteract;
+
+
     private void Awake()
     {
         playerInteractorInstance = this;
@@ -57,6 +60,12 @@ public class PlayerInteractor : MonoBehaviour
     /// </summary>
     public virtual void Detector()
     {
+        if (cutSceneInteract)
+        {
+            rootInteraction.style.display = DisplayStyle.None;
+            return;
+        }
+
         interactableCount = Physics.OverlapSphereNonAlloc(interactionPoint.position, radius, colliders, interactableLayer);
 
         // On Interagis
@@ -90,6 +99,15 @@ public class PlayerInteractor : MonoBehaviour
             rootInteraction.style.display = DisplayStyle.None;
             disableUI = false;
         }
+    }
+
+    /// <summary>
+    /// Desactive le document d'interaction
+    /// </summary>
+    /// <param name="isAcitve">true = activé, false = desactive</param>
+    public void DisableUIDocument(bool isAcitve)
+    {
+        cutSceneInteract = !isAcitve;
     }
 
 

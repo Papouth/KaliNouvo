@@ -21,6 +21,8 @@ public class OnMouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private Material storedMat;
 
     private PlayerTelekinesie playerTelekinesie;
+
+    public bool click;
     #endregion
 
 
@@ -40,19 +42,26 @@ public class OnMouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (playerTelekinesie.selected == false)
             objectRend.material = mouseOverMat;
+        Debug.Log("Enter");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        objectRend.material = storedMat;
+        if (click == false)
+        {
+            objectRend.material = storedMat;
+        }
+        Debug.Log("Exit");
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         if (playerTelekinesie.telekinesyOn)
         {
+            Debug.Log("click");
             playerTelekinesie.AddObjectTelekinesie(gameObject);
             objectRend.material = selectedMat;
+            click = true;
         }
     }
 
@@ -60,9 +69,11 @@ public class OnMouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (playerTelekinesie.telekinesyOn)
         {
+            Debug.Log("Up");
             playerTelekinesie.RemoveTelekinesieObject();
-            objectRend.material = selectedMat;
+            objectRend.material = storedMat;
 
         }
+        click = false;
     }
 }

@@ -26,6 +26,7 @@ public class PlayerTelekinesie : MonoBehaviour
     public bool selected = false;
     public Camera cameraPlayer;
     public LayerMask layerGround;
+    public LayerMask layerObject;
     public Animator animator;
 
     [Header("IK")]
@@ -49,6 +50,9 @@ public class PlayerTelekinesie : MonoBehaviour
     private void Update()
     {
         EnableTelekinesie();
+
+        SetObjectTelekinesie();
+
         MoveObject();
 
         if (ikLeftHand == null) return;
@@ -63,8 +67,6 @@ public class PlayerTelekinesie : MonoBehaviour
         }
 
 
-        // Montrer via de l'UI que la télékinésie est activé
-        //Debug.Log(playerInput.CanTelekinesy);
     }
 
 
@@ -124,17 +126,50 @@ public class PlayerTelekinesie : MonoBehaviour
     }
 
 
+    //NEW TELEKINESIE =>
+
+    public void SetObjectTelekinesie()
+    {
+        if (telekinesyOn == false) return;
+
+        RaycastHit hit;
+        Ray ray = cameraPlayer.ScreenPointToRay(playerInput.MousePosition);
+
+        if (Physics.Raycast(ray, out hit, 99, layerObject))
+        {
+            
+            if (playerInput.CanSelect == true && selected == false)
+            {
+                selected = true;
+                AddObjectTelekinesie(hit.collider.gameObject);
+            }
+        }
+
+        if (playerInput.CanSelect == false)
+        {
+            if (selected == true)
+            {
+                RemoveTelekinesieObject();
+            }
+        }
+    }
+
+
+    //OLD TELEKINESIE =>
+
     /// <summary>
     /// Add the object to the telekinesie
     /// </summary>
     /// <param name="objectToAdd"></param>
     public void AddObjectTelekinesie(GameObject objectToAdd)
     {
-
         selected = true;
         telekinesyObject = objectToAdd;
         rigidbodyObject = objectToAdd.GetComponent<Rigidbody>();
         colObject = objectToAdd.GetComponent<Collider>();
+
+        rigidbodyObject.isKinematic = true;
+        rigidbodyObject.useGravity = false;
 
         if (!aimConstraint) return;
         StopAllCoroutines();
@@ -150,6 +185,11 @@ public class PlayerTelekinesie : MonoBehaviour
     /// </summary>
     public void RemoveTelekinesieObject()
     {
+        if (telekinesyObject == null) return;
+
+        rigidbodyObject.isKinematic = false;
+        rigidbodyObject.useGravity = true;
+
         selected = false;
         telekinesyObject = null;
         rigidbodyObject = null;
@@ -242,10 +282,6 @@ public class PlayerTelekinesie : MonoBehaviour
 
             //Deplace l'object
             rigidbodyObject.MovePosition(nextPos);
-
-        }
-        else
-        {
 
         }
     }

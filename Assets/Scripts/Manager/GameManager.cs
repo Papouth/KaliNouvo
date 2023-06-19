@@ -5,7 +5,7 @@ using Cinemachine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
-using Autodesk.Fbx;
+//using Autodesk.Fbx;
 
 public class GameManager : MonoBehaviour
 {
@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<CharacterController>().enabled = enable;
 
         player.gameObject.transform.GetChild(0).gameObject.SetActive(enable);
+        player.GetComponent<PlayerInteractor>().DisableUIDocument(enable);
     }
 
 

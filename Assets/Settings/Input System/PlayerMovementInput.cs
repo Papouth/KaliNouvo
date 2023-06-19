@@ -311,7 +311,7 @@ public partial class @PlayerMovementInput : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""ee1ddacf-2ca2-42c4-9ff8-742d6e6fb5a2"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": ""Press(pressPoint=0.2,behavior=2)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Select"",

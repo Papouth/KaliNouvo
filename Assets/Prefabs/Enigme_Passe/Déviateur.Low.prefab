@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 5469668659377991074}
   - component: {fileID: 1809945147147830086}
   - component: {fileID: 8050503943139110417}
-  - component: {fileID: 6152826024051901237}
   - component: {fileID: 3448953890673249046}
   - component: {fileID: 987278380184683196}
   - component: {fileID: -999682660958274250}
+  - component: {fileID: 852127950373162742}
   m_Layer: 12
   m_Name: "D\xE9viateur.Low"
   m_TagString: Deviateur
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5113354074490736771}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -87,20 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6152826024051901237
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5113354074490736771}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1151089060629023387, guid: 862b652b0523a9c46b7135d8a2565a85, type: 3}
 --- !u!114 &3448953890673249046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,8 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2bc41e26c2e27546b5cd5313acc3b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseOverMat: {fileID: 0}
-  selectedMat: {fileID: 0}
+  mouseOverMat: {fileID: 2100000, guid: e517ea760eb6c1442bf4f7396736895a, type: 2}
+  selectedMat: {fileID: 2100000, guid: 36e20373de068904e8438bd5acde16dc, type: 2}
+  click: 0
 --- !u!54 &987278380184683196
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -148,3 +135,16 @@ MonoBehaviour:
     m_Bits: 65
   respawnPoint: {fileID: 0}
   timeUpdate: 3
+--- !u!135 &852127950373162742
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5113354074490736771}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: -0.000000044703484, y: 0.23504207, z: -0.000000067055225}
