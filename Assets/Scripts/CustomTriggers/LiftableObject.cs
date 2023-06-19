@@ -45,6 +45,7 @@ public class LiftableObject : CustomsTriggers
             gameObject.transform.SetParent(hands.transform, false);
             gameObject.transform.position = hands.transform.position;
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            playerInput.GetComponent<PlayerInteractor>().EnableIKHands();
         }
         else if (playerInput.CanInteract && hands.transform.childCount > 0)
         {
@@ -52,6 +53,7 @@ public class LiftableObject : CustomsTriggers
 
             gameObject.transform.SetParent(null);
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            playerInput.GetComponent<PlayerInteractor>().DisableIKHands();
         }
     }
 }
