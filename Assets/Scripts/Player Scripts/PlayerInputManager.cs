@@ -155,13 +155,7 @@ public class PlayerInputManager : MonoBehaviour
 
     public void OnSelect()
     {
-        canSelect = true;
-        Invoke("SelectTimer", 0.1f);
-    }
-
-    private void SelectTimer()
-    {
-        canSelect = false;
+        canSelect = !canSelect;
     }
 
     private void OnScroll(InputValue value)
