@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
@@ -30,9 +32,9 @@ public class PlayerInteractor : MonoBehaviour
 
     public bool disableUI;
 
-
     public bool cutSceneInteract;
 
+    public TwoBoneIKConstraint leftHands;
 
     private void Awake()
     {
@@ -71,7 +73,7 @@ public class PlayerInteractor : MonoBehaviour
         // On Interagis
         if (interactableCount > 0)
         {
-            if (!disableUI)
+            if (!disableUI && rootInteraction != null)
             {
                 rootInteraction.style.display = DisplayStyle.Flex;
             }
@@ -144,4 +146,40 @@ public class PlayerInteractor : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(interactionPoint.position, radius);
     }
+
+    public void EnableIKHands()
+    {
+        StartCoroutine(EnableHandIKCoroutine());
+    }
+
+    public void DisableIKHands()
+    {
+        StartCoroutine(DisableHandIKCoroutine());
+    }
+
+    public IEnumerator EnableHandIKCoroutine()
+    {
+        float i = 0;
+
+        while (i <= 1)
+        {
+            i = i + Time.deltaTime * 2f;
+            leftHands.weight = i;
+
+            yield return new WaitForSeconds(Time.deltaTime * 2f);
+        }
+    }
+    public IEnumerator DisableHandIKCoroutine()
+    {
+        float i = 1;
+
+        while (i >= 0)
+        {
+            i = i - Time.deltaTime * 2f;
+            leftHands.weight = i;
+
+            yield return new WaitForSeconds(Time.deltaTime * 2f);
+        }
+    }
+
 }
