@@ -13,6 +13,8 @@ public class Generateur : CustomsTriggers
     [SerializeField] private Indicateur _indicator;
 
 
+    [Tooltip("On coche la case si ce generateur active l'indicateur HUB [ZONE HUB]")]
+    [SerializeField] private bool indicateurHub;
     [Tooltip("On coche la case si ce generateur active l'indicateur 1 [ZONE 1]")]
     [SerializeField] private bool indicateur1;
     [Tooltip("On coche la case si ce generateur active l'indicateur 2 [ZONE 1]")]
@@ -59,6 +61,7 @@ public class Generateur : CustomsTriggers
         if (indicateur1) GameManager.GM.indicatorG1 = true;
         if (indicateur2) GameManager.GM.indicatorG2 = true;
         if (indicateur3) GameManager.GM.indicatorG3 = true;
+        if (indicateurHub) GameManager.GM.indicatorHUB = true;
 
         _animator.SetBool("Enable", valid);
 
