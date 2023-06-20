@@ -34,7 +34,7 @@ public class Pepo : Npc
         {
             isInRange = true;
         }
-        base.OnTriggerEnter(other);
+        base.OnTriggerStay(other);
     }
 
     public override void OnTriggerExit(Collider other)
