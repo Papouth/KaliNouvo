@@ -48,6 +48,30 @@ public class Generateur : CustomsTriggers
         _animator = GetComponent<Animator>();
     }
 
+    public override void Start()
+    {
+        if (indicateur1)
+        {
+            GameManager.GM.indicatorG1 = true;
+            _animator.SetBool("Enable", valid);
+        }
+        if (indicateur2)
+        {
+            GameManager.GM.indicatorG2 = true;
+            _animator.SetBool("Enable", valid);
+        }
+        if (indicateur3)
+        {
+            GameManager.GM.indicatorG3 = true;
+            _animator.SetBool("Enable", valid);
+        }
+        if (indicateurHub)
+        {
+            GameManager.GM.indicatorHUB = true;
+            _animator.SetBool("Enable", valid);
+        }
+    }
+
     #endregion
 
     #region Customs Methods
