@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class FinalDoor : MonoBehaviour
 {
-    private Animator anim;
+    protected Animator anim;
 
 
-    private void Start()
+    public virtual void Start()
     {
         anim = GetComponent<Animator>();
     }
 
-    public void OpenDoor()
+    private void OpenDoor()
     {
         anim.SetTrigger("TrFinalDoor");
     }
