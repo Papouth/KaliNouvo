@@ -36,6 +36,8 @@ public class Generateur : CustomsTriggers
     [Tooltip("A cocher si le generateur doit activer toutes les barrieres de la Zone 1")]
     [SerializeField] private bool allBarrieresZ1;
 
+    public UnityEvent eventsOnActivate;
+
     #endregion
 
     #region Built in methods
@@ -93,6 +95,8 @@ public class Generateur : CustomsTriggers
         {
             GameManager.GM.oneForAll = true;
         }
+
+        eventsOnActivate?.Invoke();
     }
     #endregion
 }
