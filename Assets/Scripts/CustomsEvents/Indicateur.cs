@@ -15,6 +15,9 @@ public class Indicateur : MonoBehaviour
     [SerializeField] private bool gen2;
     [Tooltip("A cocher si est activé par le generateur3 de la zone 2")]
     [SerializeField] private bool gen3;
+    [Tooltip("A cocher si est activé par le generateurHUB de la zone HUB")]
+    [SerializeField] private bool genHub;
+
 
 
     private void OnEnable()
@@ -28,6 +31,10 @@ public class Indicateur : MonoBehaviour
             ChangeMaterial();
         }
         if (gen3 && GameManager.GM.indicatorG3)
+        {
+            ChangeMaterial();
+        }
+        if (genHub && GameManager.GM.indicatorHUB)
         {
             ChangeMaterial();
         }

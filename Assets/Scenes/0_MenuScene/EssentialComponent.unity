@@ -5,11 +5,12 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 5
+    smallestOccluder: 3
     smallestHole: 0.25
-    backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+    backfaceThreshold: 50
+  m_SceneGUID: 628c1efebc4e5bd45880a2031dbd5d24
+  m_OcclusionCullingData: {fileID: 36300000, guid: a5e31887458389e48b78abe9d4743fcb,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -291,7 +292,7 @@ PrefabInstance:
     - target: {fileID: 6462671533452376625, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
       propertyPath: m_PathPosition
-      value: 0.8740677
+      value: 0.720283
       objectReference: {fileID: 0}
     - target: {fileID: 8280619534975745403, guid: d917841d4ce8f914eb39f6c4252e611f,
         type: 3}
@@ -416,6 +417,11 @@ PrefabInstance:
       propertyPath: interactionMenu
       value: 
       objectReference: {fileID: 1023259745}
+    - target: {fileID: 8721376823822195671, guid: 2a9ab10c458166441821c0e6b953420b,
+        type: 3}
+      propertyPath: interactableLayer.m_Bits
+      value: 2304
+      objectReference: {fileID: 0}
     - target: {fileID: 8721376823822195688, guid: 2a9ab10c458166441821c0e6b953420b,
         type: 3}
       propertyPath: cam
@@ -426,6 +432,11 @@ PrefabInstance:
       propertyPath: cameraPlayer
       value: 
       objectReference: {fileID: 1662727967}
+    - target: {fileID: 9163656343194889140, guid: 2a9ab10c458166441821c0e6b953420b,
+        type: 3}
+      propertyPath: layerObject.m_Bits
+      value: 6144
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9ab10c458166441821c0e6b953420b, type: 3}
 --- !u!4 &1991796796 stripped

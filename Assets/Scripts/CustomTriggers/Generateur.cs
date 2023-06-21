@@ -13,6 +13,8 @@ public class Generateur : CustomsTriggers
     [SerializeField] private Indicateur _indicator;
 
 
+    [Tooltip("On coche la case si ce generateur active l'indicateur HUB [ZONE HUB]")]
+    [SerializeField] private bool indicateurHub;
     [Tooltip("On coche la case si ce generateur active l'indicateur 1 [ZONE 1]")]
     [SerializeField] private bool indicateur1;
     [Tooltip("On coche la case si ce generateur active l'indicateur 2 [ZONE 1]")]
@@ -36,12 +38,38 @@ public class Generateur : CustomsTriggers
     [Tooltip("A cocher si le generateur doit activer toutes les barrieres de la Zone 1")]
     [SerializeField] private bool allBarrieresZ1;
 
+    public UnityEvent eventsOnActivate;
+
     #endregion
 
     #region Built in methods
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+    }
+
+    public override void Start()
+    {
+        if (indicateur1)
+        {
+            GameManager.GM.indicatorG1 = true;
+            _animator.SetBool("Enable", valid);
+        }
+        if (indicateur2)
+        {
+            GameManager.GM.indicatorG2 = true;
+            _animator.SetBool("Enable", valid);
+        }
+        if (indicateur3)
+        {
+            GameManager.GM.indicatorG3 = true;
+            _animator.SetBool("Enable", valid);
+        }
+        if (indicateurHub)
+        {
+            GameManager.GM.indicatorHUB = true;
+            _animator.SetBool("Enable", valid);
+        }
     }
 
     #endregion
@@ -57,6 +85,7 @@ public class Generateur : CustomsTriggers
         if (indicateur1) GameManager.GM.indicatorG1 = true;
         if (indicateur2) GameManager.GM.indicatorG2 = true;
         if (indicateur3) GameManager.GM.indicatorG3 = true;
+        if (indicateurHub) GameManager.GM.indicatorHUB = true;
 
         _animator.SetBool("Enable", valid);
 
@@ -93,6 +122,8 @@ public class Generateur : CustomsTriggers
         {
             GameManager.GM.oneForAll = true;
         }
+
+        eventsOnActivate?.Invoke();
     }
     #endregion
 }
