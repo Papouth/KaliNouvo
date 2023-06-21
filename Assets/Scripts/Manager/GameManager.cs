@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<CharacterController>().enabled = enable;
 
         player.gameObject.transform.GetChild(0).gameObject.SetActive(enable);
-        player.GetComponent<PlayerInteractor>().DisableUIDocument(enable);
+        player.GetComponent<PlayerInteractor>().DisableUIDocument(!enable);
     }
 
 

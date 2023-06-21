@@ -109,7 +109,7 @@ public class PlayerInteractor : MonoBehaviour
     /// <param name="isAcitve">true = activé, false = desactive</param>
     public void DisableUIDocument(bool isAcitve)
     {
-        cutSceneInteract = !isAcitve;
+        cutSceneInteract = isAcitve;
     }
 
 
