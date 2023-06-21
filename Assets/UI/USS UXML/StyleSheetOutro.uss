@@ -66,10 +66,10 @@
     text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.33);
 }
 
-.Panneau {
+.PanneauGamtas {
     background-color: rgba(255, 0, 0, 0);
     flex-grow: 0;
-    background-image: url('project://database/Assets/UI/Image/Fond_Menu_Principal.png?fileID=2800000&guid=182305b4ebd3db14c8c1ee7b3b77bd3e&type=3#Fond_Menu_Principal');
+    background-image: url('project://database/Assets/UI/Image/Outro/TestUI%20Outro.png?fileID=2800000&guid=2c4e544104f856247b09510718dd744c&type=3#TestUI Outro');
     -unity-slice-left: 203;
     -unity-background-scale-mode: stretch-to-fill;
     justify-content: center;
@@ -79,4 +79,91 @@
     padding-bottom: 0;
     width: 700px;
     align-items: stretch;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+
+.PanneauMosklas {
+    background-color: rgba(255, 0, 0, 0);
+    flex-grow: 0;
+    background-image: url('project://database/Assets/UI/Image/Outro/Fond_Menu_Principal_Invert_2.png?fileID=2800000&guid=e1da3f44afbd80149a9db38ef47a8a46&type=3#Fond_Menu_Principal_Invert_2');
+    -unity-slice-left: 203;
+    -unity-background-scale-mode: stretch-to-fill;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 700px;
+    align-items: stretch;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+
+.PanneauMosklas:hover {
+    width: 1000px;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+
+.PanneauGamtas:hover {
+    width: 1000px;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+
+.GamtasButton {
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    transition-duration: 0.1s;
+    transform-origin: center;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: none;
+    min-width: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    flex-grow: 0;
+    overflow: visible;
+}
+
+.GamtasButton:hover {
+    background-color: rgba(255, 255, 255, 0);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    transition-duration: 0.2s;
+    scale: 1.1 1.1;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-text-outline-width: 0.5px;
+    -unity-text-outline-color: rgb(72, 83, 94);
+    background-image: url('project://database/Assets/UI/Image/Outro/Sans%20titre-1.png?fileID=2800000&guid=3dd808a771bb69244a3f192bf89165c5&type=3#Sans titre-1');
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.GamtasButton:active {
+    scale: 1 1;
 }
