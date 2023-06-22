@@ -59,6 +59,9 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInputManager playerInput;
     public Animator animator;
     private PlayerNewClimbSystem playerNewClimbSystem;
+
+    public AudioSource audioFoot;
+    public AudioClip[] audioFootList; 
     #endregion
 
     private void Awake()
@@ -222,6 +225,7 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region PlayerJump
+
     /// <summary>
     /// Activation du jump
     /// </summary>
@@ -348,6 +352,7 @@ public class PlayerMovement : MonoBehaviour
             else return true; //Encore le temps de sauté
         }
     }
+    
     #endregion
 
     #region PlayerCrouched
@@ -412,6 +417,19 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetBool("Crouch", inCrouch);
     }
+
+    public void AudioFoot()
+    {
+        if (!audioFoot) return;
+        if (audioFootList.Length == 0) return;
+
+        int randomAudio = Random.Range(0, audioFootList.Length);
+
+        audioFoot.clip = audioFootList[randomAudio];
+
+        audioFoot.Play();
+    }
+
 
     private void OnDrawGizmos()
     {

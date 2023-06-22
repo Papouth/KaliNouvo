@@ -19,5 +19,7 @@ public class Pass : CustomsTriggers
         DialogueManager.InstanceDialogue.StartDialogue(dialogueWhenInteract);
 
         Destroy(gameObject);
+
+        base.Interact();
     }
 }
