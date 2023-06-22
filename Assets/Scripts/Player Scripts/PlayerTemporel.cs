@@ -29,6 +29,8 @@ public class PlayerTemporel : MonoBehaviour
 
     private bool isMasqueOn;
 
+    public AudioSource audioTempo;
+
     #endregion
 
     #region Built In Methods
@@ -144,6 +146,8 @@ public class PlayerTemporel : MonoBehaviour
             // On est dans le présent
             ChangeSceneToLoad(past, present);
         }
+
+        audioTempo?.Play();
 
         float i = 0;
         Blit instance = GameManager.GM.changeTempoMat;

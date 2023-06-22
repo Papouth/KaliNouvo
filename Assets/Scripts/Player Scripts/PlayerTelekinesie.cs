@@ -37,6 +37,8 @@ public class PlayerTelekinesie : MonoBehaviour
     public MultiAimConstraint aimConstraint;
     private float lookWeight;
 
+    public AudioSource audioTelekinesie;
+
     #endregion
 
 
@@ -142,6 +144,7 @@ public class PlayerTelekinesie : MonoBehaviour
             {
                 selected = true;
                 AddObjectTelekinesie(hit.collider.gameObject);
+                audioTelekinesie?.Play();
             }
         }
 
@@ -150,6 +153,7 @@ public class PlayerTelekinesie : MonoBehaviour
             if (selected == true)
             {
                 RemoveTelekinesieObject();
+                audioTelekinesie?.Stop();
             }
         }
     }
