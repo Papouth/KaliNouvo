@@ -238,6 +238,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //Fonction Check Step Slope ground Return bool
             //=> Fonction Check step slope void 
+            animator.SetBool("Ground", true);
 
             if (ySpeed <= stepGround)
             {
@@ -256,6 +257,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            animator.SetBool("Ground", false);
             if (ySpeed <= -50)
             {
                 ySpeed = -50;
