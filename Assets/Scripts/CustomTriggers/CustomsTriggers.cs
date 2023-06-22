@@ -35,7 +35,11 @@ public abstract class CustomsTriggers : MonoBehaviour, IInteractable
 
     public virtual void Interact()
     {
-        feedbackAudio?.Play();
+        if(feedbackAudio != null)
+        {
+            if (feedbackAudio.clip != null)
+                feedbackAudio.Play();
+        }
         Debug.Log("fesse");
         return;
     }
