@@ -48,8 +48,11 @@ public class Leviers : CustomsTriggers
 
     public override void Interact()
     {
-        if (!boolCheck) leverEvent.Invoke();
-
+        if (!boolCheck)
+        {
+            base.Interact();
+            leverEvent.Invoke();
+        }
         return;
     }
 

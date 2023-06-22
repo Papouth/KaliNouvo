@@ -59,6 +59,8 @@ public class TeleporteurZone : CustomsTriggers
 
             // Fondu en noir
             StartCoroutine(SetBlackScreen());
+
+            base.Interact();
         }
     }
 

@@ -17,6 +17,7 @@ public class LiftableObject : CustomsTriggers
         if (weight <= 20 && pTp.canLift)
         {
             GoToHand(playerInteractorDistance.hands, playerInteractorDistance.playerInput); // playerInteractor
+            base.Interact();
         }
 
         return;
