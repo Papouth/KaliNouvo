@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class OutroScript : MonoBehaviour
 {
-    public PlayableDirector firstOption;
-    public PlayableDirector secondOption;
+    public PlayableDirector mokslasOption;
+    public PlayableDirector gamtasOption;
+    public GameObject timelineDebut;
 
     public UIDocument uiDoc;
+
+    public string creditScene;
 
 
     public void Awake()
@@ -35,7 +39,9 @@ public class OutroScript : MonoBehaviour
     /// </summary>
     public void PlayerFirstOption()
     {
-        firstOption.Play();
+        mokslasOption.Play();
+        uiDoc.enabled = false;
+        timelineDebut.SetActive(false);
     }
 
     /// <summary>
@@ -43,7 +49,14 @@ public class OutroScript : MonoBehaviour
     /// </summary>
     public void PlayerSecondOption()
     {
-        secondOption.Play();
+        gamtasOption.Play();
+        uiDoc.enabled = false;
+        timelineDebut.SetActive(false);
+    }
+
+    public void LauchCreditScene()
+    {
+        SceneManager.LoadScene(creditScene);
     }
 }
 
