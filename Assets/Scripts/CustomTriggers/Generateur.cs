@@ -77,6 +77,7 @@ public class Generateur : CustomsTriggers
     #region Customs Methods
     public override void Interact()
     {
+        base.Interact();
         valid = true;
         Debug.Log("J'active le générateur");
 

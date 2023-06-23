@@ -6,6 +6,9 @@ public class PlayerSuperForce : PlayerPush
 {
     public float superForceMultiplier = 1.5f;
 
+    public AudioSource audioForce;
+    public AudioClip audioForcePart1;
+    public AudioClip audioForcePart2;
 
     public override void Awake()
     {
@@ -70,5 +73,23 @@ public class PlayerSuperForce : PlayerPush
     public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
+    }
+
+    public void AudioPushP1()
+    {
+        if (!audioForce) return;
+        if (!audioForcePart1) return;
+
+        audioForce.clip = audioForcePart1;
+        audioForce.Play();
+    }
+
+    public void AudioPushP2()
+    {
+        if (!audioForce) return;
+        if (!audioForcePart2) return;
+
+        audioForce.clip = audioForcePart2;
+        audioForce.Play();
     }
 }

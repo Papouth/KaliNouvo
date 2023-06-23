@@ -12,6 +12,7 @@ public interface IInteractable
 
 public abstract class CustomsTriggers : MonoBehaviour, IInteractable
 {
+    public AudioSource feedbackAudio;
     protected float weight;
     protected Rigidbody rb;
 
@@ -20,6 +21,7 @@ public abstract class CustomsTriggers : MonoBehaviour, IInteractable
 
     public virtual void Start()
     {
+        feedbackAudio = GetComponentInChildren<AudioSource>();
         PlayerInteractor player = PlayerInteractor.playerInteractorInstance;
         Debug.Log(player);
         playerInteractorDistance = player.gameObject.GetComponent<PlayerInteractorDistance>();
@@ -33,6 +35,11 @@ public abstract class CustomsTriggers : MonoBehaviour, IInteractable
 
     public virtual void Interact()
     {
+        if(feedbackAudio != null)
+        {
+            if (feedbackAudio.clip != null)
+                feedbackAudio.Play();
+        }
         Debug.Log("fesse");
         return;
     }
