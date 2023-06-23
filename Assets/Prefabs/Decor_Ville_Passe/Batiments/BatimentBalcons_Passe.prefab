@@ -37,6 +37,89 @@ Transform:
   m_Father: {fileID: 6644033127893714878}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &701132590665716079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4979687372338754571}
+  - component: {fileID: 5096036903104965633}
+  - component: {fileID: 2694679890130487838}
+  m_Layer: 0
+  m_Name: BatimentBaconHaut.Low (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4979687372338754571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701132590665716079}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0.0000029504295}
+  m_LocalPosition: {x: 0.34, y: 13.44, z: 2.6999977}
+  m_LocalScale: {x: 0.9591581, y: 0.95581, z: 0.9246411}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 873499702089063906}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+--- !u!33 &5096036903104965633
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701132590665716079}
+  m_Mesh: {fileID: -1851862056765884351, guid: ec8e14decec892b41815b99f62da04de, type: 3}
+--- !u!23 &2694679890130487838
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701132590665716079}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bfe2fe0eed54e9e4ebe9c06d1009f704, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &4780552233902304346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,6 +1482,36 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.866
       objectReference: {fileID: 0}
+    - target: {fileID: 1472224392589436203, guid: 4d90f79451328744fa781e297eeb399a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.0031261
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472224392589436203, guid: 4d90f79451328744fa781e297eeb399a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 4.6962185
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472224392589436203, guid: 4d90f79451328744fa781e297eeb399a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472224392589436203, guid: 4d90f79451328744fa781e297eeb399a,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.005309478
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472224392589436203, guid: 4d90f79451328744fa781e297eeb399a,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 2.237769
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472224392589436203, guid: 4d90f79451328744fa781e297eeb399a,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -2.0094335
+      objectReference: {fileID: 0}
     - target: {fileID: 1785405261676076744, guid: 4d90f79451328744fa781e297eeb399a,
         type: 3}
       propertyPath: m_IsActive
@@ -1422,6 +1535,11 @@ PrefabInstance:
     - target: {fileID: 3259036829675903159, guid: 4d90f79451328744fa781e297eeb399a,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379944347481091395, guid: 4d90f79451328744fa781e297eeb399a,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3386337330563859773, guid: 4d90f79451328744fa781e297eeb399a,
