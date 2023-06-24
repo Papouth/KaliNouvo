@@ -13,6 +13,8 @@ public class DeviateurSocle : MonoBehaviour
     {
         if (other.CompareTag("Deviateur"))
         {
+            other.GetComponent<Rigidbody>().isKinematic = true;
+            other.GetComponent<Rigidbody>().useGravity = false;
             other.transform.localPosition = gameObject.transform.position;
             barriereToDeactivate.deviated = true;
         }
@@ -22,6 +24,8 @@ public class DeviateurSocle : MonoBehaviour
     {
         if (other.CompareTag("Deviateur"))
         {
+            other.GetComponent<Rigidbody>().isKinematic = false;
+            other.GetComponent<Rigidbody>().useGravity = true;
             barriereToDeactivate.deviated = false;
         }
     }
