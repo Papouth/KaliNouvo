@@ -13,7 +13,7 @@ public class DeviateurSocle : MonoBehaviour
     {
         if (other.CompareTag("Deviateur"))
         {
-            other.GetComponent<Rigidbody>().isKinematic = true;
+            Debug.Log("rentre");
             other.GetComponent<Rigidbody>().useGravity = false;
 
 
@@ -26,7 +26,7 @@ public class DeviateurSocle : MonoBehaviour
     {
         if (other.CompareTag("Deviateur"))
         {
-            other.GetComponent<Rigidbody>().isKinematic = false;
+            Debug.Log("sort");
             other.GetComponent<Rigidbody>().useGravity = true;
 
 
