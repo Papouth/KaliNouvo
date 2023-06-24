@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3957602402841580424, guid: 2c8384884119def49a5a20e89a456968,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e04c733a90be563408f72eb4d7e450d7, type: 3}
     - target: {fileID: 2763071351275919817, guid: 2c8384884119def49a5a20e89a456968,
         type: 3}
       propertyPath: m_Avatar
@@ -154,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba444f7d40f7d8d4b96aa056d85713de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackAudio: {fileID: 3249050069746379659}
   playerInteractorDistance: {fileID: 0}
   dialogues:
     nameOfPeople: 
@@ -166,6 +172,12 @@ MonoBehaviour:
   isTalking: 0
   agent: {fileID: 0}
   wayPoints: {fileID: 0}
+--- !u!82 &3249050069746379659 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -3957602402841580424, guid: 2c8384884119def49a5a20e89a456968,
+    type: 3}
+  m_PrefabInstance: {fileID: 7207224254882236403}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6808554761043051404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4213658674814633087, guid: 2c8384884119def49a5a20e89a456968,

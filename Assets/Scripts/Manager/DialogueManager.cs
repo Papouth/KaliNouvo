@@ -71,8 +71,10 @@ public class DialogueManager : MonoBehaviour
     /// <returns></returns>
     public IEnumerator TypeSentence(string sentence, Dialogue dialogue)
     {
+        string newSentence = dialogue.nameOfPeople + " : " + sentence;
 
-        MenuManager.Instance.MajInfoText(sentence);
+
+        MenuManager.Instance.MajInfoText(newSentence);
 
         yield return new WaitForSeconds(.1f);
         yield return WaitForDoneProcess(timeDisplayDialogue);
