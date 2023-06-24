@@ -18,6 +18,8 @@ public class Door : MonoBehaviour
 
     public UnityEvent events;
 
+    public AudioSource audioDoor;
+
     #endregion
 
     #region Built In Methods
@@ -61,6 +63,7 @@ public class Door : MonoBehaviour
         if (Vector3.Distance(Camera.main.transform.position, target) <= .1f)
         {
             doorAnimator.SetBool("IsValid", true);
+            audioDoor.Play();
         }
 
         timer += Time.deltaTime;

@@ -35,6 +35,12 @@ public class Plateforme : MonoBehaviour
     private Vector3 currentPos;
     private Animator animator;
     private CharacterController cc;
+
+    public AudioSource audioPlateforme;
+    public AudioClip startClip;
+    public AudioClip midClip;
+    public AudioClip endClip;
+
     #endregion
 
     #region Built In methods
@@ -163,10 +169,24 @@ public class Plateforme : MonoBehaviour
     /// <returns></returns>
     private IEnumerator WaitingTime()
     {
+        audioPlateforme.clip = endClip;
+        audioPlateforme.loop = false;
+        audioPlateforme.Play();
+
         destination = SelectDestination();
         yield return new WaitForSeconds(timerWaiting);
 
+        audioPlateforme.clip = startClip;
+        audioPlateforme.loop = false;
+        audioPlateforme.Play();
+
         canMove = true;
+
+        yield return new WaitForSeconds(1f);
+
+        audioPlateforme.clip = midClip;
+        audioPlateforme.loop = true;
+        audioPlateforme.Play();
     }
 
     /// <summary>
@@ -177,6 +197,7 @@ public class Plateforme : MonoBehaviour
     {
         animator.SetBool("Active", true);
         isEnable = enable;
+        audioPlateforme.Play();
     }
 
     #endregion
