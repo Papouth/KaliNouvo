@@ -15,7 +15,9 @@ public class DeviateurSocle : MonoBehaviour
         {
             other.GetComponent<Rigidbody>().isKinematic = true;
             other.GetComponent<Rigidbody>().useGravity = false;
-            other.transform.localPosition = gameObject.transform.position;
+
+
+            other.transform.position = transform.position;
             barriereToDeactivate.deviated = true;
         }
     }
@@ -26,6 +28,8 @@ public class DeviateurSocle : MonoBehaviour
         {
             other.GetComponent<Rigidbody>().isKinematic = false;
             other.GetComponent<Rigidbody>().useGravity = true;
+
+
             barriereToDeactivate.deviated = false;
         }
     }
