@@ -425,6 +425,8 @@ public class PlayerMovement : MonoBehaviour
         if (!audioFoot) return;
         if (audioFootList.Length == 0) return;
 
+        Debug.Log("AudioFoot");
+
         int randomAudio = Random.Range(0, audioFootList.Length);
 
         audioFoot.clip = audioFootList[randomAudio];
