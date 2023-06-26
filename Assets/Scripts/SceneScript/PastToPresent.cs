@@ -6,7 +6,7 @@ public class PastToPresent : MonoBehaviour
 {
     #region Variables
     [Header("Component")]
-    [SerializeField] private Rigidbody rb;
+    //[SerializeField] private Rigidbody rb;
     [HideInInspector]
     public bool canLift;
 
@@ -41,8 +41,8 @@ public class PastToPresent : MonoBehaviour
     {
         playerTemporel = FindObjectOfType<PlayerTemporel>();
 
-        rb = GetComponent<Rigidbody>();
-        if (rb == null) rb = GetComponentInChildren<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
+        //if (rb == null) rb = GetComponentInChildren<Rigidbody>();
     }
 
     private void Start()
@@ -71,7 +71,7 @@ public class PastToPresent : MonoBehaviour
 
         SceneFinder();
 
-        PushOnOff();
+        //PushOnOff();
 
         LiftOnOff();
     }
@@ -146,8 +146,8 @@ public class PastToPresent : MonoBehaviour
     /// </summary>
     private void PushOnOff()
     {
-        if (isPresent) rb.isKinematic = true;
-        else if (!isPresent && !canLift) rb.isKinematic = false;
+        //if (isPresent) rb.isKinematic = true;
+        //else if (!isPresent && !canLift) rb.isKinematic = false;
     }
 
     /// <summary>
