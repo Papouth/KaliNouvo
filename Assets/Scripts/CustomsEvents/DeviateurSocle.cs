@@ -13,7 +13,11 @@ public class DeviateurSocle : MonoBehaviour
     {
         if (other.CompareTag("Deviateur"))
         {
-            other.transform.localPosition = gameObject.transform.position;
+            Debug.Log("rentre");
+            other.GetComponent<Rigidbody>().useGravity = false;
+
+
+            other.transform.position = transform.position;
             barriereToDeactivate.deviated = true;
         }
     }
@@ -22,6 +26,10 @@ public class DeviateurSocle : MonoBehaviour
     {
         if (other.CompareTag("Deviateur"))
         {
+            Debug.Log("sort");
+            other.GetComponent<Rigidbody>().useGravity = true;
+
+
             barriereToDeactivate.deviated = false;
         }
     }

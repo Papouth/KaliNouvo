@@ -35,6 +35,9 @@ public class Plateforme : MonoBehaviour
     private Vector3 currentPos;
     private Animator animator;
     private CharacterController cc;
+
+    public AudioSource audioPlateforme;
+
     #endregion
 
     #region Built In methods
@@ -163,10 +166,14 @@ public class Plateforme : MonoBehaviour
     /// <returns></returns>
     private IEnumerator WaitingTime()
     {
+
         destination = SelectDestination();
         yield return new WaitForSeconds(timerWaiting);
 
         canMove = true;
+
+        yield return new WaitForSeconds(1f);
+
     }
 
     /// <summary>
@@ -177,6 +184,7 @@ public class Plateforme : MonoBehaviour
     {
         animator.SetBool("Active", true);
         isEnable = enable;
+        audioPlateforme.Play();
     }
 
     #endregion
