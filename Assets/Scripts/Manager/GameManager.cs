@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour
     public void EnableKali(bool enable)
     {
         player.GetComponent<CharacterController>().enabled = enable;
+        canTP = !enable;
 
         player.gameObject.transform.GetChild(0).gameObject.SetActive(enable);
         player.GetComponent<PlayerInteractor>().DisableUIDocument(!enable);

@@ -39,7 +39,7 @@ public class CutSecne_TPPlayer : MonoBehaviour
 
         playerTemp.sceneState = !playerTemp.sceneState;
         playerStats.maskOn = !playerStats.maskOn;
-        playerTemp.ChangeMask();
+        StartCoroutine(playerTemp.ChangeMaskEnumerator());
 
         playerStats.GetBraceletTempo();
 
