@@ -53,22 +53,22 @@ public class Generateur : CustomsTriggers
         if (indicateur1)
         {
             GameManager.GM.indicatorG1 = true;
-            _animator.SetBool("Enable", valid);
+            _animator.SetBool("Enable", true);
         }
         if (indicateur2)
         {
             GameManager.GM.indicatorG2 = true;
-            _animator.SetBool("Enable", valid);
+            _animator.SetBool("Enable", true);
         }
         if (indicateur3)
         {
             GameManager.GM.indicatorG3 = true;
-            _animator.SetBool("Enable", valid);
+            _animator.SetBool("Enable", true);
         }
         if (indicateurHub)
         {
             GameManager.GM.indicatorHUB = true;
-            _animator.SetBool("Enable", valid);
+            _animator.SetBool("Enable", true);
         }
     }
 
