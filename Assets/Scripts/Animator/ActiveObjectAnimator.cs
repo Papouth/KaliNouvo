@@ -34,6 +34,8 @@ public class ActiveObjectAnimator : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        objectToActivate = animator.gameObject.GetComponentsInChildren<ActivateObject>();
+
         if (objectToActivate.Length > 0)
         {
             foreach (ActivateObject obj in objectToActivate)
