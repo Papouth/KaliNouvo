@@ -55,7 +55,7 @@ public class Destroyable : CustomsTriggers
     #region Destroy Objects
     public void BreakObject()
     {
-        if (playerInput.CanDestroy && playerStats.haveSuperForce && isDestroyable && !playerInput.CanTelekinesy && !haveBeenDestroyed)
+        if (playerInput.CanDestroy && playerStats.haveSuperForce && isDestroyable && !haveBeenDestroyed)
         {
             Debug.Log("BreakObject");
 

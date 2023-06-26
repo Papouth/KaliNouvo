@@ -23,6 +23,7 @@ public class PlayerTelekinesie : MonoBehaviour
 
     [Header("Player Component")]
     private PlayerInputManager playerInput;
+    private PlayerStats playersStats;
     public bool selected = false;
     public Camera cameraPlayer;
     public LayerMask layerGround;
@@ -47,11 +48,12 @@ public class PlayerTelekinesie : MonoBehaviour
         playerInput = GetComponent<PlayerInputManager>();
         telekinesieEffect.Stop();
         animator = GetComponent<Animator>();
+        playersStats = GetComponent<PlayerStats>();
     }
 
     private void Update()
     {
-        EnableTelekinesie();
+        if (!playersStats.haveTelekinesy) return;
 
         SetObjectTelekinesie();
 
@@ -106,28 +108,6 @@ public class PlayerTelekinesie : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// Enable telekinesie for player
-    /// </summary>
-    private void EnableTelekinesie()
-    {
-        if (playerInput.CanTelekinesy)
-        {
-            if (telekinesyOn)
-            {
-                telekinesyOn = false;
-                RemoveTelekinesieObject();
-            }
-            else
-            {
-                telekinesyOn = true;
-            }
-
-            playerInput.CanTelekinesy = false;
-        }
-    }
-
-
     //NEW TELEKINESIE =>
 
     public void SetObjectTelekinesie()
@@ -139,7 +119,7 @@ public class PlayerTelekinesie : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 99, layerObject))
         {
-            
+
             if (playerInput.CanSelect == true && selected == false)
             {
                 selected = true;
