@@ -113,9 +113,14 @@ public class MenuManager : MonoBehaviour
 
         newGameButton.clickable.clicked += () => { LauchGame(); };
         optionButton.clickable.clicked += () => { EnableMenu(docSettingsMenu, docMainMenu); };
-        creditsButton.clickable.clicked += () => { EnableMenu(docCreditMenu, docMainMenu); };
+        creditsButton.clickable.clicked += () => { LaunchCreditMenu();  };
         leaveButton.clickable.clicked += LeaveGame;
 
+    }
+
+    public void LaunchCreditMenu()
+    {
+        SceneManager.LoadScene("CreditScene");
     }
 
 
@@ -201,6 +206,7 @@ public class MenuManager : MonoBehaviour
             scrollView.Add(visualToAdd);
         }
     }
+
 
     #endregion
 
