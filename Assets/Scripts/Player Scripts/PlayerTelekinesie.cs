@@ -7,7 +7,6 @@ public class PlayerTelekinesie : MonoBehaviour
 {
     #region Variables
     [Header("Telekinesy Parameters")]
-    public bool telekinesyOn;
     public GameObject telekinesyObject;
     public Rigidbody rigidbodyObject;
     public Collider colObject;
@@ -93,7 +92,6 @@ public class PlayerTelekinesie : MonoBehaviour
 
     private bool CanLookTargetIK()
     {
-        if (telekinesyOn == false) return false;
         if (!telekinesyObject) return false;
         if (!dummyIkLookAt) return false;
 
@@ -112,8 +110,6 @@ public class PlayerTelekinesie : MonoBehaviour
 
     public void SetObjectTelekinesie()
     {
-        if (telekinesyOn == false) return;
-
         RaycastHit hit;
         Ray ray = cameraPlayer.ScreenPointToRay(playerInput.MousePosition);
 
@@ -238,7 +234,6 @@ public class PlayerTelekinesie : MonoBehaviour
     /// </summary>
     private void MoveObject()
     {
-        if (telekinesyOn == false) return;
         if (!telekinesyObject) return;
 
         RaycastHit hit;
