@@ -14,7 +14,8 @@ public class GetBlackScreen : MonoBehaviour
 
     public void StartBlackScreen()
     {
-        StartCoroutine(SetBlackScreen());
+        if (gameObject.activeSelf)
+            StartCoroutine(SetBlackScreen());
     }
 
     public IEnumerator SetBlackScreen()

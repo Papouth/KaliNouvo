@@ -37,6 +37,10 @@ public class CutSecne_TPPlayer : MonoBehaviour
         playerTemp.ChangeSceneToLoad(newSceneToLoad, oldSceneToUnload);
         playerTemp.LoadingScene();
 
+        playerTemp.sceneState = !playerTemp.sceneState;
+        playerStats.maskOn = !playerStats.maskOn;
+        playerTemp.ChangeMask();
+
         playerStats.GetBraceletTempo();
 
         // Reset des scènes à changer
