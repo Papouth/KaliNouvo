@@ -19,7 +19,7 @@ public class Destroyable : CustomsTriggers
 
     public override void Start()
     {
-        if (gameObject.CompareTag("Destroyable"))
+        if (gameObject.CompareTag("Destroyable") && !haveBeenDestroyed)
         {
             isDestroyable = true;
 
@@ -62,10 +62,7 @@ public class Destroyable : CustomsTriggers
             haveBeenDestroyed = true;
 
             StartCoroutine(DestroyObject());
-           
-
         }
-
     }
 
     public IEnumerator DestroyObject()
@@ -85,8 +82,6 @@ public class Destroyable : CustomsTriggers
         }
 
         playerInput.CanDestroy = false;
-
-
     }
     #endregion
 }
