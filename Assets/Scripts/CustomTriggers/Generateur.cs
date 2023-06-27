@@ -50,24 +50,20 @@ public class Generateur : CustomsTriggers
 
     public override void Start()
     {
-        if (indicateur1)
+        if (GameManager.GM.indicatorG1)
         {
-            GameManager.GM.indicatorG1 = true;
             _animator.SetBool("Enable", true);
         }
-        if (indicateur2)
+        if (GameManager.GM.indicatorG2)
         {
-            GameManager.GM.indicatorG2 = true;
             _animator.SetBool("Enable", true);
         }
-        if (indicateur3)
+        if (GameManager.GM.indicatorG3)
         {
-            GameManager.GM.indicatorG3 = true;
             _animator.SetBool("Enable", true);
         }
-        if (indicateurHub)
+        if (GameManager.GM.indicatorHUB)
         {
-            GameManager.GM.indicatorHUB = true;
             _animator.SetBool("Enable", true);
         }
     }

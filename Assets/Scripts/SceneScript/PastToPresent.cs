@@ -71,8 +71,6 @@ public class PastToPresent : MonoBehaviour
 
         SceneFinder();
 
-        //PushOnOff();
-
         LiftOnOff();
     }
     #endregion
@@ -165,20 +163,11 @@ public class PastToPresent : MonoBehaviour
     }
 
     /// <summary>
-    /// Le joueur peut pousser l'objet dans le passe
-    /// </summary>
-    private void PushOnOff()
-    {
-        //if (isPresent) rb.isKinematic = true;
-        //else if (!isPresent && !canLift) rb.isKinematic = false;
-    }
-
-    /// <summary>
     /// Le joueur ne peux pas porter l'objet dans le pr�sent
     /// </summary>
     private void LiftOnOff()
     {
-        if (isPresent) canLift = false;
+        if (isPresent || playerTemporel.inStateChangeTempo) canLift = false;
         else if (!isPresent) canLift = true;
     }
 }

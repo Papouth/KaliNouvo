@@ -18,7 +18,7 @@ public class PlayerTemporel : MonoBehaviour
     public float timingAnimTemp = 0;
     public float speedAnimTransition = 0;
     public float timingAnimMask = 3;
-    private bool inStateChangeTempo = false;
+    public bool inStateChangeTempo = false;
 
     [Header("Player Component")]
     private PlayerInputManager playerInput;
