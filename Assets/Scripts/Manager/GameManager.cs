@@ -62,7 +62,14 @@ public class GameManager : MonoBehaviour
         ResetSceneData();
 
     }
-
+    
+    public void SkipGenerateur()
+    {
+        indicatorG1 = true;
+        indicatorG2 = true;
+        indicatorG3 = true;
+        indicatorHUB = true;
+    }
     public void ResetSceneData()
     {
         Debug.Log("ResetData");

@@ -62,6 +62,37 @@ Transform:
   m_Father: {fileID: 969826729513894671}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1049386601171962004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4817787646319191108}
+  m_Layer: 0
+  m_Name: SkipZoneHub
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4817787646319191108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049386601171962004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 969826729513894671}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1801781519660140056
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +164,7 @@ Transform:
   - {fileID: 175953396}
   - {fileID: 2673829338336554176}
   - {fileID: 1883320297315436515}
+  - {fileID: 4817787646319191108}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -187,6 +219,7 @@ MonoBehaviour:
   indicatorG1: 0
   indicatorG2: 0
   indicatorG3: 0
+  indicatorHUB: 0
   oneForAll: 0
   allScenesDatas: []
   _animNpc: {fileID: 0}
@@ -270,6 +303,78 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     posPlayer: {fileID: 175953396}
+    isPresent: 0
+  - passeScene: Zone1_Passe
+    presentScene: Zone1_Present
+    keycode: 259
+    eventOnSkip:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2674562224427080607}
+          m_TargetAssemblyTypeName: CutSceneManager, Assembly-CSharp
+          m_MethodName: SetCutScene5
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    posPlayer: {fileID: 2673829338336554176}
+    isPresent: 0
+  - passeScene: Zone2_Passe
+    presentScene: Zone2_Present
+    keycode: 260
+    eventOnSkip:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2674562224427080607}
+          m_TargetAssemblyTypeName: CutSceneManager, Assembly-CSharp
+          m_MethodName: SetCutScene5
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    posPlayer: {fileID: 1883320297315436515}
+    isPresent: 0
+  - passeScene: Hub_Present
+    presentScene: Hub_Passe
+    keycode: 261
+    eventOnSkip:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1270779852213483511}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: SkipGenerateur
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2674562224427080607}
+          m_TargetAssemblyTypeName: CutSceneManager, Assembly-CSharp
+          m_MethodName: SetCutScene5
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    posPlayer: {fileID: 4817787646319191108}
     isPresent: 0
 --- !u!114 &7758299351112074104
 MonoBehaviour:
