@@ -356,6 +356,12 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!4 &1141146370 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5364436164648788791, guid: 521647e5e859867448f17e22f54f3cbf,
+    type: 3}
+  m_PrefabInstance: {fileID: 7536804466784506892}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2361836194964236300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -590,6 +596,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 316118882661996974, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_Root
+      value: 
+      objectReference: {fileID: 1141146370}
+    - target: {fileID: 316118882661996974, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1169349884265299536, guid: 521647e5e859867448f17e22f54f3cbf,
         type: 3}
       propertyPath: m_RootOrder
@@ -645,12 +661,133 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_Inert
+      value: 0.442
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_Damping
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_Force.y
+      value: -0.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_Friction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_Stiffness
+      value: 0.086
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_Elasticity
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_Roots.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_Roots.Array.data[1]
+      value: 
+      objectReference: {fileID: 1141146370}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_InertDistrib.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_InertDistrib.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_InertDistrib.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_InertDistrib.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_DampingDistrib.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_StiffnessDistrib.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_ElasticityDistrib.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_ElasticityDistrib.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_DampingDistrib.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_DampingDistrib.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_ElasticityDistrib.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_StiffnessDistrib.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_StiffnessDistrib.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_ElasticityDistrib.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539354069925946660, guid: 521647e5e859867448f17e22f54f3cbf,
+        type: 3}
+      propertyPath: m_ElasticityDistrib.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 3843117468450485208, guid: 521647e5e859867448f17e22f54f3cbf,
         type: 3}
       propertyPath: m_Name
       value: Kali_3D
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 316118882661996974, guid: 521647e5e859867448f17e22f54f3cbf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 521647e5e859867448f17e22f54f3cbf, type: 3}
 --- !u!1001 &7942776357656404108
 PrefabInstance:
