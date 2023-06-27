@@ -16,7 +16,7 @@ public class Barriere : MonoBehaviour
 
         if (GameManager.GM)
         {
-            if (GameManager.GM.oneForAll && !deviated && isActive) electricArc.SetActive(true);
+            if (GameManager.GM.oneForAll && !deviated/* && isActive*/) electricArc.SetActive(true);
         }
     }
 
