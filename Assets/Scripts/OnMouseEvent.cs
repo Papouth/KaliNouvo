@@ -56,17 +56,18 @@ public class OnMouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        /*
         if (playerTelekinesie.telekinesyOn)
         {
             Debug.Log("click");
             playerTelekinesie.AddObjectTelekinesie(gameObject);
             objectRend.material = selectedMat;
             click = true;
-        }
+        }*/
     }
 
     public void OnPointerUp(PointerEventData eventData)
-    {
+    {/*
         if (playerTelekinesie.telekinesyOn)
         {
             Debug.Log("Up");
@@ -74,6 +75,6 @@ public class OnMouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             objectRend.material = storedMat;
 
         }
-        click = false;
+        click = false;*/
     }
 }
