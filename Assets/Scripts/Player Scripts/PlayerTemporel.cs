@@ -132,6 +132,7 @@ public class PlayerTemporel : MonoBehaviour
 
         // On change de temporalite
 
+
         sceneState = !sceneState;
 
         LoadingScene();
@@ -141,11 +142,16 @@ public class PlayerTemporel : MonoBehaviour
         {
             // On est dans le passé
             ChangeSceneToLoad(present, past);
+
+            if (playerStats.needMask)
+                MusicManager.Instance.ChangeMusic(2);
         }
         else if (!sceneState)
         {
             // On est dans le présent
             ChangeSceneToLoad(past, present);
+            if (playerStats.needMask)
+                MusicManager.Instance.ChangeMusic(3);
         }
 
 

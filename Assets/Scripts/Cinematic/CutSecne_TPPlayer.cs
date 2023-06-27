@@ -100,4 +100,9 @@ public class CutSecne_TPPlayer : MonoBehaviour
     {
         playerStats.GetTelekinesy();
     }
+
+    public void ChangeMusic(int index)
+    {
+        MusicManager.Instance.ChangeMusic(index);
+    }
 }
