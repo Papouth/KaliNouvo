@@ -31,6 +31,7 @@ public class PastToPresent : MonoBehaviour
     [Tooltip("Si la plante est dans un pot de fleur, elle peut evoluer")]
     private bool canEvo;
 
+    private Rigidbody rb;
 
     [Header("Player Components")]
     private PlayerTemporel playerTemporel;
@@ -112,10 +113,17 @@ public class PastToPresent : MonoBehaviour
                 if (prefabState && canEvo)
                 {
                     // Si je n'ai pas encore modifier le prefab + que je suis en collision avec un pot de fleur
+                    // On empêche la plante de bouger
+                    rb = gameObject.GetComponentInParent<Rigidbody>();
+
                     pastPrefab.SetActive(false);
                     presentPrefab.SetActive(true);
-                    gameObject.GetComponentInParent<Rigidbody>().isKinematic = true;
-                    gameObject.GetComponentInParent<Rigidbody>().useGravity = false;
+
+                    rb.isKinematic = true;
+                    rb.useGravity = false;
+
+                    rb.constraints = RigidbodyConstraints.FreezePosition;
+
                     prefabState = !prefabState;
                 }
                 else if (prefabState && !canEvo)
@@ -153,8 +161,15 @@ public class PastToPresent : MonoBehaviour
             }
             else if (!prefabState && isPlant)
             {
-                gameObject.GetComponentInParent<Rigidbody>().isKinematic = false;
-                gameObject.GetComponentInParent<Rigidbody>().useGravity = true;
+                // On autorise la plante de bouger
+                rb = gameObject.GetComponentInParent<Rigidbody>();
+
+                rb.isKinematic = false;
+                rb.useGravity = true;
+
+                rb.constraints = RigidbodyConstraints.None;
+                rb.constraints = RigidbodyConstraints.FreezeRotation;
+
                 presentPrefab.SetActive(false);
                 pastPrefab.SetActive(true);
                 prefabState = !prefabState;
