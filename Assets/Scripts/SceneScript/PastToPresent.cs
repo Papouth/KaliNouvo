@@ -6,7 +6,7 @@ public class PastToPresent : MonoBehaviour
 {
     #region Variables
     [Header("Component")]
-    [SerializeField] private Rigidbody rb;
+    //[SerializeField] private Rigidbody rb;
     [HideInInspector]
     public bool canLift;
 
@@ -41,8 +41,8 @@ public class PastToPresent : MonoBehaviour
     {
         playerTemporel = FindObjectOfType<PlayerTemporel>();
 
-        rb = GetComponent<Rigidbody>();
-        if (rb == null) rb = GetComponentInChildren<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
+        //if (rb == null) rb = GetComponentInChildren<Rigidbody>();
     }
 
     private void Start()
@@ -71,7 +71,7 @@ public class PastToPresent : MonoBehaviour
 
         SceneFinder();
 
-        PushOnOff();
+        //PushOnOff();
 
         LiftOnOff();
     }
@@ -109,21 +109,36 @@ public class PastToPresent : MonoBehaviour
             //Debug.Log("On est dans le present");
             isPresent = true;
 
+            if (isPlant)
+            {
+                if (prefabState && canEvo)
+                {
+                    // Si je n'ai pas encore modifier le prefab + que je suis en collision avec un pot de fleur
+                    pastPrefab.SetActive(false);
+                    presentPrefab.SetActive(true);
+                    gameObject.GetComponentInParent<Rigidbody>().isKinematic = true;
+                    gameObject.GetComponentInParent<Rigidbody>().useGravity = false;
+                    prefabState = !prefabState;
+                }
+                else if (prefabState && !canEvo)
+                {
+                    // Si pas encore modifier le prefab + pas en collision avec le pot de fleur
+                    pastPrefab.SetActive(false);
+                    presentPrefab.SetActive(false);
+                    prefabState = !prefabState;
+                }
+            }
+            else if (!isPlant)
+            {
+                if (prefabState)
+                {
+                    // Si je n'ai pas encore modifier le prefab
+                    pastPrefab.SetActive(false);
+                    presentPrefab.SetActive(true);
+                    prefabState = !prefabState;
+                }
+            }
 
-            if (prefabState && canEvo)
-            {
-                // Si je n'ai pas encore modifier le prefab + que je suis en collision avec un pot de fleur
-                pastPrefab.SetActive(false);
-                presentPrefab.SetActive(true);
-                prefabState = !prefabState;
-            }
-            else if (prefabState && !canEvo)
-            {
-                // Si pas encore modifier le prefab + pas en collision avec le pot de fleur
-                pastPrefab.SetActive(false);
-                presentPrefab.SetActive(false);
-                prefabState = !prefabState;
-            }
         }
         else if (playerTemporel.sceneState)
         {
@@ -132,8 +147,16 @@ public class PastToPresent : MonoBehaviour
 
 
             // Si je n'ai pas encore modifier le prefab
-            if (!prefabState)
+            if (!prefabState && !isPlant)
             {
+                presentPrefab.SetActive(false);
+                pastPrefab.SetActive(true);
+                prefabState = !prefabState;
+            }
+            else if (!prefabState && isPlant)
+            {
+                gameObject.GetComponentInParent<Rigidbody>().isKinematic = false;
+                gameObject.GetComponentInParent<Rigidbody>().useGravity = true;
                 presentPrefab.SetActive(false);
                 pastPrefab.SetActive(true);
                 prefabState = !prefabState;
@@ -146,8 +169,8 @@ public class PastToPresent : MonoBehaviour
     /// </summary>
     private void PushOnOff()
     {
-        if (isPresent) rb.isKinematic = true;
-        else if (!isPresent && !canLift) rb.isKinematic = false;
+        //if (isPresent) rb.isKinematic = true;
+        //else if (!isPresent && !canLift) rb.isKinematic = false;
     }
 
     /// <summary>

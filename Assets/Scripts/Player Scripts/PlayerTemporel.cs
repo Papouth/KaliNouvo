@@ -131,9 +131,10 @@ public class PlayerTemporel : MonoBehaviour
             yield return new WaitForSeconds(timingAnimTemp);
 
         // On change de temporalite
-        LoadingScene();
 
         sceneState = !sceneState;
+
+        LoadingScene();
 
         // Une fois changé de tempo on inverse les scènes
         if (sceneState)
@@ -146,6 +147,7 @@ public class PlayerTemporel : MonoBehaviour
             // On est dans le présent
             ChangeSceneToLoad(past, present);
         }
+
 
         audioTempo?.Play();
 

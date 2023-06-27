@@ -15,6 +15,7 @@ public class DeviateurSocle : MonoBehaviour
         {
             Debug.Log("rentre");
             other.GetComponent<Rigidbody>().useGravity = false;
+            other.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
 
             other.transform.position = transform.position;
