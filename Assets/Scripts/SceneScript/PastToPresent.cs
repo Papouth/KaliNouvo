@@ -116,6 +116,7 @@ public class PastToPresent : MonoBehaviour
                     // Si je n'ai pas encore modifier le prefab + que je suis en collision avec un pot de fleur
                     pastPrefab.SetActive(false);
                     presentPrefab.SetActive(true);
+                    gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     prefabState = !prefabState;
                 }
                 else if (prefabState && !canEvo)
@@ -145,8 +146,15 @@ public class PastToPresent : MonoBehaviour
 
 
             // Si je n'ai pas encore modifier le prefab
-            if (!prefabState)
+            if (!prefabState && !isPlant)
             {
+                presentPrefab.SetActive(false);
+                pastPrefab.SetActive(true);
+                prefabState = !prefabState;
+            }
+            else if (!prefabState && isPlant)
+            {
+                gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 presentPrefab.SetActive(false);
                 pastPrefab.SetActive(true);
                 prefabState = !prefabState;
