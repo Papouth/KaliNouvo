@@ -14,7 +14,6 @@ public class PlayerInputManager : MonoBehaviour
     private bool canDestroy;
     private bool canOsmose;
     private bool canClimbJump;
-    private bool canTelekinesy;
     private bool canSelect;
     private bool canMenu;
 
@@ -70,12 +69,6 @@ public class PlayerInputManager : MonoBehaviour
     {
         get { return canClimbJump; }
         set { canClimbJump = value; }
-    }
-
-    public bool CanTelekinesy
-    {
-        get { return canTelekinesy; }
-        set { canTelekinesy = value; }
     }
 
     public bool CanSelect
@@ -145,12 +138,6 @@ public class PlayerInputManager : MonoBehaviour
     public void OnClimbJump()
     {
         canClimbJump = true;
-    }
-
-    public void OnTelekinesy()
-    {
-        canTelekinesy = true;
-        telekinesyKeyOn = true;
     }
 
     public void OnSelect()

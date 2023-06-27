@@ -19,7 +19,7 @@ public class Destroyable : CustomsTriggers
 
     public override void Start()
     {
-        if (gameObject.CompareTag("Destroyable"))
+        if (gameObject.CompareTag("Destroyable") && !haveBeenDestroyed)
         {
             isDestroyable = true;
 
@@ -55,17 +55,14 @@ public class Destroyable : CustomsTriggers
     #region Destroy Objects
     public void BreakObject()
     {
-        if (playerInput.CanDestroy && playerStats.haveSuperForce && isDestroyable && !playerInput.CanTelekinesy && !haveBeenDestroyed)
+        if (playerInput.CanDestroy && playerStats.haveSuperForce && isDestroyable && !haveBeenDestroyed)
         {
             Debug.Log("BreakObject");
 
             haveBeenDestroyed = true;
 
             StartCoroutine(DestroyObject());
-           
-
         }
-
     }
 
     public IEnumerator DestroyObject()
@@ -85,8 +82,6 @@ public class Destroyable : CustomsTriggers
         }
 
         playerInput.CanDestroy = false;
-
-
     }
     #endregion
 }

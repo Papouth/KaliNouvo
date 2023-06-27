@@ -7,7 +7,6 @@ public class PlayerTelekinesie : MonoBehaviour
 {
     #region Variables
     [Header("Telekinesy Parameters")]
-    public bool telekinesyOn;
     public GameObject telekinesyObject;
     public Rigidbody rigidbodyObject;
     public Collider colObject;
@@ -23,6 +22,7 @@ public class PlayerTelekinesie : MonoBehaviour
 
     [Header("Player Component")]
     private PlayerInputManager playerInput;
+    private PlayerStats playersStats;
     public bool selected = false;
     public Camera cameraPlayer;
     public LayerMask layerGround;
@@ -47,11 +47,12 @@ public class PlayerTelekinesie : MonoBehaviour
         playerInput = GetComponent<PlayerInputManager>();
         telekinesieEffect.Stop();
         animator = GetComponent<Animator>();
+        playersStats = GetComponent<PlayerStats>();
     }
 
     private void Update()
     {
-        EnableTelekinesie();
+        if (!playersStats.haveTelekinesy) return;
 
         SetObjectTelekinesie();
 
@@ -91,7 +92,6 @@ public class PlayerTelekinesie : MonoBehaviour
 
     private bool CanLookTargetIK()
     {
-        if (telekinesyOn == false) return false;
         if (!telekinesyObject) return false;
         if (!dummyIkLookAt) return false;
 
@@ -106,40 +106,16 @@ public class PlayerTelekinesie : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// Enable telekinesie for player
-    /// </summary>
-    private void EnableTelekinesie()
-    {
-        if (playerInput.CanTelekinesy)
-        {
-            if (telekinesyOn)
-            {
-                telekinesyOn = false;
-                RemoveTelekinesieObject();
-            }
-            else
-            {
-                telekinesyOn = true;
-            }
-
-            playerInput.CanTelekinesy = false;
-        }
-    }
-
-
     //NEW TELEKINESIE =>
 
     public void SetObjectTelekinesie()
     {
-        if (telekinesyOn == false) return;
-
         RaycastHit hit;
         Ray ray = cameraPlayer.ScreenPointToRay(playerInput.MousePosition);
 
         if (Physics.Raycast(ray, out hit, 99, layerObject))
         {
-            
+
             if (playerInput.CanSelect == true && selected == false)
             {
                 selected = true;
@@ -258,7 +234,6 @@ public class PlayerTelekinesie : MonoBehaviour
     /// </summary>
     private void MoveObject()
     {
-        if (telekinesyOn == false) return;
         if (!telekinesyObject) return;
 
         RaycastHit hit;

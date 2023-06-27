@@ -109,21 +109,35 @@ public class PastToPresent : MonoBehaviour
             //Debug.Log("On est dans le present");
             isPresent = true;
 
+            if (isPlant)
+            {
+                if (prefabState && canEvo)
+                {
+                    // Si je n'ai pas encore modifier le prefab + que je suis en collision avec un pot de fleur
+                    pastPrefab.SetActive(false);
+                    presentPrefab.SetActive(true);
+                    gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    prefabState = !prefabState;
+                }
+                else if (prefabState && !canEvo)
+                {
+                    // Si pas encore modifier le prefab + pas en collision avec le pot de fleur
+                    pastPrefab.SetActive(false);
+                    presentPrefab.SetActive(false);
+                    prefabState = !prefabState;
+                }
+            }
+            else if (!isPlant)
+            {
+                if (prefabState)
+                {
+                    // Si je n'ai pas encore modifier le prefab
+                    pastPrefab.SetActive(false);
+                    presentPrefab.SetActive(true);
+                    prefabState = !prefabState;
+                }
+            }
 
-            if (prefabState && canEvo)
-            {
-                // Si je n'ai pas encore modifier le prefab + que je suis en collision avec un pot de fleur
-                pastPrefab.SetActive(false);
-                presentPrefab.SetActive(true);
-                prefabState = !prefabState;
-            }
-            else if (prefabState && !canEvo)
-            {
-                // Si pas encore modifier le prefab + pas en collision avec le pot de fleur
-                pastPrefab.SetActive(false);
-                presentPrefab.SetActive(false);
-                prefabState = !prefabState;
-            }
         }
         else if (playerTemporel.sceneState)
         {
@@ -132,8 +146,15 @@ public class PastToPresent : MonoBehaviour
 
 
             // Si je n'ai pas encore modifier le prefab
-            if (!prefabState)
+            if (!prefabState && !isPlant)
             {
+                presentPrefab.SetActive(false);
+                pastPrefab.SetActive(true);
+                prefabState = !prefabState;
+            }
+            else if (!prefabState && isPlant)
+            {
+                gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 presentPrefab.SetActive(false);
                 pastPrefab.SetActive(true);
                 prefabState = !prefabState;
