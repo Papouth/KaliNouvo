@@ -13090,7 +13090,7 @@ GameObject:
   - component: {fileID: 441438822}
   - component: {fileID: 441438824}
   - component: {fileID: 441438823}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: TriggerDialogue1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -14098,7 +14098,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 524515130}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: TriggerEvent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19072,7 +19072,7 @@ GameObject:
   - component: {fileID: 926759927}
   - component: {fileID: 926759929}
   - component: {fileID: 926759930}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: TriggerDialogue1
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -23689,7 +23689,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339988195}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: TriggerDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25501,7 +25501,7 @@ PrefabInstance:
     - target: {fileID: 8016483062428511885, guid: 104395cfa282d194a86a5c48b630fac8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.020000458
+      value: -0.485
       objectReference: {fileID: 0}
     - target: {fileID: 8016483062428511885, guid: 104395cfa282d194a86a5c48b630fac8,
         type: 3}
@@ -26649,7 +26649,7 @@ GameObject:
   - component: {fileID: 1613416591}
   - component: {fileID: 1613416593}
   - component: {fileID: 1613416594}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: TriggerTuto 1
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -28783,7 +28783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1875122949}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: TriggerTutoriel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42380,7 +42380,7 @@ GameObject:
   - component: {fileID: 2082256102}
   - component: {fileID: 2082256101}
   - component: {fileID: 2082256100}
-  - component: {fileID: 2082256099}
+  - component: {fileID: 2082256103}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -42388,20 +42388,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 95
   m_IsActive: 1
---- !u!64 &2082256099
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082256098}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2082256100
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42467,6 +42453,19 @@ Transform:
   m_Father: {fileID: 314473860}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2082256103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082256098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.5366554, z: 9.999999}
+  m_Center: {x: 0, y: 0.23167229, z: 0}
 --- !u!64 &2085775046
 MeshCollider:
   m_ObjectHideFlags: 0
