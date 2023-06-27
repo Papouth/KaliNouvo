@@ -1761,6 +1761,7 @@ MonoBehaviour:
   timingAnimTemp: 2
   speedAnimTransition: 3
   timingAnimMask: 3
+  inStateChangeTempo: 0
   animator: {fileID: 0}
   audioTempo: {fileID: 8920066328121650568}
 --- !u!114 &760919441237352756
@@ -1823,7 +1824,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b889adf20f8dc741b2229258c99a5aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  telekinesyOn: 0
   telekinesyObject: {fileID: 0}
   rigidbodyObject: {fileID: 0}
   colObject: {fileID: 0}
@@ -1838,7 +1838,7 @@ MonoBehaviour:
     m_Bits: 65
   layerObject:
     serializedVersion: 2
-    m_Bits: 6144
+    m_Bits: 4096
   animator: {fileID: 3452188162795946415}
   targetIK: {fileID: 8215123373475040667}
   ikLeftHand: {fileID: 6916267470171261713}
@@ -2083,12 +2083,12 @@ PrefabInstance:
     - target: {fileID: 1924359127293451972, guid: 521647e5e859867448f17e22f54f3cbf,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1924359127293451973, guid: 521647e5e859867448f17e22f54f3cbf,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1924359127293451973, guid: 521647e5e859867448f17e22f54f3cbf,
         type: 3}
