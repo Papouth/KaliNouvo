@@ -6,7 +6,7 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager Instance;
 
-    [Tooltip("0 : Main theme \n 1 : Exploration")]
+    [Tooltip("0 : Main theme \n 1 : Exploration \n 2 : Explo Passe \n 3 : Explo Present")]
     public AudioClip[] musics; //0 main theme //1 exploration
 
     private AudioSource audioSource;
