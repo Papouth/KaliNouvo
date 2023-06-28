@@ -6,10 +6,12 @@ public class ActivateTrigger : MonoBehaviour
 {
     [Tooltip("Generateur Z1, part1")]
     public bool isGen1Trigger;
+
+    [Tooltip("Generateur Z1 Part 2")]
+    public bool isGen2Trigger;
+
     [Tooltip("Generateur Z2")]
     public bool isGen3Trigger;
-    [Tooltip("Generateur Z1 part 2")]
-    public bool isGen2Trigger;
 
     public GameObject trigger;
 
@@ -38,7 +40,7 @@ public class ActivateTrigger : MonoBehaviour
                 trigger.SetActive(false);
             }
         }
-        if (isGen2Trigger)
+        if (isGen3Trigger)
         {
             if (GameManager.GM.indicatorG3)
             {
