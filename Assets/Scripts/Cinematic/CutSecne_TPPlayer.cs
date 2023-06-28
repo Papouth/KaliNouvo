@@ -71,6 +71,20 @@ public class CutSecne_TPPlayer : MonoBehaviour
 
     }
 
+    public void LoadOutro()
+    {
+        playerTemp.ChangeSceneToLoad(newSceneToLoad, oldSceneToUnload);
+        playerTemp.ChangeStringName(oldSceneToUnload, newSceneToLoad);
+
+        playerStats.transform.position = newPosKali.position;
+
+        SceneManager.UnloadSceneAsync("Hub_Passe");
+        SceneManager.UnloadSceneAsync("Hub_Present");
+        SceneManager.LoadScene(oldSceneToUnload, LoadSceneMode.Additive);
+        SceneManager.LoadScene(newSceneToLoad, LoadSceneMode.Additive);
+    }
+
+
     public void ActivateNeedMaskPlayer()
     {
         playerStats.needMask = true;
