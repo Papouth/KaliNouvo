@@ -18,19 +18,35 @@ public class ActivateTrigger : MonoBehaviour
     {
         if (isGen1Trigger)
         {
-            if(GameManager.GM.player.GetComponent<PlayerStats>().haveSuperForce)
-            trigger.SetActive(true);
+            if (GameManager.GM.player.GetComponent<PlayerStats>().haveSuperForce)
+            {
+                trigger.SetActive(true);
+            }
+            else
+            {
+                trigger.SetActive(false);
+            }
         }
         if (isGen2Trigger)
         {
-            if(GameManager.GM.indicatorG2)
-            trigger.SetActive(true);
+            if (GameManager.GM.indicatorG2)
+            {
+                trigger.SetActive(true);
+            }
+            else
+            {
+                trigger.SetActive(false);
+            }
         }
         if (isGen2Trigger)
         {
             if (GameManager.GM.indicatorG3)
             {
                 trigger.SetActive(true);
+            }
+            else
+            {
+                trigger.SetActive(false);
             }
         }
     }
