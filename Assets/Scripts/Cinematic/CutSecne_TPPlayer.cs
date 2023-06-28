@@ -17,6 +17,9 @@ public class CutSecne_TPPlayer : MonoBehaviour
     public string newPresent;
     public Transform newPosKali;
 
+    public string outroPast;
+    public string outroPresent;
+
 
     void Start()
     {
@@ -73,15 +76,15 @@ public class CutSecne_TPPlayer : MonoBehaviour
 
     public void LoadOutro()
     {
-        playerTemp.ChangeSceneToLoad(newSceneToLoad, oldSceneToUnload);
-        playerTemp.ChangeStringName(oldSceneToUnload, newSceneToLoad);
+        playerTemp.ChangeSceneToLoad(outroPast, outroPresent);
+        playerTemp.ChangeStringName(outroPast, outroPresent);
 
         playerStats.transform.position = newPosKali.position;
 
         SceneManager.UnloadSceneAsync("Hub_Passe");
         SceneManager.UnloadSceneAsync("Hub_Present");
-        SceneManager.LoadScene(oldSceneToUnload, LoadSceneMode.Additive);
-        SceneManager.LoadScene(newSceneToLoad, LoadSceneMode.Additive);
+        SceneManager.LoadScene(outroPresent, LoadSceneMode.Additive);
+        SceneManager.LoadScene(outroPast, LoadSceneMode.Additive);
     }
 
 
