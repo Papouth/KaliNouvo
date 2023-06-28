@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ActivateTrigger : MonoBehaviour
 {
+    [Tooltip("Generateur Z1, part1")]
     public bool isGen1Trigger;
+    [Tooltip("Generateur Z2")]
     public bool isGen3Trigger;
+    [Tooltip("Generateur Z1 part 2")]
+    public bool isGen2Trigger;
 
     public GameObject trigger;
 
@@ -17,10 +21,17 @@ public class ActivateTrigger : MonoBehaviour
             if(GameManager.GM.player.GetComponent<PlayerStats>().haveSuperForce)
             trigger.SetActive(true);
         }
-        if (isGen3Trigger)
+        if (isGen2Trigger)
         {
-            if(GameManager.GM.indicatorG3)
+            if(GameManager.GM.indicatorG2)
             trigger.SetActive(true);
+        }
+        if (isGen2Trigger)
+        {
+            if (GameManager.GM.indicatorG3)
+            {
+                trigger.SetActive(true);
+            }
         }
     }
 }
