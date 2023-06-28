@@ -122,7 +122,7 @@ public class PastToPresent : MonoBehaviour
                     rb.isKinematic = true;
                     rb.useGravity = false;
 
-                    rb.constraints = RigidbodyConstraints.FreezePosition;
+                    rb.constraints = RigidbodyConstraints.FreezeAll;
 
                     prefabState = !prefabState;
                 }
